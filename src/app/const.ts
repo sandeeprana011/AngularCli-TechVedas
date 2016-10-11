@@ -48,4 +48,7 @@ export class Const {
   static USERNAME = "username";
   static PASSWORD = "password";
 
+  static SURVEYORS = "surveyors";
+  static SURVEYOR="surveyor";
+
 }

@@ -1,12 +1,14 @@
-import {Injectable} from "@angular/core";
 import {Http, Headers, Response} from "@angular/http";
+import {Injectable} from "@angular/core";
+import {Config} from "../config";
 import {Observable} from "rxjs";
-import {$} from "protractor";
-
+import {Question} from "../databasestructure/Question";
+import {UrlFactory} from "./UrlFactory";
+import {Surveyor} from "../databasestructure/Surveyor";
 /**
  * Created by sandeeprana on 31/08/16.
  */
-//
+
 // import {Injectable} from "angular2/src/core/di/decorators";
 // import {Http} from "angular2/src/http/http";
 // import 'rxjs/add/operator/map';
@@ -16,6 +18,8 @@ import {$} from "protractor";
 // import {Response} from "angular2/src/http/static_response";
 // import {UrlFactory} from "./UrlFactory";
 // import {Question} from "../databasestructure/Question";
+// import {Const} from "../Constants";
+// import {Surveyor} from "../databasestructure/Surveyor";
 
 
 @Injectable()
@@ -26,7 +30,6 @@ export class HTTPService {
   }
 
   public requestPostObservableNew(url: string, bodyString: string) {
-
     return this._http.post(url, bodyString, {headers: HTTPService.getHeadersCustom()})
       .map(res=> res.text());
   }
@@ -199,8 +202,11 @@ export class HTTPService {
       $('#modalInformationError').openModal();
     } else if (status == 401) {
       $('#needToLoginIn').openModal();
+    } else if (status == 303) {
+      $('#error303').openModal();
     }
   }
+
 
   loginUser(urlLoginAdminUser: string, username: string, password: string) {
     return this._http.get(urlLoginAdminUser, {headers: HTTPService.getHeadersAuthentication(username, password)})
@@ -217,5 +223,17 @@ export class HTTPService {
         return this.errorCodesReturn(error);
       });
 
+  }
+
+  listAllSurveyors(urlListAllSurveyors: string) {
+    return this.downloadDataAndRevertWithErrors(urlListAllSurveyors);
+  }
+
+  addSurveyorToSurvey(urlAddMoreSurveyor: string, email: string) {
+    return this.requestPostObservableNew(urlAddMoreSurveyor, "{\"surveyor_email\":\"" + email + "\"}");
+  }
+
+  createNewSurveyor(urlCreateNewSurveyor: string, createSurveyor: Surveyor) {
+    return this.requestPostObservableNew(urlCreateNewSurveyor, JSON.stringify(createSurveyor));
   }
 }
