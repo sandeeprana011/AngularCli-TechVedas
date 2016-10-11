@@ -1,0 +1,231 @@
+<div class="row">
+  <div class="col s12 l12 m12 orange white-text">
+    <div class="col s3 m3 l3">
+      <h5>SURVEYS LIST</h5>
+    </div>
+    <div class="col s3 m3 l3">
+      <h5>SURVEY DETAILS</h5>
+    </div>
+    <div class="col s3 m3 l3">
+      <h5>SURVEYORS LIST</h5>
+    </div>
+    <div class="col s3 m3 l3">
+      <h5>SURVEYOR DETAIL</h5>
+    </div>
+  </div>
+  <div class="col s12 l3 m3">
+    <div class="col s12 l12 m12" *ngFor="#survey of q.surveysList;#ndx=index">
+      <div class="padding5 surveybutton" (click)="surveyItemClicked(ndx)">
+        <h6>{{survey.survey_name}}</h6>
+        <div class="survey-description">{{survey.survey_description}}</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col s12 l3 m3">
+    <div class="col s12 l12 m12 white-text">
+      <h5>{{q.surveyDetails.survey_name}}</h5>
+      <p> {{q.surveyDetails.survey_description}} </p>
+      <p>Status : {{q.surveyDetails.is_published ? 'Pulished' : 'Not-Published'}}</p>
+
+      <p>Start Time : {{q.surveyDetails.survey_starttime}}</p>
+      <p>End Time : {{q.surveyDetails.survey_endtime}}</p>
+      <p>Created On : {{q.surveyDetails.creation_time}}</p>
+      <p>Last Updated : {{q.surveyDetails.updation_time}}</p>
+
+    </div>
+  </div>
+
+
+  <div class="col s12 l3 m3">
+    <div class="col s12 l12 m12" *ngFor="#surveyor of q.surveyorsList;#ndxSurveyor=index">
+      <div class="padding5 surveybutton" (click)="surveyorItemClicked(ndxSurveyor)">
+        <h6>{{surveyor.surveyor_fullname}}</h6>
+        <div class="survey-description">{{surveyor.surveyor_phone}}</div>
+      </div>
+    </div>
+    <div class="col s12 l12 m12">
+      <div class="padding5 surveybuttonAddCreate" (click)="addSurveyorClicked()">
+        <h6><i class="tiny center-align center center-align material-icons">library_add</i> Add Surveyor</h6>
+        <div class="survey-description"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 l3 m3">
+    <div class="col s12 l12 m12 white-text">
+      <h5>{{q.selectedSurveyor.surveyor_fullname}}</h5>
+      <p> {{q.selectedSurveyor.surveyor_phone}} </p>
+      <p>Email : {{q.selectedSurveyor.surveyor_email}}</p>
+
+      <p>Address : {{q.selectedSurveyor.surveyor_address}}</p>
+      <p>City : {{q.selectedSurveyor.surveyor_city}}</p>
+      <p>State : {{q.selectedSurveyor.surveyor_state}}</p>
+      <p>Country/Code : {{q.selectedSurveyor.surveyor_country}}/{{q.selectedSurveyor.surveyor_country_code}}</p>
+      <p>Zipcode : {{q.selectedSurveyor.surveyor_pinzip}}</p>
+    </div>
+  </div>
+
+  <br>
+</div>
+
+<div id="modalInformationError" class="modal white rounded">
+  <div class="modal-content">
+    <p id="headingInformation">Some Error</p>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+    >OK</a>
+  </div>
+</div>
+
+<div id="error303" class="modal white rounded">
+  <div class="modal-content">
+    <br> <span class="grey-text">Surveyor doesn\'t exists!</span><br><br>
+    <button (click)="createSurveyorDailogOpen()"
+            class="modal-action modal-close waves-effect waves-ripple btn-flat green white-text"> Create Surveyor
+    </button>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+    >OK</a>
+  </div>
+</div>
+
+
+<div id="createSurveyor" class="modal white rounded">
+  <div class="modal-content">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input [(ngModel)]="q.createSurveyor.surveyor_fullname" placeholder="Placeholder" id="first_name"
+               type="text" class="validate">
+        <label for="first_name">Full Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_phone" id="last_name" type="text" class="validate">
+        <label for="last_name">Phone</label>
+      </div>
+
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_password" id="password" type="password" class="validate">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input [(ngModel)]="q.createSurveyor.surveyor_email" id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input [(ngModel)]="q.createSurveyor.surveyor_address" id="address" type="text" class="validate">
+        <label for="address">Address</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_city" id="city" type="text" class="validate">
+        <label for="city">City</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_state" id="state" type="text" class="validate">
+        <label for="state">State</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_country" id="country" type="text" class="validate">
+        <label for="country">Country</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_country_code" id="disabled" type="text" class="validate">
+        <label for="disabled">Country Code<Code></Code></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input [(ngModel)]="q.createSurveyor.surveyor_pinzip" id="zipcode" type="text" class="validate">
+        <label for="zipcode">ZIP/PIN code</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+       (click)="createSurveyorView()"
+    >Create Surveyor</a>
+  </div>
+</div>
+
+<div id="needToLoginIn" class="modal white rounded">
+  <div class="modal-content">
+    <div class="col s12 l12 m12">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Please Login :
+      </p>
+    </div>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="icon_prefix" type="email" class="validate" [(ngModel)]="q.username">
+            <label for="icon_prefix">email</label>
+          </div>
+          <div class="input-field col s12 m12 l12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="icon_telephone" type="password" class="validate" [(ngModel)]="q.password">
+            <label for="icon_telephone">password</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a id="loginButton" (click)="loginUserView()"
+       class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+    >OK</a>
+  </div>
+</div>
+
+<div id="addSurveyor" class="modal white rounded">
+  <div class="modal-content">
+    <div class="col s12 l12 m12">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Add New Surveyor to this Survey :
+      </p>
+    </div>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="emailsurveyor" type="email" class="validate" [(ngModel)]="q.email">
+            <label for="emailsurveyor"></label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <div class="row">
+      <div class="col s4 l4 m4">
+        <a id="createNew" (click)="createSurveyorDailogOpen()"
+           class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+        >Create New Surveyor</a>
+      </div>
+      <div class="col s3 l3 m3">
+        <a id="addButton" (click)="addOneMoreSurveyorView()"
+           class="modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+        >Close</a>
+      </div>
+    </div>
+  </div>
+</div>
