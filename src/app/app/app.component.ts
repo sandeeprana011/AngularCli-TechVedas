@@ -7,7 +7,7 @@ import {UrlFactory} from "../utility/UrlFactory";
 import {Config} from "../config";
 import {Const} from "../const";
 
-declare var jQuery: any;
+export declare var jQuery: any;
 
 @Component({
   selector: 'app-app',
@@ -16,7 +16,7 @@ declare var jQuery: any;
 })
 
 export class AppComponent implements OnInit {
-  private httpService: HTTPService=new HTTPService();
+  private httpService: HTTPService = new HTTPService(null);
   private storageService: StorageService;
   private ngzone;
   // public surveysArray: Array<Survey> = [];
@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
   public q = {
     surveysList: [],
     surveyorsList: [],
-    selectedSurveyor: new Surveyor(),
-    createSurveyor: new Surveyor(),
-    surveyDetails: new Survey(),
+    selectedSurveyor: new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "",""),
+    createSurveyor: new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "",""),
+    surveyDetails: new Survey("","","","","","","","","",""),
     username: "",
     password: "",
     selectedSurveyId: "",

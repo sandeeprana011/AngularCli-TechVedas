@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "diy",
       "assets": "assets",
       "index": "index.html",
       "main": "main.ts",
@@ -15,9 +15,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css","awesomplete.css"
       ],
-      "scripts": [],
+      "scripts": ["awesomplete.js"],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
