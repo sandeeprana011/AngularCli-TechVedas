@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
   surveyItemClicked(ndx) {
     this.q.selectedSurveyId = this.q.surveysList[ndx].survey_id;
     this.q.surveyDetails = this.q.surveysList[ndx]
-    console.debug(this.q.surveyDetails)
+    // console.debug(this.q.surveyDetails)
 
     this.httpService.listAllSurveyors(UrlFactory.getUrlListAllSurveyors(this.q.surveysList[ndx].survey_id))
       .subscribe(
@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
   }
 
   createSurveyorView() {
-    console.debug(this.q.createSurveyor);
+    // console.debug(this.q.createSurveyor);
     this.httpService.createNewSurveyor(UrlFactory.getUrlCreateNewSurveyor(), this.q.createSurveyor)
       .subscribe(
         data=>this.surveyorCreated(data),
