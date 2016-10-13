@@ -7,6 +7,8 @@ import {UrlFactory} from "../utility/UrlFactory";
 import {Config} from "../config";
 import {Const} from "../const";
 
+declare var jQuery: any;
+
 @Component({
   selector: 'app-app',
   templateUrl: './app.component.html',
@@ -14,10 +16,11 @@ import {Const} from "../const";
 })
 
 export class AppComponent implements OnInit {
-  private httpService: HTTPService;
+  private httpService: HTTPService=new HTTPService();
   private storageService: StorageService;
   private ngzone;
   // public surveysArray: Array<Survey> = [];
+
 
   public q = {
     surveysList: [],
@@ -55,7 +58,7 @@ export class AppComponent implements OnInit {
     let adminID: string = this.storageService.readString(Const.ADMIN_ID);
 
     if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
-      //$('#needToLoginIn').openModal();
+      jQuery('#needToLoginIn').openModal();
     } else {
       console.debug(username + password + adminID);
       Config.USERNAME = username;
@@ -108,7 +111,7 @@ export class AppComponent implements OnInit {
   }
 
   createSurveyorDailogOpen() {
-    //$('#createSurveyor').openModal();
+    jQuery('#createSurveyor').openModal();
   }
 
   private updateSurveyorsList(data: any) {
@@ -128,7 +131,7 @@ export class AppComponent implements OnInit {
   }
 
   addSurveyorClicked() {
-    //$('#addSurveyor').openModal();
+    jQuery('#addSurveyor').openModal();
   }
 
   addOneMoreSurveyorView() {
@@ -150,7 +153,7 @@ export class AppComponent implements OnInit {
   }
 
   loginUserView() {
-    //$("#loginButton").prop('disabled', true);
+    jQuery("#loginButton").prop('disabled', true);
     // $("loginButton").attr('disabled','disabled');
     console.debug(this.q.username + this.q.password);
     this.httpService.loginUser(UrlFactory.getUrlLoginAdminUser(), this.q.username, this.q.password)

@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {Question} from "../databasestructure/Question";
 import {UrlFactory} from "./UrlFactory";
 import {Surveyor} from "../databasestructure/Surveyor";
+import {jQuery} from "../app/app.component";
 /**
  * Created by sandeeprana on 31/08/16.
  */
@@ -24,6 +25,7 @@ import {Surveyor} from "../databasestructure/Surveyor";
 
 @Injectable()
 export class HTTPService {
+
   private UNAUTHORIZED_ACCESS = "Unauthorized Access. Please Login first";
 
   constructor(private _http: Http) {
@@ -198,12 +200,12 @@ export class HTTPService {
   errorOccured(status) {
     if (status == 417) {
       // alert("Either survey has alredy published or finished");
-      $('#headingInformation').html('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>');
-      $('#modalInformationError').openModal();
+      jQuery('#headingInformation').html('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>');
+      jQuery('#modalInformationError').openModal();
     } else if (status == 401) {
-      $('#needToLoginIn').openModal();
+      jQuery('#needToLoginIn').openModal();
     } else if (status == 303) {
-      $('#error303').openModal();
+      jQuery('#error303').openModal();
     }
   }
 
