@@ -8,6 +8,19 @@
   display: inherit;
 }
 
+.padding0 {
+  padding: 0px;
+}
+
+.margin0 {
+  margin: 0px;
+}
+
+.paddingmargin0 {
+  padding: 0px;
+  margin: 0px;
+}
+
 .padding10 {
   padding: 10px;
 }
@@ -65,5 +78,15 @@
 .survey-description {
   font-size: small;
   color: inherit;
+}
+
+.row0.row {
+  padding: 0px;
+  margin: 0px;
+}
+.col.col{
+
+  padding: 0px;
+  margin: 0px;
 }
 

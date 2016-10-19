@@ -8,7 +8,7 @@ import {Survey} from "../databasestructure/Survey";
 import {ObjectToRequestBodyParser} from "../QuestionToRequestBodyParser";
 import {StorageService} from "../utility/StorageService";
 import {Input} from "@angular/core/src/metadata/directives";
-// import {jQuery} from "../app/app.component";
+// import {jQuery} from "../manager-app/manager-app.component";
 export declare var jQuery: any;
 
 @Component({
