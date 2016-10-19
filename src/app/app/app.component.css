@@ -1,69 +1,69 @@
-.card-image-custom {
-  position: relative;
-  size: 100px;
-  height: 20%;
-}
+/*.card-image-custom {*/
+  /*position: relative;*/
+  /*size: 100px;*/
+  /*height: 20%;*/
+/*}*/
 
-.displaySelect {
-  display: inherit;
-}
+/*.displaySelect {*/
+  /*display: inherit;*/
+/*}*/
 
-.padding10 {
-  padding: 10px;
-}
+/*.padding10 {*/
+  /*padding: 10px;*/
+/*}*/
 
-.padding20 {
-  padding: 10px;
-}
+/*.padding20 {*/
+  /*padding: 10px;*/
+/*}*/
 
-.margin10 {
-  margin: 10px;
-}
+/*.margin10 {*/
+  /*margin: 10px;*/
+/*}*/
 
-.margin20 {
-  margin: 20px;
-}
+/*.margin20 {*/
+  /*margin: 20px;*/
+/*}*/
 
-.padding5 {
-  padding: 5px;
-}
+/*.padding5 {*/
+  /*padding: 5px;*/
+/*}*/
 
-.margin5 {
-  margin: 5px;
-}
+/*.margin5 {*/
+  /*margin: 5px;*/
+/*}*/
 
-.surveybutton {
-  cursor: pointer;
-  color: #cfebed;
-}
+/*.surveybutton {*/
+  /*cursor: pointer;*/
+  /*color: #008595;*/
+/*}*/
 
-.surveybutton:hover {
-  cursor: hand;
-  background-color: #00acc1;
-  color: white;
-}
+/*.surveybutton:hover {*/
+  /*cursor: hand;*/
+  /*background-color: #00acc1;*/
+  /*color: white;*/
+/*}*/
 
-.surveybuttonAddCreate {
-  cursor: pointer;
-  color: #acc3c5;
-}
+/*.surveybuttonAddCreate {*/
+  /*cursor: pointer;*/
+  /*color: #acc3c5;*/
+/*}*/
 
-.surveybuttonAddCreate:hover {
-  cursor: hand;
-  background-color: #008595;
-  color: white;
-}
+/*.surveybuttonAddCreate:hover {*/
+  /*cursor: hand;*/
+  /*background-color: #008595;*/
+  /*color: white;*/
+/*}*/
 
-.survey-title {
-  color: #2ca0b4;
-}
+/*.survey-title {*/
+  /*color: #2ca0b4;*/
+/*}*/
 
-.survey-title:hover {
-  color: #fbf6ff;
-}
+/*.survey-title:hover {*/
+  /*color: #fbf6ff;*/
+/*}*/
 
-.survey-description {
-  font-size: small;
-  color: inherit;
-}
+/*.survey-description {*/
+  /*font-size: small;*/
+  /*color: inherit;*/
+/*}*/
 
