@@ -8,6 +8,8 @@ import {Survey} from "../databasestructure/Survey";
 import {ObjectToRequestBodyParser} from "../QuestionToRequestBodyParser";
 import {StorageService} from "../utility/StorageService";
 import {Input} from "@angular/core/src/metadata/directives";
+// import {jQuery} from "../app/app.component";
+export declare var jQuery: any;
 
 @Component({
   selector: 'surveycontainer',
@@ -22,7 +24,7 @@ export class SurveyContainerComponent implements OnInit {
   @Input() surveys: Array<Survey>;
   @Input() adminId: string;
 
-  mySurvey: Survey = new Survey("","","","","","","","","",0);
+  mySurvey: Survey = new Survey("", "", "", "", "", "", "", "", "", 0);
   // textarea: string = "textarea";
 
   public questions: Array<Question>;
@@ -54,7 +56,7 @@ export class SurveyContainerComponent implements OnInit {
     let adminID: string = this.storageService.readString(Const.ADMIN_ID);
 
     if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
-      // $('#needToLoginIn').openModal();
+      jQuery('#needToLoginIn').openModal();
     } else {
       console.debug(username + password + adminID);
       Config.USERNAME = username;
@@ -201,7 +203,7 @@ export class SurveyContainerComponent implements OnInit {
   }
 
   loginUserView() {
-    // $("#loginButton").prop('disabled', true);
+    jQuery("#loginButton").prop('disabled', true);
     // $("loginButton").attr('disabled','disabled');
     console.debug(this.q.username + this.q.password);
     this.httpService.loginUser(UrlFactory.getUrlLoginAdminUser(), this.q.username, this.q.password)

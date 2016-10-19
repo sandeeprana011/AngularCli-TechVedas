@@ -29,6 +29,7 @@ export class AdminAppComponent implements OnInit {
   public questionTakingPicture: Question = new Question(null, "What is your name So far?Picture", Const.TYPE_TAKEPICTURE_QUESTION, "1", "1", "0", "0", "15 Aug 2016", "16 Aug 2016");
   // public questionText: Question = new Question(null, "What is your name So far?Text", Const.TYPE_TEXT_QUESTION, "1", "1", "0", "0", "15 Aug 2016", "16 Aug 2016");
 
+
   constructor(_httpService: HTTPService) {
     this.httpService = _httpService;
   }

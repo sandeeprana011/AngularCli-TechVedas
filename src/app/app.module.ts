@@ -34,8 +34,11 @@ import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path: 'assign', component: AppComponent},
-      {path: 'admin', component: AdminAppComponent}
+      {
+        path: '', redirectTo: 'builder', pathMatch: 'full'
+      },
+      {path: 'manager', component: AppComponent},
+      {path: 'builder', component: AdminAppComponent}
     ])
   ],
   providers: [HTTPService, StorageService],

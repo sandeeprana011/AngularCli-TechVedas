@@ -154,7 +154,7 @@ export class AppComponent implements OnInit {
 
   loginUserView() {
     jQuery("#loginButton").prop('disabled', true);
-    // $("loginButton").attr('disabled','disabled');
+    // jQ("loginButton").attr('disabled','disabled');
     console.debug(this.q.username + this.q.password);
     this.httpService.loginUser(UrlFactory.getUrlLoginAdminUser(), this.q.username, this.q.password)
       .subscribe(
