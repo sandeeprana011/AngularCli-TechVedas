@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card lighten-1 darken-1">
+      <div class="card-content">
+        <div class="card-title"></div>
+        <label>Question Radio Button{{getData}}</label>
+        <input type="text" placeholder="Question here" [(ngModel)]="ques.question.question_text">
+        <label>Radio Button Options :</label>
+        <div>
+          <div class="row"
+               *ngFor="let o of ques.question.question_options_array; let ndx=index">
+            <div  class="col s1 l1 m1"><input disabled="disabled" type="radio" name="radiolabel" id="radiolabel"><label for="radiolabel"> </label></div>
+            <input class="col s10 l10 m10" type="text" [(ngModel)]="o.option_text"
+                   placeholder="Option No {{ndx+1}}">
+            <button class="col s1 m1 l1 btn btn-flat" (click)="removeOption(ndx)"><i
+              class=" material-icons prefix">delete</i></button>
+
+          </div>
+        </div>
+        <button class="btn blue-grey" (click)="addOneMoreOption(ques.question.question_id)"><i
+          class="material-icons ">add</i></button>
+
+      </div>
+      <div class="card-action">
+        <button (click)="saveQuestionClicked()" class="waves-effect waves-light btn"><i
+          class="material-icons left">note_add</i>Save
+        </button>
+        <button
+          (click)="removeThisQuestion()"
+          class="waves-effect waves-light btn"><i class="material-icons left">cancel</i>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
