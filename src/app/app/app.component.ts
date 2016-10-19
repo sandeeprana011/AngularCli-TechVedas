@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone} from '@angular/core';
+import {Component, OnInit, NgZone} from "@angular/core";
 import {HTTPService} from "../utility/HTTPService";
 import {StorageService} from "../utility/StorageService";
 import {Surveyor} from "../databasestructure/Surveyor";
@@ -149,7 +149,12 @@ export class AppComponent implements OnInit {
   }
 
   surveyorItemClicked(ndxSurveyor) {
-    this.q.selectedSurveyor = this.q.surveyorsList[ndxSurveyor]
+    if (this.q.surveyorsList[ndxSurveyor] != null) {
+
+      this.q.selectedSurveyor = this.q.surveyorsList[ndxSurveyor]
+    } else {
+      this.q.selectedSurveyor = new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    }
   }
 
   loginUserView() {
