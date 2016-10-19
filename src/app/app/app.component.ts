@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
   public q = {
     surveysList: [],
     surveyorsList: [],
-    selectedSurveyor: new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "",""),
-    createSurveyor: new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "",""),
-    surveyDetails: new Survey("","","","","","","","","",""),
+    selectedSurveyor: new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "", ""),
+    createSurveyor: new Surveyor("", "", "", "", "", "", "", "", "", "", "", "", "", ""),
+    surveyDetails: new Survey("", "", "", "", "", "", "", "", "", ""),
     username: "",
     password: "",
     selectedSurveyId: "",
