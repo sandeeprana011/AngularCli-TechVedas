@@ -23,7 +23,6 @@ export class QuestionTextComponent implements OnInit {
   @Input() qindex;
 
 
-
   private httpService: HTTPService;
 
 

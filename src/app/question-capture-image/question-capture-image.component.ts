@@ -64,14 +64,14 @@ export class QuestionCaptureImageComponent implements OnInit {
     let jsonResponseObject: {[key: string]: string} = {};
     jsonResponseObject = JSON.parse(data);
     // console.debug(jsonResponseObject);
-    if (parseInt(jsonResponseObject[Const.STATUS]) === 200) {
-      console.debug(jsonResponseObject[Const.QUESTION_ID]);
-      this.ques.question.question_id = jsonResponseObject[Const.QUESTION_ID];
-    } else {
-      console.debug(data)
-      alert(jsonResponseObject[Const.MESSAGE])
-    }
-    // this.ques.question.question_id = jsonResponseObject[Const.QUESTION_ID];
+    // if (parseInt(jsonResponseObject[Const.STATUS]) === 200 || parseInt(jsonResponseObject[Const.STATUS]) == 2001) {
+    console.debug(jsonResponseObject[Const.QUESTION_ID]);
+    this.ques.question.question_id = jsonResponseObject[Const.QUESTION_ID];
+    // } else {
+    //   console.debug(data)
+    //   alert(jsonResponseObject[Const.MESSAGE])
+    // }
+    // tahis.ques.question.question_id = jsonResponseObject[Const.QUESTION_ID];
   }
 
   removeThisQuestion() {

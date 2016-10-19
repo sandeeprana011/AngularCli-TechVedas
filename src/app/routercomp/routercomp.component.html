@@ -1,6 +1,12 @@
 <!--<h1>Angular Router</h1>-->
 <nav>
-  <a class="btn" routerLink="/builder" routerLinkActive="active">Builder</a>
-  <a class="btn" routerLink="/manager" routerLinkActive="active">Mangaer</a>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Surveyam</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a routerLink="/builder" routerLinkActive="active"><i class="material-icons left">mode_edit</i>Survey Builder</a></li>
+      <li><a routerLink="/manager" routerLinkActive="active"><i class="material-icons left">dashboard</i>Mangaer</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>
