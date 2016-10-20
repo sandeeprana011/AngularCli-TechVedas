@@ -1,0 +1,25 @@
+.row {
+  padding: 0;
+  margin: 0;
+}
+
+.col {
+
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+
+  padding: 0;
+  margin: 0;
+}
+
+.fullHeight {
+  height: 100vh;
+}
+
+.boardpaper {
+  background-color: white;
+  border-radius: 5px;
+}

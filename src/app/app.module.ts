@@ -38,13 +38,11 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {
-        path: '', component: AppComponent, redirectTo: '', pathMatch: 'full'
-      },
+      {path:'',component:CompanyDashboardComponent},
       {path: 'manager', component: AppComponent},
       {path: 'builder', component: AdminAppComponent},
       {path: 'login', component: LoginModuleComponent},
-      {path: 'company', component: CompanyDashboardComponent}
+      {path: 'company', component: CompanyDashboardComponent, useAsDefault: true}
     ])
   ],
   providers: [HTTPService, StorageService],
