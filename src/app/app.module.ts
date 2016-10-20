@@ -16,6 +16,7 @@ import {QuestionCaptureImageComponent} from "./question-capture-image/question-c
 import {QuestionRadioComponent} from "./question-radio/question-radio.component";
 import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box.component";
 import {LoginModuleComponent} from "./login-module/login-module.component";
+import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {LoginModuleComponent} from "./login-module/login-module.component";
     AdminAppComponent,
     SurveyContainerComponent,
     RoutercompComponent,
-    LoginModuleComponent
+    LoginModuleComponent,
+    CompanyDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import {LoginModuleComponent} from "./login-module/login-module.component";
       },
       {path: 'manager', component: AppComponent},
       {path: 'builder', component: AdminAppComponent},
-      {path: 'login', component: LoginModuleComponent}
+      {path: 'login', component: LoginModuleComponent},
+      {path: 'company', component: CompanyDashboardComponent}
     ])
   ],
   providers: [HTTPService, StorageService],

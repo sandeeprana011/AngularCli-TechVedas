@@ -7,4 +7,5 @@ export class Config {
   static USERNAME: string = "";
   static PASSWORD: string = "";
   static ADMIN_ID: string = "";
+  static COMPANY_ID: string = "";
 }

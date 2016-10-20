@@ -7,11 +7,13 @@ import {HTTPService} from "../utility/HTTPService";
 import {Component} from "@angular/core/src/metadata/directives";
 import {StorageService} from "../utility/StorageService";
 
+export declare var jQuery: any;
+
 @Component({
   selector: 'admin-app',
   templateUrl: './admin-app.component.html',
   styleUrls: ['./admin-app.component.css'],
-  providers: [HTTPService,StorageService]
+  providers: [HTTPService, StorageService]
 })
 
 export class AdminAppComponent implements OnInit {
@@ -43,6 +45,12 @@ export class AdminAppComponent implements OnInit {
     //         error=>console.log(error.json()),
     //         ()=>console.debug("Done")
     //     );
+
+    jQuery(document).ready(function () {
+      jQuery('.collapsible').collapsible({
+        accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      });
+    });
 
 
     var optionBrahma = new Option("1", "25", "Brahma", "12/123/12", "2/12/12");
