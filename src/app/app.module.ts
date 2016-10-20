@@ -39,7 +39,7 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
     HttpModule,
     RouterModule.forRoot([
       {
-        path: '', redirectTo: 'builder', pathMatch: 'full'
+        path: '', component: AppComponent, redirectTo: '', pathMatch: 'full'
       },
       {path: 'manager', component: AppComponent},
       {path: 'builder', component: AdminAppComponent},
