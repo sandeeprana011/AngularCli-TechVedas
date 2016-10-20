@@ -15,7 +15,7 @@ import {QuestionRatingComponent} from "./question-rating/question-rating.compone
 import {QuestionCaptureImageComponent} from "./question-capture-image/question-capture-image.component";
 import {QuestionRadioComponent} from "./question-radio/question-radio.component";
 import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box.component";
-import { LoginModuleComponent } from './login-module/login-module.component';
+import {LoginModuleComponent} from "./login-module/login-module.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { LoginModuleComponent } from './login-module/login-module.component';
         path: '', redirectTo: 'builder', pathMatch: 'full'
       },
       {path: 'manager', component: AppComponent},
-      {path: 'builder', component: AdminAppComponent}
+      {path: 'builder', component: AdminAppComponent},
+      {path: 'login', component: LoginModuleComponent}
     ])
   ],
   providers: [HTTPService, StorageService],
