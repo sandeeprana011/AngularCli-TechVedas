@@ -15,6 +15,7 @@ import {QuestionRatingComponent} from "./question-rating/question-rating.compone
 import {QuestionCaptureImageComponent} from "./question-capture-image/question-capture-image.component";
 import {QuestionRadioComponent} from "./question-radio/question-radio.component";
 import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box.component";
+import { LoginModuleComponent } from './login-module/login-module.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box
     QuestionCheckBoxComponent,
     AdminAppComponent,
     SurveyContainerComponent,
-    RoutercompComponent
+    RoutercompComponent,
+    LoginModuleComponent
   ],
   imports: [
     BrowserModule,

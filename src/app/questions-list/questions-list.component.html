@@ -1,7 +1,14 @@
 <div class="row">
   <ul class="collapsible" data-collapsible="accordion">
     <li *ngFor="let qu of q.questionsList; let ndx=index">
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Question {{ndx+1}} : {{qu.question_text}}</div>
+      <div class="collapsible-header">
+        <div class="col s10 l10 m10"><i class="material-icons">filter_drama</i>Q {{ndx+1}} :
+          {{qu.question_text}}
+        </div>
+        <div class="col s2 l2 m2">
+          {{qu.question_type.toUpperCase()}}
+        </div>
+      </div>
       <div class="collapsible-body">
         <!--dfjklajdf<br>-->
         <!--adjsfkljadfk<br>-->

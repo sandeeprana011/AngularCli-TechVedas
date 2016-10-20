@@ -8,7 +8,7 @@ import {Survey} from "../databasestructure/Survey";
 import {ObjectToRequestBodyParser} from "../QuestionToRequestBodyParser";
 import {StorageService} from "../utility/StorageService";
 import {Input} from "@angular/core/src/metadata/directives";
-// import {jQuery} from "../manager-app/manager-app.component";
+// import {jQuery} from "../app/app.component";
 export declare var jQuery: any;
 
 @Component({
@@ -45,7 +45,15 @@ export class SurveyContainerComponent implements OnInit {
   }
 
   //
-  public q = {surveysList: this.surveys, quest: [], surveyId: "", adminId: this.adminId, username: "", password: ""};
+  public q = {
+    surveysList: this.surveys,
+    quest: [],
+    surveyId: "",
+    adminId: this.adminId,
+    username: "",
+    password: "",
+    reportUrl: ""
+  };
 
   ngOnInit() {
 
@@ -90,6 +98,7 @@ export class SurveyContainerComponent implements OnInit {
         ()=>console.debug("Done")
       );
 
+    this.q.reportUrl = UrlFactory.getUrlDownloadReport(surveyId);
 
     // this.q.quest.splice(0, this.q.quest.length);
     // for (var question of this.q.surveysList[ndx].questions) {
