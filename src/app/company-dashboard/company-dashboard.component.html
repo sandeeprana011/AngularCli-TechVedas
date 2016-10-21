@@ -2,20 +2,26 @@
   <div class="col s3 l3 m3 fullHeight">
     <ul class="collapsible fullHeight" data-collapsible="expandable">
       <li
-        style="background-image: url('https://sheffield.digital/wp-content/uploads/2015/10/slack-large.png'); background-size: cover">
-        <div style="height: 20vh">
+        style="background: url('http://localhost:4200/app/images/backgroundprofile.png') ; background-size: cover">
+        <div style="height: 30vh">
           <h6>{{company.company_name}}</h6>
+          <h6>{{company.company_email}}</h6>
+          <h6>{{company.company_phone}}</h6>
+          <h6>{{company.company_website}}</h6>
         </div>
       </li>
 
-      <li>
-        <a class="collapsible-header"><i class="material-icons">place</i>Second</a>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <li *ngFor="let admino of adminsArray;let ndx=index;">
+        <a class="collapsible-header"><i class="material-icons">place</i>{{admino.admin_name}}</a>
+        <div class="collapsible-body">
+          <a class="btn col s12 l12 m12" *ngFor="let surveyo of admino.surveyListing">
+            {{surveyo.survey_name}}
+            <!--<div style="height: 4px;background-color: #00acc1"></div>-->
+          </a><br>
+        </div>
+
       </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-      </li>
+
     </ul>
   </div>
   <div class="col s9 l9 m9" style="padding: 40px;background-color: #eaeaea">

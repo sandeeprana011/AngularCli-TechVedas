@@ -53,6 +53,17 @@ export class Const {
   static COMPANY = "company";
   static LOGIN_TYPE = "login_type";
   static COMPANY_ID = "company_id";
+  static ADMINS = "admins";
+
+  static ADMIN_NAME = "admin_name";
+  static ADMIN_EMAIL = "admin_email";
+  static ADMIN_ADDRESS = "admin_address";
+  static ADMIN_CITY = "admin_city";
+  static ADMIN_PHONE = "admin_phone";
+  static ADMIN_COUNTRY_CODE = "admin_country_code";
+  static ADMIN_STATE = "admin_state";
+  static ADMIN_COUNTRY = "admin_country";
+  static SURVEYS = "surveys";
 
 
 }

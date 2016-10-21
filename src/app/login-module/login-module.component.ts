@@ -50,7 +50,10 @@ export class LoginModuleComponent implements OnInit {
 
       console.debug("ngOnInit from Login module");
 
+      this.hideBuilder();
       this.hideLogin();
+      this.hideCompany();
+      this.showLogout();
 
       if (loginType === Const.COMPANY) {
         this.clickOnCompany()
@@ -166,4 +169,7 @@ export class LoginModuleComponent implements OnInit {
     jQuery('#logout').show();
   }
 
+  private showLogout() {
+    jQuery('#logout').show();
+  }
 }

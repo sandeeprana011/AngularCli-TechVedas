@@ -44,4 +44,6 @@ export class Company {
     this.creation_time = data['creation_time'];
     this.updation_time = data['updation_time'];
   }
+
+
 }

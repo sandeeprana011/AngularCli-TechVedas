@@ -3,6 +3,7 @@ import {HTTPService} from "../utility/HTTPService";
 import {UrlFactory} from "../utility/UrlFactory";
 import {Company} from "../databasestructure/Company";
 import {Const} from "../const";
+import {Admin} from "../databasestructure/Admin";
 
 
 export declare var jQuery: any;
@@ -15,6 +16,7 @@ export declare var jQuery: any;
 export class CompanyDashboardComponent implements OnInit {
   private httpService: HTTPService;
   private company: Company = new Company("n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a");
+  private adminsArray: Array<Admin> = [];
 
   constructor(_httpService: HTTPService) {
     this.httpService = _httpService;
@@ -42,11 +44,19 @@ export class CompanyDashboardComponent implements OnInit {
 
 
   private updateAllViews(data: any) {
-    let companyList = data[Const.COMPANY];
-    console.log(data.toString());
+    // let companyList = data[Const.COMPANY];
+    // console.log(data.toString());
+    // console.log(companyList.toString());
 
-    this.company.initWithData(companyList)
+    var dataJson = JSON.parse(data);
+    this.company.initWithData(dataJson[Const.COMPANY]);
+    let admins = [];
+    admins = dataJson["admins"];
+    for (let adme of admins) {
+      this.adminsArray.push(new Admin(adme))
+    }
 
+    console.log("admin", admins.pop().surveys);
 
   }
 }

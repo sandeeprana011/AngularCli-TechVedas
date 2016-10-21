@@ -5,7 +5,6 @@ import {Observable} from "rxjs";
 import {Question} from "../databasestructure/Question";
 import {UrlFactory} from "./UrlFactory";
 import {Surveyor} from "../databasestructure/Surveyor";
-import {jQuery} from "../app/app.component";
 /**
  * Created by sandeeprana on 31/08/16.
  */
@@ -22,9 +21,11 @@ import {jQuery} from "../app/app.component";
 // import {Const} from "../Constants";
 // import {Surveyor} from "../databasestructure/Surveyor";
 
+export declare var jQuery: any;
 
 @Injectable()
 export class HTTPService {
+
 
   private UNAUTHORIZED_ACCESS = "Unauthorized Access. Please Login first";
 
