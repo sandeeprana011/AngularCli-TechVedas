@@ -13,7 +13,6 @@ export declare var jQuery: any;
   styleUrls: ['./login-module.component.css']
 })
 export class LoginModuleComponent implements OnInit {
-
   typeLogin: string;
   username: string;
   password: string;

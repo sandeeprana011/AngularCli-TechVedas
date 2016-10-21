@@ -44,9 +44,6 @@ export class CompanyDashboardComponent implements OnInit {
 
 
   private updateAllViews(data: any) {
-    // let companyList = data[Const.COMPANY];
-    // console.log(data.toString());
-    // console.log(companyList.toString());
 
     var dataJson = JSON.parse(data);
     this.company.initWithData(dataJson[Const.COMPANY]);

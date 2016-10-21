@@ -17,6 +17,8 @@ import {QuestionRadioComponent} from "./question-radio/question-radio.component"
 import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box.component";
 import {LoginModuleComponent} from "./login-module/login-module.component";
 import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.component";
+import { ReportAdminComponent } from './report-admin/report-admin.component';
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -31,11 +33,13 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
     SurveyContainerComponent,
     RoutercompComponent,
     LoginModuleComponent,
-    CompanyDashboardComponent
+    CompanyDashboardComponent,
+    ReportAdminComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ChartsModule,
     HttpModule,
     RouterModule.forRoot([
       {
