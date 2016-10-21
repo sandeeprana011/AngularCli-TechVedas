@@ -51,20 +51,20 @@ export class AppComponent implements OnInit {
      * @type {string}
      */
 
-    let username: string = this.storageService.readString(Const.USERNAME);
-
-
-    let password: string = this.storageService.readString(Const.PASSWORD);
-    let adminID: string = this.storageService.readString(Const.ADMIN_ID);
-
-    if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
-      jQuery('#needToLoginIn').openModal();
-    } else {
-      console.debug(username + password + adminID);
-      Config.USERNAME = username;
-      Config.PASSWORD = password;
-      Config.ID_FOR_ALL = adminID;
-    }
+    // let username: string = this.storageService.readString(Const.USERNAME);
+    //
+    //
+    // let password: string = this.storageService.readString(Const.PASSWORD);
+    // let adminID: string = this.storageService.readString(Const.ADMIN_ID);
+    //
+    // if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
+    //   jQuery('#needToLoginIn').openModal();
+    // } else {
+    //   console.debug(username + password + adminID);
+    //   Config.USERNAME = username;
+    //   Config.PASSWORD = password;
+    //   Config.ID_FOR_ALL = adminID;
+    // }
 
 
     this.q.surveysList = [];

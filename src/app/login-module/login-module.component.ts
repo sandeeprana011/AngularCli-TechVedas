@@ -30,7 +30,27 @@ export class LoginModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+    let username: string = this.storageService.readString(Const.USERNAME);
 
+
+    let password: string = this.storageService.readString(Const.PASSWORD);
+    let adminID: string = this.storageService.readString(Const.ADMIN_ID);
+    let loginType: string = this.storageService.readString(Const.LOGIN_TYPE);
+
+    if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
+      // jQuery('#needToLoginIn').openModal();
+    } else {
+      console.debug(username + password + adminID);
+      Config.USERNAME = username;
+      Config.PASSWORD = password;
+      Config.ID_FOR_ALL = adminID;
+      Config.LOGIN_TYPE = loginType;
+      if (loginType === Const.COMPANY) {
+        jQuery('#company').get(0).click();
+      } else {
+        jQuery('#builder').get(0).click();
+      }
+    }
 
   }
 
