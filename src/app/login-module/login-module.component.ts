@@ -44,6 +44,11 @@ export class LoginModuleComponent implements OnInit {
       Config.PASSWORD = password;
       Config.ID_FOR_ALL = adminID;
       Config.LOGIN_TYPE = loginType;
+
+      console.debug("ngOnInit from Login module")
+
+      jQuery('#login').remove();
+
       if (loginType === Const.COMPANY) {
         jQuery('#company').get(0).click();
       } else {
