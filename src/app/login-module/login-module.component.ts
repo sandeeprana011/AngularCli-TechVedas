@@ -20,7 +20,6 @@ export class LoginModuleComponent implements OnInit {
   private httpService: HTTPService;
   private storageService: StorageService;
   private ngzone;
-  private parentRouter;
 
   constructor(_httpservice: HTTPService, _storageService: StorageService, _ngzone: NgZone) {
     this.httpService = _httpservice;
@@ -38,6 +37,10 @@ export class LoginModuleComponent implements OnInit {
 
     if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
       // jQuery('#needToLoginIn').openModal();
+      this.hideBuilder();
+      this.hideCompany();
+      this.hideLogin();
+      this.hideLogout();
     } else {
       console.debug(username + password + adminID);
       Config.USERNAME = username;
@@ -45,14 +48,14 @@ export class LoginModuleComponent implements OnInit {
       Config.ID_FOR_ALL = adminID;
       Config.LOGIN_TYPE = loginType;
 
-      console.debug("ngOnInit from Login module")
+      console.debug("ngOnInit from Login module");
 
-      jQuery('#login').remove();
+      this.hideLogin();
 
       if (loginType === Const.COMPANY) {
-        jQuery('#company').get(0).click();
+        this.clickOnCompany()
       } else {
-        jQuery('#builder').get(0).click();
+        this.clickBuilder()
       }
     }
 
@@ -95,30 +98,72 @@ export class LoginModuleComponent implements OnInit {
 
     this.storeToLocalStorage();
 
-    jQuery("#builder").get(0).click();
-
+    this.clickBuilder();
+    this.hideCompany();
+    this.showBuilder();
   }
 
 
   private onSuccessfullyLoginCompany(data) {
     Config.LOGIN_TYPE = 'company';
-    Config.ID_FOR_ALL = data['company'][Const.COMPANY_ID];
+    Config.ID_FOR_ALL = "not null";
     Config.USERNAME = this.username;
     Config.PASSWORD = this.password;
 
-    this.storeToLocalStorage()
+    this.storeToLocalStorage();
 
-    console.debug(data + "Data downloaded login")
+    // console.debug(data.toString() + "Data downloaded login");
 
-    jQuery("#company").get(0).click();
+    this.clickOnCompany();
+    this.hideBuilder();
+    this.showCompany();
 
   }
 
   private storeToLocalStorage() {
-    this.storageService.writeString(Const.LOGIN_TYPE, Config.LOGIN_TYPE)
-    this.storageService.writeString(Const.ADMIN_ID, Config.ID_FOR_ALL)
-    this.storageService.writeString(Const.USERNAME, this.username)
-    this.storageService.writeString(Const.PASSWORD, this.password)
-
+    this.storageService.writeString(Const.LOGIN_TYPE, Config.LOGIN_TYPE);
+    this.storageService.writeString(Const.ADMIN_ID, Config.ID_FOR_ALL);
+    this.storageService.writeString(Const.USERNAME, this.username);
+    this.storageService.writeString(Const.PASSWORD, this.password);
+    jQuery('#login').hide();
   }
+
+  private clickOnCompany() {
+    jQuery('#companyId').get(0).click();
+    // this.hideCompany();
+  }
+
+  private hideCompany() {
+    jQuery("#companyId").hide();
+  }
+
+  private hideBuilder() {
+    jQuery("#builder").hide();
+    jQuery("#manager").hide();
+  }
+
+  private clickBuilder() {
+    jQuery("#builder").get(0).click();
+    // this.hideBuilder();
+  }
+
+  private hideLogin() {
+    jQuery('#login').hide();
+  }
+
+  private hideLogout() {
+    jQuery('#logout').hide();
+  }
+
+  private showBuilder() {
+    jQuery('#manager').show();
+    jQuery('#builder').show();
+    jQuery('#logout').show();
+  }
+
+  private showCompany() {
+    jQuery('#companyId').show();
+    jQuery('#logout').show();
+  }
+
 }

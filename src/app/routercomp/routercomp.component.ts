@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, NgZone} from "@angular/core";
 import {Config} from "../config";
 import {Const} from "../const";
 import {StorageService} from "../utility/StorageService";
@@ -11,9 +11,11 @@ export declare var jQuery: any;
 })
 export class RoutercompComponent implements OnInit {
   private storageService: StorageService;
+  private ngZone: NgZone;
 
-  constructor(_storageService: StorageService) {
+  constructor(_storageService: StorageService, _ngZone: NgZone) {
     this.storageService = _storageService;
+    this.ngZone = _ngZone;
   }
 
   ngOnInit() {
@@ -21,6 +23,10 @@ export class RoutercompComponent implements OnInit {
 
   logout() {
     this.setParamForLogout();
+
+    this.ngZone.runOutsideAngular(() => {
+      location.reload();
+    });
   }
 
   private setParamForLogout() {
