@@ -30,9 +30,8 @@ export class LoginModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+
     let username: string = this.storageService.readString(Const.USERNAME);
-
-
     let password: string = this.storageService.readString(Const.PASSWORD);
     let adminID: string = this.storageService.readString(Const.ADMIN_ID);
     let loginType: string = this.storageService.readString(Const.LOGIN_TYPE);
