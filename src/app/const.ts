@@ -49,6 +49,7 @@ export class Const {
   static PASSWORD = "password";
 
   static SURVEYORS = "surveyors";
-  static SURVEYOR="surveyor";
+  static SURVEYOR = "surveyor";
+  static COMPANY = "company";
 
 }

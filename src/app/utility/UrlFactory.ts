@@ -66,4 +66,8 @@ export class UrlFactory {
   static getUrlDownloadReport(surveyId: string) {
     return UrlFactory.urlBase() + "admin/report/survey/" + surveyId;
   }
+
+  static getUrlInitCompany() {
+    return UrlFactory.urlBase() + "company/init"
+  }
 }

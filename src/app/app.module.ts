@@ -42,7 +42,7 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
       {path: 'manager', component: AppComponent},
       {path: 'builder', component: AdminAppComponent},
       {path: 'login', component: LoginModuleComponent},
-      {path: 'company', component: CompanyDashboardComponent, useAsDefault: true}
+      {path: 'company', component: CompanyDashboardComponent}
     ])
   ],
   providers: [HTTPService, StorageService],

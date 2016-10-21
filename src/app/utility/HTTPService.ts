@@ -238,4 +238,8 @@ export class HTTPService {
   createNewSurveyor(urlCreateNewSurveyor: string, createSurveyor: Surveyor) {
     return this.requestPostObservableNew(urlCreateNewSurveyor, JSON.stringify(createSurveyor));
   }
+
+  initCompanyDashBoard(urlInitCompany: any) {
+    return this.requestGetObservable(urlInitCompany);
+  }
 }

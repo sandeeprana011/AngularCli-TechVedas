@@ -1,4 +1,8 @@
 import {Component, OnInit} from "@angular/core";
+import {HTTPService} from "../utility/HTTPService";
+import {UrlFactory} from "../utility/UrlFactory";
+import {Company} from "../databasestructure/Company";
+import {Const} from "../const";
 
 
 export declare var jQuery: any;
@@ -9,8 +13,11 @@ export declare var jQuery: any;
   styleUrls: ['./company-dashboard.component.css']
 })
 export class CompanyDashboardComponent implements OnInit {
+  private httpService: HTTPService;
+  private company: Company = new Company("n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a");
 
-  constructor() {
+  constructor(_httpService: HTTPService) {
+    this.httpService = _httpService;
   }
 
   ngOnInit() {
@@ -20,7 +27,26 @@ export class CompanyDashboardComponent implements OnInit {
       });
     });
 
+    this.initializeDashboard()
+  }
+
+  initializeDashboard() {
+    this.httpService.initCompanyDashBoard(UrlFactory.getUrlInitCompany())
+      .subscribe(
+        data=>this.updateAllViews(data),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("Done")
+      );
+
   }
 
 
+  private updateAllViews(data: any) {
+    let companyList = data[Const.COMPANY];
+    console.log(data.toString());
+
+    this.company.initWithData(companyList)
+
+
+  }
 }
