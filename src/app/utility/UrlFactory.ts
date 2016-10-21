@@ -68,6 +68,10 @@ export class UrlFactory {
   }
 
   static getUrlInitCompany() {
-    return UrlFactory.urlBase() + "company/init"
+    return UrlFactory.urlBase() + "company/init";
+  }
+
+  static getLoginCompanyUserUrl() {
+    return UrlFactory.urlBase() + "company/init";
   }
 }

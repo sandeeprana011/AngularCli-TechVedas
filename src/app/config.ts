@@ -3,9 +3,10 @@ export class Config {
   // static USERNAME: string = "sandeep.rana011@gmail.com";
   // static USERNAME: string = "ratan@tata.com";
   // static PASSWORD: string = "password";
-  // static ADMIN_ID: string = "1";
+  // static ID_FOR_ALL: string = "1";
   static USERNAME: string = "";
   static PASSWORD: string = "";
-  static ADMIN_ID: string = "";
+  static ID_FOR_ALL: string = "";
   static COMPANY_ID: string = "";
+  static LOGIN_TYPE: string = "";
 }

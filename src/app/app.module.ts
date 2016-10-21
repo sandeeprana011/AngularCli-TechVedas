@@ -38,7 +38,7 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path:'',component:CompanyDashboardComponent},
+      {path: '', component: CompanyDashboardComponent},
       {path: 'manager', component: AppComponent},
       {path: 'builder', component: AdminAppComponent},
       {path: 'login', component: LoginModuleComponent},

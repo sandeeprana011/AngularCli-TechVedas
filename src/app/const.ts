@@ -51,5 +51,8 @@ export class Const {
   static SURVEYORS = "surveyors";
   static SURVEYOR = "surveyor";
   static COMPANY = "company";
+  static LOGIN_TYPE = "login_type";
+  static COMPANY_ID = "company_id";
+
 
 }

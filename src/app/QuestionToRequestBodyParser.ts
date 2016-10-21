@@ -44,7 +44,7 @@ export class ObjectToRequestBodyParser {
         // jsonObj[Const.SURVEY_ID] = survey.survey_id;
         jsonObj[Const.SURVEY_STARTTIME] = survey.survey_starttime + " 00:00:00";
         jsonObj[Const.SURVEY_ENDTIME] = survey.survey_endtime + " 23:59:59";
-        jsonObj[Const.ADMIN_ID] = Config.ADMIN_ID;
+        jsonObj[Const.ADMIN_ID] = Config.ID_FOR_ALL;
 
 
         // for (var option of survey) {

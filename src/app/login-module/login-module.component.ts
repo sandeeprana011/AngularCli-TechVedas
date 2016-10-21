@@ -3,6 +3,9 @@ import {Const} from "../const";
 import {Config} from "../config";
 import {HTTPService} from "../utility/HTTPService";
 import {StorageService} from "../utility/StorageService";
+import {UrlFactory} from "../utility/UrlFactory";
+
+export declare var jQuery: any;
 
 @Component({
   selector: 'app-login-module',
@@ -17,6 +20,7 @@ export class LoginModuleComponent implements OnInit {
   private httpService: HTTPService;
   private storageService: StorageService;
   private ngzone;
+  private parentRouter;
 
   constructor(_httpservice: HTTPService, _storageService: StorageService, _ngzone: NgZone) {
     this.httpService = _httpservice;
@@ -26,6 +30,8 @@ export class LoginModuleComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
   }
 
 
@@ -34,30 +40,61 @@ export class LoginModuleComponent implements OnInit {
     // jQ("loginButton").attr('disabled','disabled');
     console.debug(this.typeLogin);
     console.debug(this.username + this.password);
+    if (this.typeLogin === 'company') {
 
-    // this.httpService.loginUser(UrlFactory.getUrlLoginAdminUser(), this.username, this.password)
-    //   .subscribe(
-    //     data=>this.onSuccessfullyLogin(data),
-    //     error=>this.httpService.errorOccured(error.status),
-    //     ()=>console.debug("Login attempted")
-    //   );
+      this.httpService.loginUser(UrlFactory.getLoginCompanyUserUrl(), this.username, this.password)
+        .subscribe(
+          data=>this.onSuccessfullyLoginCompany(data),
+          error=>this.httpService.errorOccured(error.status),
+          ()=>console.debug("Login attempted company")
+        );
+
+    } else if (this.typeLogin === 'admin') {
+
+      this.httpService.loginUser(UrlFactory.getUrlLoginAdminUser(), this.username, this.password)
+        .subscribe(
+          data=>this.onSuccessfullyLoginAdmin(data),
+          error=>this.httpService.errorOccured(error.status),
+          ()=>console.debug("Login attempted admin")
+        );
+
+    }
+
 
   }
 
-  private onSuccessfullyLogin(data) {
-    Config.ADMIN_ID = data[Const.ADMIN_ID];
+  private onSuccessfullyLoginAdmin(data) {
+    Config.LOGIN_TYPE = 'admin';
+    Config.ID_FOR_ALL = data[Const.ADMIN_ID];
     Config.USERNAME = this.username;
     Config.PASSWORD = this.password;
 
-    this.storageService.writeString(Const.ADMIN_ID, Config.ADMIN_ID)
-    this.storageService.writeString(Const.USERNAME, this.username)
-    this.storageService.writeString(Const.PASSWORD, this.password)
+    this.storeToLocalStorage();
+
+    jQuery("#builder").get(0).click();
+
+  }
+
+
+  private onSuccessfullyLoginCompany(data) {
+    Config.LOGIN_TYPE = 'company';
+    Config.ID_FOR_ALL = data['company'][Const.COMPANY_ID];
+    Config.USERNAME = this.username;
+    Config.PASSWORD = this.password;
+
+    this.storeToLocalStorage()
 
     console.debug(data + "Data downloaded login")
 
-    this.ngzone.runOutsideAngular(() => {
-      location.reload();
-    });
+    jQuery("#company").get(0).click();
+
   }
 
+  private storeToLocalStorage() {
+    this.storageService.writeString(Const.LOGIN_TYPE, Config.LOGIN_TYPE)
+    this.storageService.writeString(Const.ADMIN_ID, Config.ID_FOR_ALL)
+    this.storageService.writeString(Const.USERNAME, this.username)
+    this.storageService.writeString(Const.PASSWORD, this.password)
+
+  }
 }
