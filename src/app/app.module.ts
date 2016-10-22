@@ -17,8 +17,10 @@ import {QuestionRadioComponent} from "./question-radio/question-radio.component"
 import {QuestionCheckBoxComponent} from "./question-check-box/question-check-box.component";
 import {LoginModuleComponent} from "./login-module/login-module.component";
 import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.component";
-import { ReportAdminComponent } from './report-admin/report-admin.component';
+import {ReportAdminComponent} from "./report-admin/report-admin.component";
 import {ChartsModule} from "ng2-charts";
+import {AddAdminComponent} from "./add-admin/add-admin.component";
+import {CompanyRoutingModule} from "./company-dashboard/company-dashboard.module";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {ChartsModule} from "ng2-charts";
     RoutercompComponent,
     LoginModuleComponent,
     CompanyDashboardComponent,
-    ReportAdminComponent
+    ReportAdminComponent,
+    AddAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -42,14 +45,19 @@ import {ChartsModule} from "ng2-charts";
     ChartsModule,
     HttpModule,
     RouterModule.forRoot([
-      {
-        path: "",
-        component: LoginModuleComponent,
-      },
+      {path: "", component: LoginModuleComponent},
       {path: 'manager', component: AppComponent},
       {path: 'builder', component: AdminAppComponent},
       {path: 'login', component: LoginModuleComponent},
-      {path: 'company', component: CompanyDashboardComponent}
+      {
+        path: 'company', component: CompanyDashboardComponent,
+        children: [
+          {path: "", component: ReportAdminComponent},
+          {path: 'report', component: ReportAdminComponent},
+          {path: 'addadmin', component: AddAdminComponent}
+        ]
+
+      }
     ])
   ],
   providers: [HTTPService, StorageService],

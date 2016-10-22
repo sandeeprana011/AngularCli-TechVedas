@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
+// import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
 
 @Component({
   selector: 'app-report-admin',
@@ -8,7 +8,7 @@ import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
 })
 export class ReportAdminComponent implements OnInit {
 
-  @Input adminId: string;
+  // @Input adminId: string;
 
   constructor() {
   }
@@ -17,9 +17,9 @@ export class ReportAdminComponent implements OnInit {
 
   }
 
-  public doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  public doughnutChartData: number[] = [350, 450, 100];
-  public doughnutChartType: string = 'doughnut';
+  public doughnutChartLabels: string[] = ['Male', 'Female', 'Not Defined', 'Didn\'t revelaed','laila','sngit','shell'];
+  public doughnutChartData: number[] = [35, 35, 10, 42, 40, 42, 22];
+  public doughnutChartType: string = 'pie';
 
   // events
   public chartClicked(e: any): void {

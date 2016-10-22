@@ -4,6 +4,7 @@ import {UrlFactory} from "../utility/UrlFactory";
 import {Company} from "../databasestructure/Company";
 import {Const} from "../const";
 import {Admin} from "../databasestructure/Admin";
+import {ROUTER_DIRECTIVES, ActivatedRoute} from "@angular/router";
 
 
 export declare var jQuery: any;
@@ -13,14 +14,18 @@ export declare var jQuery: any;
   templateUrl: './company-dashboard.component.html',
   styleUrls: ['./company-dashboard.component.css']
 })
+
 export class CompanyDashboardComponent implements OnInit {
   private httpService: HTTPService;
   private company: Company = new Company("n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a");
   private adminsArray: Array<Admin> = [];
+  private router;
 
-  constructor(_httpService: HTTPService) {
+  constructor(_httpService: HTTPService, _router: ActivatedRoute) {
     this.httpService = _httpService;
+    this.router = _router;
   }
+
 
   ngOnInit() {
     jQuery(document).ready(function () {
@@ -56,4 +61,14 @@ export class CompanyDashboardComponent implements OnInit {
     console.log("admin", admins.pop().surveys);
 
   }
+
+  reportRoute() {
+    // this.router.navigate(['/addadmin']);
+    this.router.navigateByUrl("/company(aux:report)");
+    // this.router.navigate(['/company', {outlets: {main: 'addadmin'}}]);
+    // this.router.navigateByUrl("/addadmin)");
+    // this.router.navigate(['/addadmin']);
+  }
+
+
 }

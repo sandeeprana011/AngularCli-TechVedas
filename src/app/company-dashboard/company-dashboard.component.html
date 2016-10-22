@@ -8,6 +8,7 @@
           <h6>{{company.company_email}}</h6>
           <h6>{{company.company_phone}}</h6>
           <h6>{{company.company_website}}</h6>
+          <a class="btn" [routerLink]="['./addadmin']">Add Admin</a>
         </div>
       </li>
 
@@ -19,14 +20,24 @@
             <!--<div style="height: 4px;background-color: #00acc1"></div>-->
           </a><br>
         </div>
+      </li>
 
+      <li>
+        <a class="collapsible-header" (click)="reportRoute()"><i class="material-icons">add</i>Router</a>
+        <div class="collapsible-body"></div>
+      </li>
+
+      <li>
+        <a class="collapsible-header"><i class="material-icons">add</i>Add Admin</a>
+        <div class="collapsible-body"></div>
       </li>
 
     </ul>
   </div>
   <div class="col s9 l9 m9" style="padding: 40px;background-color: #eaeaea">
     <div class="fullHeight z-depth-1 boardpaper padding20">
-      <app-report-admin></app-report-admin>
+      <!--<app-report-admin></app-report-admin>-->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
