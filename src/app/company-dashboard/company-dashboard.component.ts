@@ -4,7 +4,7 @@ import {UrlFactory} from "../utility/UrlFactory";
 import {Company} from "../databasestructure/Company";
 import {Const} from "../const";
 import {Admin} from "../databasestructure/Admin";
-import {ROUTER_DIRECTIVES, ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 
 export declare var jQuery: any;
@@ -55,7 +55,7 @@ export class CompanyDashboardComponent implements OnInit {
     let admins = [];
     admins = dataJson["admins"];
     for (let adme of admins) {
-      this.adminsArray.push(new Admin(adme))
+      this.adminsArray.push(new Admin().initWithData(adme))
     }
 
     console.log("admin", admins.pop().surveys);

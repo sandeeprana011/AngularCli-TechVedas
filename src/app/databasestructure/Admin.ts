@@ -15,35 +15,42 @@ export class Admin {
   admin_country_code: string;
   admin_state: string;
   admin_country: string;
+  admin_pincode: string;
 
   surveyListing: Array<Survey> = [];
 
 
-  // constructor(company_id,
-  //             admin_id,
-  //             admin_name,
-  //             admin_email,
-  //             admin_address,
-  //             admin_city,
-  //             admin_phone,
-  //             admin_country_code,
-  //             admin_state,
-  //             admin_country) {
-  //
-  //   this.company_id = company_id,
-  //     this.admin_id = admin_id,
-  //     this.admin_name = admin_name,
-  //     this.admin_email = admin_email,
-  //     this.admin_address = admin_address,
-  //     this.admin_city = admin_city,
-  //     this.admin_phone = admin_phone,
-  //     this.admin_country_code = admin_country_code,
-  //     this.admin_state = admin_state,
-  //     this.admin_countr = admin_country
-  // }
+  initWithParams(company_id,
+                 admin_id,
+                 admin_name,
+                 admin_email,
+                 admin_address,
+                 admin_city,
+                 admin_phone,
+                 admin_country_code,
+                 admin_state,
+                 admin_country,
+                 admin_pincode) {
+
+    this.company_id = company_id;
+    this.admin_id = admin_id;
+    this.admin_name = admin_name;
+    this.admin_email = admin_email;
+    this.admin_address = admin_address;
+    this.admin_city = admin_city;
+    this.admin_phone = admin_phone;
+    this.admin_country_code = admin_country_code;
+    this.admin_state = admin_state;
+    this.admin_countr = admin_country;
+    this.admin_pincode = admin_pincode;
+  }
 
 
-  constructor(data) {
+  constructor() {
+
+  }
+
+  initWithData(data: any) {
     this.company_id = data[Const.COMPANY_ID];
     this.admin_id = data[Const.ADMIN_ID];
     this.admin_name = data[Const.ADMIN_NAME];
@@ -54,7 +61,9 @@ export class Admin {
     this.admin_country_code = data[Const.ADMIN_COUNTRY_CODE];
     this.admin_state = data[Const.ADMIN_STATE];
     this.admin_country = data[Const.ADMIN_COUNTRY];
-    this.surveyListing = data[Const.SURVEYS]
-  }
+    this.admin_pincode = data[Const.ADMIN_PINCODE];
+    this.surveyListing = data[Const.SURVEYS];
 
+    return this;
+  }
 }

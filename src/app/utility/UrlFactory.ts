@@ -74,4 +74,8 @@ export class UrlFactory {
   static getLoginCompanyUserUrl() {
     return UrlFactory.urlBase() + "company/init";
   }
+
+  static inviteNewAdmin() {
+    return UrlFactory.urlBase() + "company/admin/invite"
+  }
 }

@@ -207,6 +207,9 @@ export class HTTPService {
       jQuery('#needToLoginIn').openModal();
     } else if (status == 303) {
       jQuery('#error303').openModal();
+    } else if (status == 603) {
+      // Error while inviting admin
+      jQuery("#errorInviteAdmin").openModal();
     }
   }
 
