@@ -17,7 +17,7 @@
         <a class="collapsible-header"><i class="material-icons">place</i>{{admino.admin_name}}</a>
         <div class="collapsible-body">
           <a class="btn col s12 l12 m12" *ngFor="let surveyo of admino.surveyListing;let ndx=index;"
-             (click)="reportRoute(1)">
+             (click)="reportRoute(ndx)">
             {{surveyo.survey_name}}
             <!--<div style="height: 4px;background-color: #00acc1"></div>-->
           </a><br>

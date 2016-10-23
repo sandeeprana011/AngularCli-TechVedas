@@ -20,7 +20,7 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
 import {ReportAdminComponent} from "./report-admin/report-admin.component";
 import {ChartsModule} from "ng2-charts";
 import {AddAdminComponent} from "./add-admin/add-admin.component";
-import {CompanyRoutingModule} from "./company-dashboard/company-dashboard.module";
+
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import {CompanyRoutingModule} from "./company-dashboard/company-dashboard.module
         children: [
           {path: "", component: AddAdminComponent},
           {path: 'report/:id', component: ReportAdminComponent},
-          {path: 'addadmin', component: AddAdminComponent}
+          {path: 'invite', component: AddAdminComponent}
         ]
 
       }
