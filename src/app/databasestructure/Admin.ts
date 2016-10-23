@@ -41,7 +41,7 @@ export class Admin {
     this.admin_phone = admin_phone;
     this.admin_country_code = admin_country_code;
     this.admin_state = admin_state;
-    this.admin_countr = admin_country;
+    this.admin_country = admin_country;
     this.admin_pincode = admin_pincode;
   }
 

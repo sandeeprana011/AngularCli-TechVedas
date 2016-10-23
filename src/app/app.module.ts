@@ -52,8 +52,8 @@ import {CompanyRoutingModule} from "./company-dashboard/company-dashboard.module
       {
         path: 'company', component: CompanyDashboardComponent,
         children: [
-          {path: "", component: ReportAdminComponent},
-          {path: 'report', component: ReportAdminComponent},
+          {path: "", component: AddAdminComponent},
+          {path: 'report/:id', component: ReportAdminComponent},
           {path: 'addadmin', component: AddAdminComponent}
         ]
 

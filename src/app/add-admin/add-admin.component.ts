@@ -13,6 +13,7 @@ export declare var jQuery: any;
   styleUrls: ['./add-admin.component.css']
 })
 export class AddAdminComponent implements OnInit {
+
   private httpService: HTTPService;
   private email: string;
 
@@ -38,9 +39,9 @@ export class AddAdminComponent implements OnInit {
       )
   }
 
-  private onSuccessfullyInvited(data: R) {
+  private onSuccessfullyInvited(data: any) {
     // alert("Successfully invited!")
-    jQuery(Materialize.toast('I am a toast!', 4000));
+    // jQuery(Materialize.toast('I am a toast!', 4000));
 
   }
 }

@@ -4,7 +4,7 @@ import {UrlFactory} from "../utility/UrlFactory";
 import {Company} from "../databasestructure/Company";
 import {Const} from "../const";
 import {Admin} from "../databasestructure/Admin";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 export declare var jQuery: any;
@@ -20,10 +20,12 @@ export class CompanyDashboardComponent implements OnInit {
   private company: Company = new Company("n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a");
   private adminsArray: Array<Admin> = [];
   private router;
+  private route;
 
-  constructor(_httpService: HTTPService, _router: ActivatedRoute) {
+  constructor(_httpService: HTTPService, _router: Router, _route: ActivatedRoute) {
     this.httpService = _httpService;
     this.router = _router;
+    this.route = _route;
   }
 
 
@@ -62,9 +64,11 @@ export class CompanyDashboardComponent implements OnInit {
 
   }
 
-  reportRoute() {
-    // this.router.navigate(['/addadmin']);
-    this.router.navigateByUrl("/company(aux:report)");
+  reportRoute(ndx) {
+    // this.router.navigate(['./addadmin']);
+
+    this.router.navigate(['report', ndx], {relativeTo: this.route});
+    // this.router.navigateByUrl("addadmin");
     // this.router.navigate(['/company', {outlets: {main: 'addadmin'}}]);
     // this.router.navigateByUrl("/addadmin)");
     // this.router.navigate(['/addadmin']);

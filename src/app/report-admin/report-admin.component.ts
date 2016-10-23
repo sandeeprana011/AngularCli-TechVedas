@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 // import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
 
 @Component({
@@ -9,15 +9,20 @@ import {Component, OnInit, Input} from "@angular/core";
 export class ReportAdminComponent implements OnInit {
 
   // @Input adminId: string;
+  private id;
 
   constructor() {
   }
 
   ngOnInit() {
-
+    console.debug(this.id);
   }
 
-  public doughnutChartLabels: string[] = ['Male', 'Female', 'Not Defined', 'Didn\'t revelaed','laila','sngit','shell'];
+  public someFunct() {
+    console.debug("Some func called");
+  }
+
+  public doughnutChartLabels: string[] = ['Male', 'Female', 'Not Defined', 'Didn\'t revelaed', 'laila', 'sngit', 'shell'];
   public doughnutChartData: number[] = [35, 35, 10, 42, 40, 42, 22];
   public doughnutChartType: string = 'pie';
 
