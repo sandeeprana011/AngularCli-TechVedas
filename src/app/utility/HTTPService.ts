@@ -210,6 +210,7 @@ export class HTTPService {
     } else if (status == 603) {
       // Error while inviting admin
       jQuery("#errorInviteAdmin").openModal();
+      // jQuery(Materialize.toast('I am a toast!', 4000));
     }
   }
 

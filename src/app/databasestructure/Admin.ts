@@ -4,7 +4,11 @@ import {Survey} from "./Survey";
  * Created by sandeeprana on 22/10/16.
  */
 
+
 export class Admin {
+  static VERIFIED: string = "verified";
+  static PENDING: string = "pending";
+
   company_id: string;
   admin_id: string;
   admin_name: string;
@@ -18,6 +22,7 @@ export class Admin {
   admin_pincode: string;
 
   surveyListing: Array<Survey> = [];
+  private verify_status: string;
 
 
   initWithParams(company_id,
@@ -30,7 +35,8 @@ export class Admin {
                  admin_country_code,
                  admin_state,
                  admin_country,
-                 admin_pincode) {
+                 admin_pincode,
+                 verify_status) {
 
     this.company_id = company_id;
     this.admin_id = admin_id;
@@ -43,6 +49,7 @@ export class Admin {
     this.admin_state = admin_state;
     this.admin_country = admin_country;
     this.admin_pincode = admin_pincode;
+    this.verify_status = verify_status;
   }
 
 
@@ -63,6 +70,7 @@ export class Admin {
     this.admin_country = data[Const.ADMIN_COUNTRY];
     this.admin_pincode = data[Const.ADMIN_PINCODE];
     this.surveyListing = data[Const.SURVEYS];
+    this.verify_status = data[Const.VERIFICATION_STATUS];
 
     return this;
   }

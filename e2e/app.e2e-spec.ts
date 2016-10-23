@@ -1,6 +1,6 @@
-import { AngularCliSurveyamPage } from './app.po';
+import {AngularCliSurveyamPage} from "./app.po";
 
-describe('angular-cli-surveyam App', function() {
+describe('angular-cli-surveyam App', function () {
   let page: AngularCliSurveyamPage;
 
   beforeEach(() => {

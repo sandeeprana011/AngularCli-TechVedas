@@ -3,34 +3,49 @@
     <ul class="collapsible fullHeight" data-collapsible="expandable">
       <li
         style="background: url('http://localhost:4200/app/images/backgroundprofile.png') ; background-size: cover">
-        <div style="height: 30vh">
-          <h6>{{company.company_name}}</h6>
-          <h6>{{company.company_email}}</h6>
-          <h6>{{company.company_phone}}</h6>
-          <h6>{{company.company_website}}</h6>
-          <a class="btn" (click)="reportRoute(0)">Add Admin</a>
-          <!--[routerLink]="['./addadmin']"-->
+        <div class="valign-wrapper">
+          <div class="center-align col m12 l12 s12" style="height: 30vh">
+            <h6>{{company.company_name}}</h6>
+            <h6>{{company.company_email}}</h6>
+            <h6>{{company.company_phone}}</h6>
+            <h6>{{company.company_website}}</h6>
+          </div>
         </div>
       </li>
 
       <li *ngFor="let admino of adminsArray;let ndx=index;">
-        <a class="collapsible-header"><i class="material-icons">place</i>{{admino.admin_name}}</a>
+        <a class="collapsible-header"><i class="material-icons">place</i>{{(admino.admin_name!=null&&admino.admin_name!="")?admino.admin_name:admino.admin_email}}</a>
         <div class="collapsible-body">
-          <a class="btn col s12 l12 m12" *ngFor="let surveyo of admino.surveyListing;let ndx=index;"
-             (click)="reportRoute(ndx)">
-            {{surveyo.survey_name}}
-            <!--<div style="height: 4px;background-color: #00acc1"></div>-->
-          </a><br>
+
+          <div [ngSwitch]="admino.verify_status">
+            <div *ngSwitchCase="'verified'">
+              <a class="btn col s12 l12 m12" *ngFor="let surveyo of admino.surveyListing;let ndx=index;"
+                 (click)="reportRoute(ndx)">{{surveyo.survey_name}}</a>
+            </div>
+            <div *ngSwitchCase="'pending'">
+              <p>{{admino.admin_email}} is not verified yet. Invitation Pending! </p>
+            </div>
+            <div *ngSwitchDefault>
+              <div>
+                <p>{{admino.admin_email}} is not verified yet.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+          </div>
         </div>
       </li>
+      <!--[routerLink]="['./addadmin']"-->
       <!--<li>-->
       <!--<a class="collapsible-header" (click)="reportRoute()"><i class="material-icons">add</i>Router</a>-->
       <!--<div class="collapsible-body"></div>-->
       <!--</li>-->
-      <!--<li>-->
-      <!--<a class="collapsible-header"><i class="material-icons">add</i>Add Admin</a>-->
-      <!--<div class="collapsible-body"></div>-->
-      <!--</li>-->
+      <li>
+        <a [routerLink]="['./invite']" routerLinkActive="active" class="collapsible-header"><i
+          class="material-icons">add</i>Add
+          Admin</a>
+        <div class="collapsible-body"></div>
+      </li>
 
     </ul>
   </div>

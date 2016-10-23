@@ -41,7 +41,7 @@ export class AddAdminComponent implements OnInit {
 
   private onSuccessfullyInvited(data: any) {
     // alert("Successfully invited!")
-    // jQuery(Materialize.toast('I am a toast!', 4000));
+    jQuery().Materialize.toast('I am a toast!', 4000);
 
   }
 }

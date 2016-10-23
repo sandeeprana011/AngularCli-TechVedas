@@ -65,6 +65,7 @@ export class Const {
   static ADMIN_COUNTRY = "admin_country";
   static SURVEYS = "surveys";
   static ADMIN_PINCODE = "admin_pincode";
+  static VERIFICATION_STATUS = "verification_status";
 
 
 }

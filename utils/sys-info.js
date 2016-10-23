@@ -1,34 +1,34 @@
 const os = require('os'),
-      exec = require('child_process').execSync,
-      env = process.env;
+  exec = require('child_process').execSync,
+  env = process.env;
 
 exports.gen = function () {
   return [{
     name: 'Node.js Version',
     value: process.version.replace('v', '')
-  } , {
-    name:  'NPM Version',
+  }, {
+    name: 'NPM Version',
     value: exec('npm --version').toString().replace(os.EOL, '')
   }, {
-    name:  'OS Type',
+    name: 'OS Type',
     value: os.type()
   }, {
-    name:  'OS Platform',
+    name: 'OS Platform',
     value: os.platform()
   }, {
-    name:  'OS Architecture',
+    name: 'OS Architecture',
     value: os.arch()
   }, {
-    name:  'OS Release',
+    name: 'OS Release',
     value: os.release()
   }, {
-    name:  'CPU Cores',
+    name: 'CPU Cores',
     value: os.cpus().length
   }, {
-    name:  'Gear Memory',
+    name: 'Gear Memory',
     value: `${env.OPENSHIFT_GEAR_MEMORY_MB}MB`
   }, {
-    name:  'NODE_ENV',
+    name: 'NODE_ENV',
     value: env.NODE_ENV
   }];
 };

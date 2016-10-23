@@ -1,13 +1,13 @@
 const cluster = require('cluster'),
-      stopSignals = [
-        'SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
-        'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
-      ],
-      production = process.env.NODE_ENV == 'production';
+  stopSignals = [
+    'SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
+    'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
+  ],
+  production = process.env.NODE_ENV == 'production';
 
 let stopping = false;
 
-cluster.on('disconnect', function(worker) {
+cluster.on('disconnect', function (worker) {
   if (production) {
     if (!stopping) {
       cluster.fork();
