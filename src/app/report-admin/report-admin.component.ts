@@ -79,22 +79,17 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
   }
 
   private updateViews(dalta: any) {
-    for (var q of this.listCharts) {
-      this.listCharts.pop();
-    }
-    // console.debug(data);
+
+    this.listCharts = [];
+
     let data = JSON.parse(dalta);
     let questions = data['question'];
-    // console.debug(questions);
 
-    console.debug(questions);
 
     for (var ques of questions) {
       let charte = new ChartData([], [], "", "", "");
-      // console.debug(ques);
       charte = charte.initWithObject(ques);
       this.listCharts.push(charte);
-      // console.debug(charte);
     }
 
   }
