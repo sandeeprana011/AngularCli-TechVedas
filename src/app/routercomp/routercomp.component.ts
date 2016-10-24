@@ -2,6 +2,8 @@ import {Component, OnInit, NgZone} from "@angular/core";
 import {Config} from "../config";
 import {Const} from "../const";
 import {StorageService} from "../utility/StorageService";
+import {Utility} from "../utility/Utility";
+import {Router, ActivatedRoute} from "@angular/router";
 
 export declare var jQuery: any;
 @Component({
@@ -12,10 +14,14 @@ export declare var jQuery: any;
 export class RoutercompComponent implements OnInit {
   private storageService: StorageService;
   private ngZone: NgZone;
+  private route: ActivatedRoute;
+  private router: Router;
 
-  constructor(_storageService: StorageService, _ngZone: NgZone) {
+  constructor(_storageService: StorageService, _ngZone: NgZone, _router: Router, _route: ActivatedRoute) {
     this.storageService = _storageService;
     this.ngZone = _ngZone;
+    this.router = _router;
+    this.route = _route;
   }
 
   ngOnInit() {
@@ -50,5 +56,7 @@ export class RoutercompComponent implements OnInit {
     this.storageService.writeString(Const.PASSWORD, "")
 
   }
+
+
 
 }

@@ -6,6 +6,8 @@ import {Survey} from "../databasestructure/Survey";
 import {HTTPService} from "../utility/HTTPService";
 import {Component} from "@angular/core/src/metadata/directives";
 import {StorageService} from "../utility/StorageService";
+import {Utility} from "../utility/Utility";
+import {Router, ActivatedRoute} from "@angular/router";
 
 export declare var jQuery: any;
 
@@ -29,11 +31,17 @@ export class AdminAppComponent implements OnInit {
   public questionCheckBox: Question = new Question(null, "What is your name So far?CheckBox", Const.TYPE_CHECKBOX_QUESTION, "1", "1", "0", "0", "15 Aug 2016", "16 Aug 2016");
   public questionText: Question = new Question(null, "What is your name So far?Text", Const.TYPE_TEXT_QUESTION, "1", "1", "0", "0", "15 Aug 2016", "16 Aug 2016");
   public questionTakingPicture: Question = new Question(null, "What is your name So far?Picture", Const.TYPE_TAKEPICTURE_QUESTION, "1", "1", "0", "0", "15 Aug 2016", "16 Aug 2016");
+  private storageService: StorageService;
+  private route: ActivatedRoute;
+  private router: Router;
   // public questionText: Question = new Question(null, "What is your name So far?Text", Const.TYPE_TEXT_QUESTION, "1", "1", "0", "0", "15 Aug 2016", "16 Aug 2016");
 
 
-  constructor(_httpService: HTTPService) {
+  constructor(_httpService: HTTPService, _router: Router, _route: ActivatedRoute, _storageService: StorageService) {
     this.httpService = _httpService;
+    this.router = _router;
+    this.route = _route;
+    this.storageService = _storageService;
   }
 
 
@@ -83,6 +91,12 @@ export class AdminAppComponent implements OnInit {
     this.adminId = "1";
 
 
+  }
+
+
+  logout() {
+    let utility = new Utility(this.router, this.route, this.storageService);
+    utility.logoutFromApplication();
   }
 
   // private updateSurveysList(data) {
