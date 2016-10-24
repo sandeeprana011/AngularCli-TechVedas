@@ -78,4 +78,8 @@ export class UrlFactory {
   static inviteNewAdmin() {
     return UrlFactory.urlBase() + "company/admin/invite"
   }
+
+  static getUrlCompanyReportSurvey(id: any) {
+    return UrlFactory.urlBase() + "company/report/survey/" + id;
+  }
 }

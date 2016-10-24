@@ -1,4 +1,8 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, AfterContentInit} from "@angular/core";
+import {Params, ActivatedRoute, Router} from "@angular/router";
+import {HTTPService} from "../utility/HTTPService";
+import {UrlFactory} from "../utility/UrlFactory";
+import {ChartData} from "../databasestructure/Chart";
 // import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
 
 @Component({
@@ -6,20 +10,59 @@ import {Component, OnInit} from "@angular/core";
   templateUrl: './report-admin.component.html',
   styleUrls: ['./report-admin.component.css']
 })
-export class ReportAdminComponent implements OnInit {
+export class ReportAdminComponent implements OnInit,AfterContentInit {
 
   // @Input adminId: string;
   private id;
+  private route;
+  private router: Router;
+  private httpService: HTTPService;
+  private listCharts: Array<ChartData> = [];
 
-  constructor() {
+
+  constructor(_route: ActivatedRoute, _router: Router, _httpService: HTTPService) {
+    this.route = _route;
+    this.router = _router;
+    this.httpService = _httpService;
   }
 
+
+  ngAfterContentInit() {
+    this.route.params.forEach((params: Params) => {
+      this.id = params['id']; // (+) converts string 'id' to a number
+    });
+    console.debug("Survey id for report" + this.id);
+
+  }
+
+
+  // reloadWithNewId(id: number) {
+  //   this.router.navigateByUrl('my/' + id + '/view');
+  // }
+
+
   ngOnInit() {
-    console.debug(this.id);
+    console.debug("ngOnInit");
+
+    this.route.params.subscribe(params => {
+      this.paramsChanged(params['id']);
+    });
+  }
+
+  paramsChanged(id) {
+    this.httpService.requestGetObservable(UrlFactory.getUrlCompanyReportSurvey(id.toString()))
+      .subscribe(
+        data=>this.updateViews(data),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("Done")
+      );
+
   }
 
   public someFunct() {
     console.debug("Some func called");
+
+
   }
 
   public doughnutChartLabels: string[] = ['Male', 'Female', 'Not Defined', 'Didn\'t revelaed', 'laila', 'sngit', 'shell'];
@@ -35,4 +78,24 @@ export class ReportAdminComponent implements OnInit {
     console.log(e);
   }
 
+  private updateViews(dalta: any) {
+    for (var q of this.listCharts) {
+      this.listCharts.pop();
+    }
+    // console.debug(data);
+    let data = JSON.parse(dalta);
+    let questions = data['question'];
+    // console.debug(questions);
+
+    console.debug(questions);
+
+    for (var ques of questions) {
+      let charte = new ChartData([], [], "", "", "");
+      // console.debug(ques);
+      charte = charte.initWithObject(ques);
+      this.listCharts.push(charte);
+      // console.debug(charte);
+    }
+
+  }
 }

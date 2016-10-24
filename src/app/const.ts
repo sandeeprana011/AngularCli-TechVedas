@@ -66,6 +66,8 @@ export class Const {
   static SURVEYS = "surveys";
   static ADMIN_PINCODE = "admin_pincode";
   static VERIFICATION_STATUS = "verification_status";
+  static OPTION_TEXT = "option_text";
+  static COUNT = "count";
 
 
 }

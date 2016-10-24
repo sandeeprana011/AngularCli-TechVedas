@@ -1,0 +1,52 @@
+{
+  "question": [
+    {
+      "data": [
+        {
+          "count": 1,
+          "option_text": "BJP"
+        },
+        {
+          "count": 0,
+          "option_text": "Congress"
+        },
+        {
+          "count": 0,
+          "option_text": "AAP"
+        },
+        {
+          "count": 1,
+          "option_text": "None Of These"
+        }
+      ],
+      "question_text": "Which Party you will Vote?",
+      "question_type": "radio"
+    },
+    {
+      "data": [
+        {
+          "count": 0,
+          "option_text": "1"
+        },
+        {
+          "count": 0,
+          "option_text": "2"
+        },
+        {
+          "count": 0,
+          "option_text": "3"
+        },
+        {
+          "count": 0,
+          "option_text": "4"
+        },
+        {
+          "count": 0,
+          "option_text": "5"
+        }
+      ],
+      "question_text": "Rate this survey out of 5 stars",
+      "question_type": "rating"
+    }
+  ]
+}
