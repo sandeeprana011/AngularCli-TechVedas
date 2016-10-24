@@ -7,6 +7,7 @@ import {Admin} from "../databasestructure/Admin";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Utility} from "../utility/Utility";
 import {StorageService} from "../utility/StorageService";
+import {Survey} from "../databasestructure/Survey";
 
 
 export declare var jQuery: any;
@@ -25,6 +26,10 @@ export class CompanyDashboardComponent implements OnInit {
   private route;
   private utility: Utility;
   private storageService: StorageService;
+
+  heading: string;
+  description: string;
+
 
   constructor(_httpService: HTTPService, _router: Router, _route: ActivatedRoute, _storageService: StorageService) {
     this.httpService = _httpService;
@@ -70,8 +75,10 @@ export class CompanyDashboardComponent implements OnInit {
 
   }
 
-  reportRoute(ndx) {
-    this.router.navigate(['report', ndx], {relativeTo: this.route});
+  reportRoute(surveya: Survey) {
+    this.router.navigate(['report', surveya.survey_id], {relativeTo: this.route});
+    this.heading = surveya.survey_name;
+    this.description = surveya.survey_description;
   }
 
   logout() {
