@@ -4,6 +4,7 @@ import {Config} from "../config";
 import {HTTPService} from "../utility/HTTPService";
 import {StorageService} from "../utility/StorageService";
 import {UrlFactory} from "../utility/UrlFactory";
+import {Router, ActivatedRoute} from "@angular/router";
 
 export declare var jQuery: any;
 
@@ -19,12 +20,17 @@ export class LoginModuleComponent implements OnInit {
   private httpService: HTTPService;
   private storageService: StorageService;
   private ngzone;
+  private router: Router;
+  private route;
 
-  constructor(_httpservice: HTTPService, _storageService: StorageService, _ngzone: NgZone) {
+
+  constructor(_httpservice: HTTPService, _storageService: StorageService, _ngzone: NgZone, _router: Router, _route: ActivatedRoute) {
     this.httpService = _httpservice;
     this.storageService = _storageService;
     this.ngzone = _ngzone;
     this.typeLogin = 'admin';
+    this.router = _router;
+    this.route = _route;
   }
 
   ngOnInit() {
@@ -131,44 +137,14 @@ export class LoginModuleComponent implements OnInit {
   }
 
   private clickOnCompany() {
-    jQuery('#companyId').get(0).click();
-    // this.hideCompany();
+    this.router.navigate(['company']);
   }
 
-  private hideCompany() {
-    jQuery("#companyId").hide();
-  }
-
-  private hideBuilder() {
-    jQuery("#builder").hide();
-    jQuery("#manager").hide();
-  }
 
   private clickBuilder() {
-    jQuery("#builder").get(0).click();
-    // this.hideBuilder();
-  }
 
-  private hideLogin() {
-    jQuery('#login').hide();
-  }
+    this.router.navigate(['builder']);
 
-  private hideLogout() {
-    jQuery('#logout').hide();
-  }
 
-  private showBuilder() {
-    jQuery('#manager').show();
-    jQuery('#builder').show();
-    jQuery('#logout').show();
-  }
-
-  private showCompany() {
-    jQuery('#companyId').show();
-    jQuery('#logout').show();
-  }
-
-  private showLogout() {
-    jQuery('#logout').show();
   }
 }

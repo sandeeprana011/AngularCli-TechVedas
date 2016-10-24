@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
-import { QuestionCaptureImageComponent } from './question-capture-image.component';
+import {QuestionCaptureImageComponent} from "./question-capture-image.component";
 
 describe('Component: QuestionCaptureImage', () => {
   it('should create an instance', () => {

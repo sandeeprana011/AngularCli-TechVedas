@@ -19,7 +19,45 @@ ul {
   height: 100vh;
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .boardpaper {
   background-color: white;
   border-radius: 5px;
 }
+
+.headnavitem {
+  padding: 15px;
+  color: #afafaf;
+  cursor: hand;
+  text-transform: uppercase;
+}
+
+.headnavitem:hover {
+  color: #38d0d5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

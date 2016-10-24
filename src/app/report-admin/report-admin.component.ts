@@ -3,6 +3,7 @@ import {Params, ActivatedRoute, Router} from "@angular/router";
 import {HTTPService} from "../utility/HTTPService";
 import {UrlFactory} from "../utility/UrlFactory";
 import {ChartData} from "../databasestructure/Chart";
+import {Const} from "../const";
 // import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
 
 @Component({
@@ -67,7 +68,7 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
 
   public doughnutChartLabels: string[] = ['Male', 'Female', 'Not Defined', 'Didn\'t revelaed', 'laila', 'sngit', 'shell'];
   public doughnutChartData: number[] = [35, 35, 10, 42, 40, 42, 22];
-  public doughnutChartType: string = 'pie';
+  public doughnutChartType: string = 'doughnut';
 
   // events
   public chartClicked(e: any): void {
@@ -87,10 +88,20 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
 
 
     for (var ques of questions) {
+
+
       let charte = new ChartData([], [], "", "", "");
       charte = charte.initWithObject(ques);
+      charte.question_type = ques.question_type.toLocaleString();
+      if (ques.question_type === Const.TYPE_STAR_RATING) {
+        charte.chartType = "bar";
+      } else if (ques.question_type === Const.TYPE_RADIO_QUESTION) {
+        charte.chartType = "doughnut"
+      }
+
       this.listCharts.push(charte);
     }
+    console.debug(this.listCharts);
 
   }
 }

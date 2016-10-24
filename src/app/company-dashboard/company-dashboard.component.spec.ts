@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
-import { CompanyDashboardComponent } from './company-dashboard.component';
+import {CompanyDashboardComponent} from "./company-dashboard.component";
 
 describe('Component: CompanyDashboard', () => {
   it('should create an instance', () => {

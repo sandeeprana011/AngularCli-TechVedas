@@ -1,18 +1,18 @@
 <div>
   <div style="display: block">
     <div *ngFor="let charto of listCharts;let ndx=index;">
-      <!--<canvas baseChart-->
-      <!--[data]="doughnutChartData"-->
-      <!--[labels]="doughnutChartLabels"-->
-      <!--[chartType]="doughnutChartType"-->
-      <!--(chartHover)="chartHovered($event)"-->
-      <!--(chartClick)="chartClicked($event)"></canvas>-->
-      <canvas baseChart
-              [data]="charto.valuesAssoc"
-              [labels]="charto.names"
-              [chartType]="doughnutChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+      <div>
+        <p>Q {{ndx+1}}. {{charto.question}}</p>
+        <!--<p>{{charto.question_type}}</p>-->
+      </div>
+      <div>
+        <canvas baseChart
+                [data]="charto.valuesAssoc"
+                [labels]="charto.names"
+                [chartType]="charto.chartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
     </div>
   </div>
 </div>

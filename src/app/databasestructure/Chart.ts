@@ -14,6 +14,7 @@ export class ChartData {
   public question: string;
   public chartType: string;
   public extraData: string;
+  public question_type: string;
 
   public initWithObject(dataObj) {
 
@@ -26,6 +27,7 @@ export class ChartData {
       this.names.push(da[Const.OPTION_TEXT]);
       this.valuesAssoc.push(da[Const.COUNT]);
     }
+
 
     return new ChartData(this.names, this.valuesAssoc, this.question, this.chartType, this.question);
   }

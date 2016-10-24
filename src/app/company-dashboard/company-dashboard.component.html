@@ -1,4 +1,5 @@
 <div class="row fullHeight">
+
   <div class="col s3 l3 m3">
     <ul class="collapsible fullHeight" data-collapsible="expandable">
       <li
@@ -49,10 +50,14 @@
 
     </ul>
   </div>
-  <div class="col s9 l9 m9" style="padding: 40px;background-color: #eaeaea">
-    <div class="z-depth-1 boardpaper padding20">
-      <!--<app-report-admin></app-report-admin>-->
-      <router-outlet></router-outlet>
+  <div class="fullWidth">
+    <div class="fullWidth white" style="padding: 20px">
+      <a class="headnavitem">All Admins</a><a class="headnavitem">All Surveys</a><a class="headnavitem">Inbox</a>
+    </div>
+    <div class="col s9 l9 m9 fullWidth" style="padding: 40px;background-color: #eaeaea">
+      <div class="z-depth-1 boardpaper padding20">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
