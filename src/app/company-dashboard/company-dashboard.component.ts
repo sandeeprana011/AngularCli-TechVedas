@@ -5,6 +5,8 @@ import {Company} from "../databasestructure/Company";
 import {Const} from "../const";
 import {Admin} from "../databasestructure/Admin";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Utility} from "../utility/Utility";
+import {StorageService} from "../utility/StorageService";
 
 
 export declare var jQuery: any;
@@ -21,11 +23,15 @@ export class CompanyDashboardComponent implements OnInit {
   private adminsArray: Array<Admin> = [];
   private router;
   private route;
+  private utility: Utility;
+  private storageService: StorageService;
 
-  constructor(_httpService: HTTPService, _router: Router, _route: ActivatedRoute) {
+  constructor(_httpService: HTTPService, _router: Router, _route: ActivatedRoute, _storageService: StorageService) {
     this.httpService = _httpService;
     this.router = _router;
     this.route = _route;
+    this.storageService = _storageService;
+    this.utility = new Utility(this.router, this.route, this.storageService);
   }
 
 
@@ -65,13 +71,11 @@ export class CompanyDashboardComponent implements OnInit {
   }
 
   reportRoute(ndx) {
-    // this.router.navigate(['./addadmin']);
-
     this.router.navigate(['report', ndx], {relativeTo: this.route});
-    // this.router.navigateByUrl("addadmin");
-    // this.router.navigate(['/company', {outlets: {main: 'addadmin'}}]);
-    // this.router.navigateByUrl("/addadmin)");
-    // this.router.navigate(['/addadmin']);
+  }
+
+  logout() {
+    this.utility.logoutFromApplication();
   }
 
 

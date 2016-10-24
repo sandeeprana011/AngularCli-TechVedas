@@ -21,13 +21,13 @@ export class RoutercompComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    this.setParamForLogout();
-
-    this.ngZone.runOutsideAngular(() => {
-      location.reload();
-    });
-  }
+  // logout() {
+  //   this.setParamForLogout();
+  //
+  //   this.ngZone.runOutsideAngular(() => {
+  //     location.reload();
+  //   });
+  // }
 
   private setParamForLogout() {
     Config.LOGIN_TYPE = '';
@@ -39,7 +39,7 @@ export class RoutercompComponent implements OnInit {
 
     // console.debug(data + "Data downloaded login")
 
-    jQuery("#login").get(0).click();
+    // jQuery("#login").get(0).click();
 
   }
 

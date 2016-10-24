@@ -42,10 +42,10 @@ export class LoginModuleComponent implements OnInit {
 
     if (username === null || username === "" || password === null || password === "" || adminID === null || adminID === "") {
       // jQuery('#needToLoginIn').openModal();
-      this.hideBuilder();
-      this.hideCompany();
-      this.hideLogin();
-      this.hideLogout();
+      // this.hideBuilder();
+      // this.hideCompany();
+      // this.hideLogin();
+      // this.hideLogout();
     } else {
       console.debug(username + password + adminID);
       Config.USERNAME = username;
@@ -55,10 +55,10 @@ export class LoginModuleComponent implements OnInit {
 
       console.debug("ngOnInit from Login module");
 
-      this.hideBuilder();
-      this.hideLogin();
-      this.hideCompany();
-      this.showLogout();
+      // this.hideBuilder();
+      // this.hideLogin();
+      // this.hideCompany();
+      // this.showLogout();
 
       if (loginType === Const.COMPANY) {
         this.clickOnCompany()
@@ -107,8 +107,7 @@ export class LoginModuleComponent implements OnInit {
     this.storeToLocalStorage();
 
     this.clickBuilder();
-    this.hideCompany();
-    this.showBuilder();
+
   }
 
 
@@ -123,8 +122,6 @@ export class LoginModuleComponent implements OnInit {
     // console.debug(data.toString() + "Data downloaded login");
 
     this.clickOnCompany();
-    this.hideBuilder();
-    this.showCompany();
 
   }
 
@@ -133,7 +130,7 @@ export class LoginModuleComponent implements OnInit {
     this.storageService.writeString(Const.ADMIN_ID, Config.ID_FOR_ALL);
     this.storageService.writeString(Const.USERNAME, this.username);
     this.storageService.writeString(Const.PASSWORD, this.password);
-    jQuery('#login').hide();
+
   }
 
   private clickOnCompany() {
@@ -142,9 +139,6 @@ export class LoginModuleComponent implements OnInit {
 
 
   private clickBuilder() {
-
     this.router.navigate(['builder']);
-
-
   }
 }
