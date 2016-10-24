@@ -1,6 +1,7 @@
 <div>
   <div style="display: block">
-    <div *ngFor="let charto of listCharts;let ndx=index;">
+    <div class="row">
+      <div *ngFor="let charto of listCharts;let ndx=index;" class="padding20">
       <div>
         <p>Q {{ndx+1}}. {{charto.question}}</p>
         <!--<p>{{charto.question_type}}</p>-->
@@ -13,6 +14,7 @@
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
       </div>
+    </div>
     </div>
   </div>
 </div>

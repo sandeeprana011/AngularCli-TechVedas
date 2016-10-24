@@ -1,3 +1,4 @@
+import {Config} from "../config";
 export class UrlFactory {
   public static protocolUrl() {
     return "http";
@@ -65,6 +66,11 @@ export class UrlFactory {
 
   static getUrlDownloadReport(surveyId: string) {
     return UrlFactory.urlBase() + "admin/report/survey/" + surveyId;
+  }
+
+  static getUrlDownloadReportWithAuthentication(surveyId: string) {
+    return UrlFactory.protocolUrl() + "://" + Config.USERNAME + ":" + Config.PASSWORD + "@" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/" + "company/report/survey/download/" + surveyId;
+    // http://localhost:8051/v1/company/report/survey/1
   }
 
   static getUrlInitCompany() {

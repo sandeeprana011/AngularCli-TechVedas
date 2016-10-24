@@ -32,12 +32,13 @@ ul {
   font-size: 12px;
   padding: 15px;
   color: #afafaf;
-  cursor: hand;
+
   text-transform: uppercase;
 }
 
 .headnavitem:hover {
   color: #38d0d5;
+  cursor: hand;
 }
 
 

@@ -29,7 +29,7 @@ export class CompanyDashboardComponent implements OnInit {
 
   heading: string;
   description: string;
-
+  reportUrl: string;
 
   constructor(_httpService: HTTPService, _router: Router, _route: ActivatedRoute, _storageService: StorageService) {
     this.httpService = _httpService;
@@ -63,6 +63,7 @@ export class CompanyDashboardComponent implements OnInit {
 
   private updateAllViews(data: any) {
 
+
     var dataJson = JSON.parse(data);
     this.company.initWithData(dataJson[Const.COMPANY]);
     let admins = [];
@@ -71,7 +72,7 @@ export class CompanyDashboardComponent implements OnInit {
       this.adminsArray.push(new Admin().initWithData(adme))
     }
 
-    console.log("admin", admins.pop().surveys);
+    // console.log("admin", admins.pop().surveys);
 
   }
 
@@ -79,6 +80,10 @@ export class CompanyDashboardComponent implements OnInit {
     this.router.navigate(['report', surveya.survey_id], {relativeTo: this.route});
     this.heading = surveya.survey_name;
     this.description = surveya.survey_description;
+    this.reportUrl = UrlFactory.getUrlDownloadReportWithAuthentication(surveya.survey_id);
+    
+    console.debug(this.reportUrl);
+
   }
 
   logout() {

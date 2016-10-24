@@ -60,23 +60,14 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
 
   }
 
-  public someFunct() {
-    console.debug("Some func called");
-
-
-  }
-
-  public doughnutChartLabels: string[] = ['Male', 'Female', 'Not Defined', 'Didn\'t revelaed', 'laila', 'sngit', 'shell'];
-  public doughnutChartData: number[] = [35, 35, 10, 42, 40, 42, 22];
-  public doughnutChartType: string = 'doughnut';
 
   // events
   public chartClicked(e: any): void {
-    console.log(e);
+    // console.log(e);
   }
 
   public chartHovered(e: any): void {
-    console.log(e);
+    // console.log(e);
   }
 
   private updateViews(dalta: any) {
@@ -101,7 +92,7 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
 
       this.listCharts.push(charte);
     }
-    console.debug(this.listCharts);
+    // console.debug(this.listCharts);
 
   }
 }
