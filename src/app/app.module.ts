@@ -20,7 +20,7 @@ import {CompanyDashboardComponent} from "./company-dashboard/company-dashboard.c
 import {ReportAdminComponent} from "./report-admin/report-admin.component";
 import {ChartsModule} from "ng2-charts";
 import {AddAdminComponent} from "./add-admin/add-admin.component";
-import {Utility} from "./utility/Utility";
+import {SignupCompanyComponent} from "./signup-company/signup-company.component";
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import {Utility} from "./utility/Utility";
     LoginModuleComponent,
     CompanyDashboardComponent,
     ReportAdminComponent,
-    AddAdminComponent
+    AddAdminComponent,
+    SignupCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,7 @@ import {Utility} from "./utility/Utility";
     RouterModule.forRoot([
       {path: "", component: LoginModuleComponent},
       {path: 'manager', component: AppComponent},
+      {path: 'signup', component: SignupCompanyComponent},
       {path: 'builder', component: AdminAppComponent},
       {path: 'login', component: LoginModuleComponent},
       {

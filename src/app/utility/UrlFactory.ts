@@ -88,4 +88,8 @@ export class UrlFactory {
   static getUrlCompanyReportSurvey(id: any) {
     return UrlFactory.urlBase() + "company/report/survey/" + id;
   }
+
+  static getUrlSignUp() {
+    return UrlFactory.urlBase() + "company/create";
+  }
 }

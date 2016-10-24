@@ -1,0 +1,47 @@
+<div>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="company_name" type="text" class="validate" [(ngModel)]="company.company_name"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="company_name">Company Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate" [(ngModel)]="company.company_website"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="last_name">Website</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" [(ngModel)]="company.company_password"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="retypepassword" type="text" class="validate" [(ngModel)]="retypePassword"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="retypepassword">Re-type Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" [(ngModel)]="company.company_email"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="phone" type="number" class="validate" [(ngModel)]="company.company_phone"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="phone">Phone</label>
+        </div>
+      </div>
+      <button (click)="registerNewCompany()">Register</button>
+    </form>
+  </div>
+</div>
