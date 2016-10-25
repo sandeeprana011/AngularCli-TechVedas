@@ -24,6 +24,9 @@ export class SurveyContainerComponent implements OnInit {
   @Input() surveys: Array<Survey>;
   @Input() adminId: string;
 
+  heading: string;
+  description: string;
+
   mySurvey: Survey = new Survey("", "", "", "", "", "", "", "", "", 0);
   // textarea: string = "textarea";
 
@@ -87,8 +90,15 @@ export class SurveyContainerComponent implements OnInit {
 
   surveyItemClicked(ndx) {
     this.indexSurveySeleted = ndx;
-    let surveyId: string = this.q.surveysList[ndx].survey_id;
-    let url: string = UrlFactory.getUrlQuestionsListInASurvey(surveyId);
+    let survey: Survey = this.q.surveysList[ndx];
+
+    this.heading = survey.survey_name;
+    this.description = survey.survey_description;
+
+    // let surveyId: string = survey.survey_id;
+    let url: string = UrlFactory.getUrlQuestionsListInASurvey(survey.survey_id);
+
+
     this.httpService.listAllQuestions(url)
       .subscribe(
         data=>this.updateQuestionsList(data, ndx),
@@ -97,13 +107,6 @@ export class SurveyContainerComponent implements OnInit {
       );
 
     this.q.reportUrl = UrlFactory.getUrlDownloadReport(surveyId);
-
-    // this.q.quest.splice(0, this.q.quest.length);
-    // for (var question of this.q.surveysList[ndx].questions) {
-    //     this.q.quest.push(question);
-    // }
-
-    // console.debug(this.q.quest);
   }
 
   createNewSurvey() {

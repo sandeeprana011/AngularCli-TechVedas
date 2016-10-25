@@ -74,6 +74,18 @@
       </a>
 
     </div>
+    <div class="fullWidth">
+      <ul class="collapsible z-depth-0" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header active">
+            <h5 class="center-align bold">{{heading}}</h5>
+          </div>
+          <div class="collapsible-body">
+            <p class="center-align">{{description}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
     <div class="fullWidth" style="padding: 40px;background-color: #eaeaea">
       <div class="z-depth-1 boardpaper padding20">
         <questionslist [questionsArray]="q.quest" [adminId]="q.adminId" [surveyId]="q.surveyId"></questionslist>

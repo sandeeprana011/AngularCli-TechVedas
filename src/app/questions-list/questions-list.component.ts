@@ -15,9 +15,13 @@ export declare var jQuery: any;
 
 export class QuestionsListComponent implements OnInit {
 
+
+
   @Input() surveyId: string;
   @Input() adminId: string;
   @Input() questionsArray: Array<Question>;
+
+
   private httpService: HTTPService;
 
 
