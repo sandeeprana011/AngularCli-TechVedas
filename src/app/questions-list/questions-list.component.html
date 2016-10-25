@@ -2,18 +2,15 @@
   <ul class="collapsible z-depth-0" data-collapsible="accordion">
     <li *ngFor="let qu of q.questionsList; let ndx=index">
       <div class="collapsible-header  z-depth-0">
-        <div class="col s10 l10 m10"><i class="material-icons">filter_drama</i>Q {{ndx+1}} :
+        <div class="col s9 l9 m9"><i class="material-icons">assignment</i>Q {{ndx+1}} :
           {{qu.question_text}}
         </div>
-        <div class="col s2 l2 m2">
-          {{qu.question_type.toUpperCase()}}
+        <div class="col s3 l3 m3">
+          {{qu.question_type.toUpperCase()}} <i class="material-icons right hoverable">mode_edit</i>
         </div>
       </div>
       <div class="collapsible-body  z-depth-0">
-        <!--dfjklajdf<br>-->
-        <!--adjsfkljadfk<br>-->
-        <!--ajfdklajfkldja<br>-->
-        <!--ajfdkljakfd-->
+
         <div>
           <questiontext [qindex]="ndx" [question]="qu" [questionArrayList]="q.questionsList"
                         *ngIf="qu.question_type==='text'"></questiontext>

@@ -3,6 +3,8 @@ import {Question} from "../databasestructure/Question";
 import {HTTPService} from "../utility/HTTPService";
 import {Input} from "@angular/core/src/metadata/directives";
 
+
+export declare var jQuery: any;
 @Component({
 
   templateUrl: './questions-list.component.html',
@@ -41,6 +43,7 @@ export class QuestionsListComponent implements OnInit {
 
     question.question_options_array = [];
     this.questionsArray.push(question);
+
     // console.debug(question);
   }
 
