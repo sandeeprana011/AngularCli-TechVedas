@@ -37,13 +37,13 @@ export class QuestionRadioComponent implements OnInit {
   }
 
   saveQuestionClicked() {
-    console.debug("questiontext " + this.ques.question.question_text);
-    console.debug("id" + this.ques.question.question_id);
-    console.debug("survey_id" + this.ques.question.survey_id);
+    // console.debug("questiontext " + this.ques.question.question_text);
+    // console.debug("id" + this.ques.question.question_id);
+    // console.debug("survey_id" + this.ques.question.survey_id);
     // console.debug(this.ques.question.question_options_array);
-    for (var opt of this.ques.question.question_options_array) {
-      console.debug(opt.option_text);
-    }
+    // for (var opt of this.ques.question.question_options_array) {
+    // console.debug(opt.option_text);
+    // }
 
     let jsonObj;
     let parserQuestion: ObjectToRequestBodyParser = new ObjectToRequestBodyParser();

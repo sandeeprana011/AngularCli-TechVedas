@@ -1,12 +1,1 @@
-<div>
-  <div class="fullWidth" style="padding: 15px;">
-    <a class="headnavitem" (click)="logout()">Logout</a>
-    <a class="headnavitem" [routerLink]="'/manager'" routerLinkActive="active">manager</a>
-  </div>
-  <div class="row">
-    <div class="col s12 l12 m12">
-      <surveycontainer [surveys]="surveysArray" [adminId]="adminId"></surveycontainer>
-    </div>
-  </div>
-
-</div>
+ <surveycontainer [surveys]="surveysArray" [adminId]="adminId"></surveycontainer>

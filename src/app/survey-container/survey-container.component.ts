@@ -58,8 +58,6 @@ export class SurveyContainerComponent implements OnInit {
   ngOnInit() {
 
     let username: string = this.storageService.readString(Const.USERNAME);
-
-
     let password: string = this.storageService.readString(Const.PASSWORD);
     let adminID: string = this.storageService.readString(Const.ADMIN_ID);
 

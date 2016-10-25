@@ -93,3 +93,69 @@
 .bold {
   font-weight: bold;
 }
+
+.row {
+  padding: 0;
+  margin: 0;
+}
+
+.col {
+
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+
+  padding: 0;
+  margin: 0;
+}
+
+.fullHeight {
+  height: 100vh;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.boardpaper {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.headnavitem {
+  font-size: 12px;
+  padding: 15px;
+  color: #afafaf;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.headnavitem:hover {
+  color: #38d0d5;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
