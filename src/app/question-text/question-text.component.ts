@@ -40,9 +40,9 @@ export class QuestionTextComponent implements OnInit {
   }
 
   saveQuestionClicked() {
-    console.debug("questiontext " + this.ques.question.question_text);
-    console.debug("id" + this.ques.question.question_id);
-    console.debug("survey_id" + this.ques.question.survey_id);
+    // console.debug("questiontext " + this.ques.question.question_text);
+    // console.debug("id" + this.ques.question.question_id);
+    // console.debug("survey_id" + this.ques.question.survey_id);
     // console.debug(this.ques.question);
     // let mine: string = JSON.stringify(this.ques.question);
     let jsonObj: {[key: string]: Object} = {};

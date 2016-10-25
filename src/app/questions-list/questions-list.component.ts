@@ -36,7 +36,7 @@ export class QuestionsListComponent implements OnInit {
       questionType = "text";
     }
     // let quest: Question = new Question("questionid", "questiontext", questionType, this.surveyId, this.adminId, "0", "0", "crettime", "updatetime");
-    let question: Question = new Question(null, "questiontext", questionType, this.surveyId, this.adminId, "0", "0", "", "");
+    let question: Question = new Question(null, "", questionType, this.surveyId, this.adminId, "0", "0", "", "");
 
 
     question.question_options_array = [];
