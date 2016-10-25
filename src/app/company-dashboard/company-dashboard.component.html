@@ -1,0 +1,81 @@
+<div class="row fullHeight">
+  <div class="col s3 l3 m3">
+    <ul class="collapsible fullHeight" data-collapsible="expandable">
+      <li
+        style="background: url('http://localhost:4200/app/images/backgroundprofile.png') ; background-size: cover">
+        <div class="valign-wrapper">
+          <div class="center-align col m12 l12 s12" style="height: 30vh">
+            <h6>{{company.company_name}}</h6>
+            <h6>{{company.company_email}}</h6>
+            <h6>{{company.company_phone}}</h6>
+            <h6>{{company.company_website}}</h6>
+          </div>
+        </div>
+      </li>
+
+      <li *ngFor="let admino of adminsArray;let ndx=index;">
+        <a class="collapsible-header"><i class="material-icons">place</i>{{(admino.admin_name!=null&&admino.admin_name!="")?admino.admin_name:admino.admin_email}}</a>
+        <div class="collapsible-body">
+
+          <div [ngSwitch]="admino.verify_status">
+            <div *ngSwitchCase="'verified'">
+              <a class="btn col s12 l12 m12" *ngFor="let surveyo of admino.surveyListing;let ndx=index;"
+                 (click)="reportRoute(surveyo)">{{surveyo.survey_name}}</a>
+            </div>
+            <div *ngSwitchCase="'pending'">
+              <p>{{admino.admin_email}} is not verified yet. Invitation Pending! </p>
+            </div>
+            <div *ngSwitchDefault>
+              <div>
+                <p>{{admino.admin_email}} is not verified yet.</p>
+              </div>
+            </div>
+          </div>
+          <div>
+          </div>
+        </div>
+      </li>
+      <!--[routerLink]="['./addadmin']"-->
+      <!--<li>-->
+      <!--<a class="collapsible-header" (click)="reportRoute()"><i class="material-icons">add</i>Router</a>-->
+      <!--<div class="collapsible-body"></div>-->
+      <!--</li>-->
+      <li>
+        <a [routerLink]="['./invite']" routerLinkActive="active" class="collapsible-header"><i
+          class="material-icons">add</i>Add
+          Admin</a>
+        <div class="collapsible-body"></div>
+      </li>
+
+    </ul>
+  </div>
+  <div class="fullWidth">
+    <div class="fullWidth white padding10">
+      <a class="headnavitem">All Admins</a>
+      <a class="headnavitem">All Surveys</a>
+      <a class="headnavitem">Inbox</a>
+      <a (click)="logout()" class="headnavitem">Logout</a>
+    </div>
+    <div style="height: 1px;background: lightgrey"></div>
+    <div class="fullWidth white padding10">
+      <ul class="collapsible z-depth-0" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header active">
+            <h5 class="center-align bold">{{heading}}</h5>
+          </div>
+          <div class="collapsible-body">
+            <p class="center-align">{{description}}</p>
+            <div class="fullWidth">
+              <a class="headnavitem" href="{{reportUrl}}"><i class="play_for_work"></i>Download Report</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col s9 l9 m9 fullWidth" style="padding: 40px;background-color: #eaeaea">
+      <div class="z-depth-1 boardpaper padding20">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

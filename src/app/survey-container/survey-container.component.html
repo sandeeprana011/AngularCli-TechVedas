@@ -1,0 +1,213 @@
+<div class="row">
+  <div class="col s3 l3 m3">
+    <div>
+      {{q.username}}
+      <br><br><br>
+    </div>
+    <div class="col s12 l12 m12 paddingmargin0" *ngFor="let survey of q.surveysList;let ndx=index">
+      <div class="padding5 surveybutton paddingmargin0" (click)="surveyItemClicked(ndx)">
+        <i class="material-icons left">view_list</i>
+        <h6>{{survey.survey_name}}</h6>
+        <div class="survey-description">{{survey.survey_description}}</div>
+        <div style="height: 1px;background-color: #00acc1"></div>
+      </div>
+    </div>
+    <div class="col s12 l12 m12">
+      <div class="padding5 surveybutton" onclick="$('#modal1').openModal();">
+        <p class=""><i class="material-icons left">add</i>Create New Survey</p>
+        <!--<a class="btn" onclick="Materialize.toast('I am a toast', 4000)">Toast!</a>-->
+        <!-- Modal Trigger -->
+
+        <!-- Modal Structure -->
+
+      </div>
+    </div>
+  </div>
+
+
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  <!--###################################################################################################################-->
+  <!--                                                    Right Container                                                      -->
+  <!--###################################################################################################################-->
+
+
+  <div class="col s9 l9 m9">
+    <div class="fullWidth" style="padding: 15px;">
+      <a class="headnavitem" (click)="logout()">Logout</a>
+      <a class="headnavitem" [routerLink]="'/manager'" routerLinkActive="active">manager</a>
+    </div>
+
+
+    <div class="fullWidth teal" style="height: 1px"></div>
+    <div class="row headnavitem">
+      <a class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
+         type="button" name="action"><i class="material-icons right">send</i>Publish Survey
+      </a>
+
+      <a class="headnavitem" onclick="$('#modalDeleteSurvey').openModal();"
+         type="button" name="action">Delete Survey
+        <i class="material-icons right">delete</i>
+      </a>
+
+      <a class="headnavitem" href="{{q.reportUrl}}" type="button"
+         name="action">View Stats
+        <i class="material-icons right">trending_up</i>
+      </a>
+
+      <a class="headnavitem" type="button" name="action">Finish Survey
+        <i class="material-icons right">done_all</i>
+      </a>
+
+    </div>
+    <div class="fullWidth" style="padding: 40px;background-color: #eaeaea">
+      <div class="z-depth-1 boardpaper padding20">
+        <questionslist [questionsArray]="q.quest" [adminId]="q.adminId" [surveyId]="q.surveyId"></questionslist>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+
+<!--###########################################################################################################################-->
+<!--                                                       Modal Dialogs Start from here                                       -->
+<!--###########################################################################################################################-->
+
+
+
+
+<!--Modal Dialog Appear on clicking the new survey for the first time we use -->
+<div id="modal1" class="modal white">
+  <div class="modal-content">
+    <h4>Create New Survey</h4>
+    <!--<p>A bunch of text</p>-->
+    <div class="input-field col s12">
+      <input placeholder="Survey Name" id="survey_name" type="text" class="validate"
+             [ngModelOptions]="{standalone: true}" [(ngModel)]="mySurvey.survey_name">
+      <label for="survey_name">Survey Name</label>
+    </div>
+    <div class="input-field col s12">
+      <!--<textarea id="textarea1" class="materialize-textarea" length="120"></textarea>-->
+
+      <input placeholder="Description Here" id="survey_description" type="text"
+             class="materialize-textarea"
+             length="500"
+             [ngModelOptions]="{standalone: true}" [(ngModel)]="mySurvey.survey_description">
+      <label for="survey_description">Description Here</label>
+    </div>
+    <div class="col s6">
+      <label for="startDate">Survey Start Date</label>
+      <input id="startDate" type="date" class="datepicker" [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="mySurvey.survey_starttime">
+    </div>
+    <div class="col s6">
+      <label for="endDate">Survey End Date</label>
+      <input id="endDate" type="date" class="datepicker" [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="mySurvey.survey_endtime">
+    </div>
+
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" (click)="createNewSurvey()">Create
+      Survey</a>
+  </div>
+</div>
+
+<div id="modalDeleteSurvey" class="modal white">
+  <div class="modal-content">
+    <h6>Do you really wants to delete this Survey?</h6>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-ripple btn-flat red white-text"
+       (click)="deleteSurveyView()">Delete
+      Survey</a>
+  </div>
+</div>
+
+<div id="modalPublishSurvey" class="modal white rounded">
+  <div class="modal-content">
+    <h5>Do you really wants to publish this Survey?</h5>
+    <p class="grey-text">
+      Note: <b>After publish. You cann't edit Survey.</b>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+       (click)="publishSurveyView()">Publish
+      Survey</a>
+  </div>
+</div>
+
+<div id="modalInformationError" class="modal white rounded">
+  <div class="modal-content">
+    <p id="headingInformation">Some message</p>
+
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+    >OK</a>
+  </div>
+</div>
+
+<div id="needToLoginIn" class="modal white rounded">
+  <div class="modal-content">
+    <div class="col s12 l12 m12">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Please Login :
+      </p>
+    </div>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="icon_prefix" type="email" class="validate" [ngModelOptions]="{standalone: true}"
+                   [(ngModel)]="q.username">
+            <label for="icon_prefix">email</label>
+          </div>
+          <div class="input-field col s12 m12 l12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="icon_telephone" type="password" class="validate" [ngModelOptions]="{standalone: true}"
+                   [(ngModel)]="q.password">
+            <label for="icon_telephone">password</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a id="loginButton" (click)="loginUserView()"
+       class=" modal-action waves-effect waves-ripple btn-flat green white-text"
+    >OK</a>
+  </div>
+</div>
