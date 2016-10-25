@@ -29,7 +29,8 @@ export class AddAdminComponent implements OnInit {
 
   createUser() {
     let jsonDat = {};
-    jsonDat[Const.ADMIN_ID] = this.email;
+    jsonDat[Const.ADMIN_EMAIL] = this.email;
+    // console.debug(jsonDat);
 
     this.httpService.requestPostObservableNew(UrlFactory.inviteNewAdmin(), JSON.stringify(jsonDat))
       .subscribe(

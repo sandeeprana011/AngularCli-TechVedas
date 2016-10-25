@@ -11,11 +11,11 @@
         <p>Add more admins to make it easy to handle</p>
       </div>
       <div class="input-field col s12">
-        <input id="email" value="{{admin_email}}" type="email" class="validate">
+        <input id="email" [(ngModel)]="email" type="email" class="validate">
         <label for="email">Email address</label>
       </div>
       <div class="row">
-        <button class="btn orange z-depth-0">
+        <button (click)="createUser()" class="btn orange z-depth-0">
           Send Invite
         </button>
       </div>
