@@ -37,6 +37,7 @@ export class SurveyContainerComponent implements OnInit {
   private indexSurveySeleted;
   private storageService: StorageService;
   private ngzone;
+  private selectedSurvey: Survey = new Survey("", "", "", "", "", "", "", "", "", 0);
 
 
   constructor(_httpService: HTTPService, _storageService: StorageService, _ngZone: NgZone) {
@@ -90,13 +91,13 @@ export class SurveyContainerComponent implements OnInit {
 
   surveyItemClicked(ndx) {
     this.indexSurveySeleted = ndx;
-    let survey: Survey = this.q.surveysList[ndx];
+    this.selectedSurvey = this.q.surveysList[ndx];
 
-    this.heading = survey.survey_name;
-    this.description = survey.survey_description;
+    this.heading = this.selectedSurvey.survey_name;
+    this.description = this.selectedSurvey.survey_description;
 
     // let surveyId: string = survey.survey_id;
-    let url: string = UrlFactory.getUrlQuestionsListInASurvey(survey.survey_id);
+    let url: string = UrlFactory.getUrlQuestionsListInASurvey(this.selectedSurvey.survey_id);
 
 
     this.httpService.listAllQuestions(url)
@@ -106,7 +107,7 @@ export class SurveyContainerComponent implements OnInit {
         ()=>console.debug("Done")
       );
 
-    this.q.reportUrl = UrlFactory.getUrlDownloadReport(surveyId);
+    this.q.reportUrl = UrlFactory.getUrlDownloadReport(this.selectedSurvey.survey_id);
   }
 
   createNewSurvey() {

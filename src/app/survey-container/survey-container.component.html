@@ -82,7 +82,23 @@
           </div>
           <div class="collapsible-body">
             <p class="center-align">{{description}}</p>
+            <div class="row fullWidth">
+              <div class="col s3 l3 m3">
+                Total Questions : {{selectedSurvey.questions!=null?selectedSurvey.questions.length:0}}
+              </div>
+              <div class="col s3 l3 m3">
+                Start Time : {{selectedSurvey.survey_starttime}}
+              </div>
+              <div class="col s3 l3 m3">
+                End Time : {{selectedSurvey.survey_endtime}}
+              </div>
+              <div class="col s3 l3 m3">
+                Availablity Status : {{selectedSurvey.is_published?"Published":"Not Published yet"}}
+              </div>
+            </div>
+
           </div>
+
         </li>
       </ul>
     </div>
