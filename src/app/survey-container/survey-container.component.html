@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col s3 l3 m3">
-    <div>
+  <div class="col s3 l3 m3 brown darken-4">
+    <div class="white">
       {{q.username}}
       <br><br><br>
     </div>
     <div class="col s12 l12 m12 paddingmargin0" *ngFor="let survey of q.surveysList;let ndx=index">
-      <div class="padding5 surveybutton paddingmargin0" (click)="surveyItemClicked(ndx)">
+      <div class="headnavitem" (click)="surveyItemClicked(ndx)">
         <i class="material-icons left">view_list</i>
         <h6>{{survey.survey_name}}</h6>
-        <div class="survey-description">{{survey.survey_description}}</div>
+        <!--<div class="survey-description">{{survey.survey_description}}</div>-->
         <div style="height: 1px;background-color: #00acc1"></div>
       </div>
     </div>
@@ -82,18 +82,18 @@
           </div>
           <div class="collapsible-body">
             <p class="center-align">{{description}}</p>
-            <div class="row fullWidth">
-              <div class="col s3 l3 m3">
+            <div class="row fullWidth" style="padding: 15px;">
+              <div class="col s3 l3 m3 center-align">
                 Total Questions : {{selectedSurvey.questions!=null?selectedSurvey.questions.length:0}}
               </div>
-              <div class="col s3 l3 m3">
+              <div class="col s3 l3 m3 center-align">
                 Start Time : {{selectedSurvey.survey_starttime}}
               </div>
-              <div class="col s3 l3 m3">
+              <div class="col s3 l3 m3 center-align">
                 End Time : {{selectedSurvey.survey_endtime}}
               </div>
-              <div class="col s3 l3 m3">
-                Availablity Status : {{selectedSurvey.is_published?"Published":"Not Published yet"}}
+              <div class="col s3 l3 m3 center-align">
+                Status : {{selectedSurvey.is_published?"Published":"Not Published yet"}}
               </div>
             </div>
 
