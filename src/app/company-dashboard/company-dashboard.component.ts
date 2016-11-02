@@ -26,6 +26,7 @@ export class CompanyDashboardComponent implements OnInit {
   private route;
   private utility: Utility;
   private storageService: StorageService;
+  private showHeaderDetails: boolean;
 
   heading: string;
   description: string;
@@ -77,17 +78,23 @@ export class CompanyDashboardComponent implements OnInit {
   }
 
   reportRoute(surveya: Survey) {
+    this.showHeaderDetails = true;
     this.router.navigate(['report', surveya.survey_id], {relativeTo: this.route});
     this.heading = surveya.survey_name;
     this.description = surveya.survey_description;
     this.reportUrl = UrlFactory.getUrlDownloadReportWithAuthentication(surveya.survey_id);
-    
+
     console.debug(this.reportUrl);
 
   }
 
   logout() {
     this.utility.logoutFromApplication();
+  }
+
+  profileView() {
+    this.router.navigate(['profileCompany'], {relativeTo: this.route});
+    this.showHeaderDetails = false;
   }
 
 

@@ -4,7 +4,7 @@
       <li
         style="background: url('http://localhost:4200/app/images/backgroundprofile.png') ; background-size: cover">
         <div class="valign-wrapper">
-          <div class="center-align col m12 l12 s12" style="height: 30vh">
+          <div class="center-align col m12 l12 s12 hoverableLove" style="height: 30vh" (click)="profileView()">
             <h6>{{company.company_name}}</h6>
             <h6>{{company.company_email}}</h6>
             <h6>{{company.company_phone}}</h6>
@@ -54,10 +54,11 @@
       <a class="headnavitem">All Admins</a>
       <a class="headnavitem">All Surveys</a>
       <a class="headnavitem">Inbox</a>
+      <a class="headnavitem">Inbox</a>
       <a (click)="logout()" class="headnavitem">Logout</a>
     </div>
     <div style="height: 1px;background: lightgrey"></div>
-    <div class="fullWidth white padding10">
+    <div class="fullWidth white padding10" [hidden]="!showHeaderDetails">
       <ul class="collapsible z-depth-0" data-collapsible="accordion">
         <li>
           <div class="collapsible-header active">

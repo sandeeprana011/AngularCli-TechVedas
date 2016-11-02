@@ -21,6 +21,7 @@ import {ReportAdminComponent} from "./report-admin/report-admin.component";
 import {ChartsModule} from "ng2-charts";
 import {AddAdminComponent} from "./add-admin/add-admin.component";
 import {SignupCompanyComponent} from "./signup-company/signup-company.component";
+import {CompanyprofileComponent} from "./companyprofile/companyprofile.component";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {SignupCompanyComponent} from "./signup-company/signup-company.component"
     CompanyDashboardComponent,
     ReportAdminComponent,
     AddAdminComponent,
-    SignupCompanyComponent
+    SignupCompanyComponent,
+    CompanyprofileComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import {SignupCompanyComponent} from "./signup-company/signup-company.component"
         children: [
           {path: "", component: AddAdminComponent},
           {path: 'report/:id', component: ReportAdminComponent},
-          {path: 'invite', component: AddAdminComponent}
+          {path: 'invite', component: AddAdminComponent},
+          {path: 'profileCompany', component: CompanyprofileComponent}
         ]
 
       }

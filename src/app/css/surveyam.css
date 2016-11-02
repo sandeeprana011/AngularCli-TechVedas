@@ -25,6 +25,12 @@
   padding: 10px;
 }
 
+.paddingleft {
+  margin: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .padding20 {
   padding: 10px;
 }
@@ -141,7 +147,22 @@ ul {
   background-color: #f8f8f8;
 }
 
+.hoverableLove {
+  color: white;
+  background-color: #008595;
+  cursor: pointer;
+}
 
+.hoverableLove:hover {
+  color: white;
+  background-color: #2ca0b4;
+  cursor: pointer;
+}
+
+.chipedit{
+  color: #2ca0b4;
+  background-color: white;
+}
 
 
 

@@ -8,6 +8,8 @@ import {Survey} from "../databasestructure/Survey";
 import {ObjectToRequestBodyParser} from "../QuestionToRequestBodyParser";
 import {StorageService} from "../utility/StorageService";
 import {Input} from "@angular/core/src/metadata/directives";
+import {Utility} from "../utility/Utility";
+import {Router, ActivatedRoute} from "@angular/router";
 // import {jQuery} from "../app/app.component";
 export declare var jQuery: any;
 
@@ -38,14 +40,20 @@ export class SurveyContainerComponent implements OnInit {
   private storageService: StorageService;
   private ngzone;
   private selectedSurvey: Survey = new Survey("", "", "", "", "", "", "", "", "", 0);
+  private utility: Utility;
+  private router: Router;
+  private route: ActivatedRoute;
 
 
-  constructor(_httpService: HTTPService, _storageService: StorageService, _ngZone: NgZone) {
+  constructor(_httpService: HTTPService, _storageService: StorageService, _ngZone: NgZone, _router: Router, _route: ActivatedRoute) {
     this.httpService = _httpService;
     this.storageService = _storageService;
+    this.router = _router;
+    this.route = _route;
     this.storageService.write("fuck", "somedata");
     this.ngzone = _ngZone;
     // console.debug(this.storageService.read("fuck"));
+    this.utility = new Utility(this.router, this.route, this.storageService)
   }
 
   //
@@ -240,6 +248,10 @@ export class SurveyContainerComponent implements OnInit {
     this.ngzone.runOutsideAngular(() => {
       location.reload();
     });
+  }
+
+  logout() {
+    this.utility.logoutFromApplication();
   }
 }
 
