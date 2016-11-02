@@ -5,6 +5,7 @@ import {StorageService} from "../utility/StorageService";
 import {HTTPService} from "../utility/HTTPService";
 import {UrlFactory} from "../utility/UrlFactory";
 import {Const} from "../const";
+import {Config} from "../config";
 
 @Component({
   selector: 'app-companyprofile',
@@ -19,6 +20,8 @@ export class CompanyprofileComponent implements OnInit {
   private route: ActivatedRoute;
   private router: Router;
   private httpService: HTTPService;
+  private passwordRetype: string = "";
+  private passworder: string = "";
 
   constructor(_router: Router, _route: ActivatedRoute, _storageService: StorageService, _httpService: HTTPService) {
     this.router = _router;
@@ -41,7 +44,30 @@ export class CompanyprofileComponent implements OnInit {
   }
 
   saveProfile() {
-    // this.httpService.requestPostObservableNew(UrlFactory.getUrlSaveCompanyProfile(),)
+    let jsoni = JSON.stringify(this.companyToDictionary(this.companyProf));
+
+    this.httpService.requestPostObservableNew(UrlFactory.getUrlSaveCompanyProfile(), jsoni)
+      .subscribe(
+        data=>this.onSavingProfile(data),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("done")
+      )
+  }
+
+  saveNewPassword() {
+    if (this.passworder != this.passwordRetype) {
+      alert("Password don't match!");
+      return;
+    }
+
+    let jsoni = "{\"company_password\":\"" + this.passwordRetype + "\"}"
+
+    this.httpService.requestPostObservableNew(UrlFactory.getUrlSaveNewPassword(), jsoni)
+      .subscribe(
+        data=>this.onSuccessfullyLoginCompany(),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("done")
+      )
   }
 
 
@@ -63,6 +89,35 @@ export class CompanyprofileComponent implements OnInit {
     this.companyProf.company_website = website;
     this.companyProf.company_id = id;
 
-    console.debug(this.companyProf);
+    // console.debug(this.companyProf);
   }
+
+  private onSavingProfile(data: any) {
+    // console.debug(data);
+  }
+
+
+  public companyToDictionary(company: Company) {
+
+    let jsonObj: {[key: string]: Object} = {};
+
+    jsonObj[Const.COMPANY_NAME] = company.company_name;
+    jsonObj[Const.COMPANY_WEBSITE] = company.company_website;
+    jsonObj[Const.COMPANY_PHONE] = company.company_phone;
+
+    return jsonObj;
+  }
+
+
+  private onPasswordChanged(data: any) {
+    console.debug(data);
+  }
+
+  private onSuccessfullyLoginCompany() {
+    Config.PASSWORD = this.passwordRetype;
+    this.storeToLocalStorage();
+    this.storageService.writeString(Const.PASSWORD, this.passwordRetype);
+
+  }
+
 }

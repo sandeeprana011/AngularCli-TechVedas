@@ -38,7 +38,7 @@
     <br>
     <div class="row">
       <div class="col s12 input-field">
-        <button class="btn cyan z-depth-0" [hidden]="disabled">Save Profile</button>
+        <button class="btn cyan z-depth-0" (click)="saveProfile()" [hidden]="disabled">Save Profile</button>
       </div>
     </div>
     <br>
@@ -47,15 +47,17 @@
       <div class="col s12">
         Change Password :
         <div class="input-field inline">
-          <input id="password1" type="password" class="validate">
+          <input id="password1" type="password" class="validate" [(ngModel)]="passworder"
+                 [ngModelOptions]="{standalone: true}">
           <label for="password1" data-error="wrong" data-success="right">Password</label>
         </div>
         <div class="input-field inline">
-          <input id="password2" type="text" class="validate">
+          <input id="password2" type="text" class="validate" [(ngModel)]="passwordRetype"
+                 [ngModelOptions]="{standalone: true}">
           <label for="password2" data-error="wrong" data-success="right">Retype Password</label>
         </div>
         <div class="input-field inline">
-          <button id="savepassword" class="btn cyan z-depth-0">Change Password</button>
+          <button id="savepassword" (click)="saveNewPassword()" class="btn cyan z-depth-0">Change Password</button>
         </div>
       </div>
     </div>

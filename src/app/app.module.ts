@@ -22,6 +22,7 @@ import {ChartsModule} from "ng2-charts";
 import {AddAdminComponent} from "./add-admin/add-admin.component";
 import {SignupCompanyComponent} from "./signup-company/signup-company.component";
 import {CompanyprofileComponent} from "./companyprofile/companyprofile.component";
+import { MapFragmentComponent } from './map-fragment/map-fragment.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {CompanyprofileComponent} from "./companyprofile/companyprofile.component
     ReportAdminComponent,
     AddAdminComponent,
     SignupCompanyComponent,
-    CompanyprofileComponent
+    CompanyprofileComponent,
+    MapFragmentComponent
   ],
   imports: [
     BrowserModule,

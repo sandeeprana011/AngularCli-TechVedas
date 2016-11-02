@@ -96,4 +96,12 @@ export class UrlFactory {
   static getUrlProfileCompany() {
     return UrlFactory.urlBase() + "company/profile";
   }
+
+  static getUrlSaveCompanyProfile() {
+    return UrlFactory.urlBase() + "company/profile/save";
+  }
+
+  static getUrlSaveNewPassword() {
+    return UrlFactory.urlBase() + "company/password";
+  }
 }
