@@ -68,6 +68,10 @@ export class Const {
   static VERIFICATION_STATUS = "verification_status";
   static OPTION_TEXT = "option_text";
   static COUNT = "count";
+  static COMPANY_NAME = "company_name";
+  static COMPANY_EMAIL = "company_email";
+  static COMPANY_WEBSITE = "company_website";
+  static COMPANY_PHONE = "company_phone";
 
 
 }

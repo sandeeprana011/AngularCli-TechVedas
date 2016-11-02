@@ -1,3 +1,63 @@
-<p>
-  companyprofile works!
-</p>
+<div class="row">
+  <form class="col s12">
+    <div class="col l12 m12 s12 right-align">
+      <a class="headnavitem" (click)="editable()">Edit profile</a>
+    </div>
+
+    <div class="row">
+      <!--company_name | company_website | company_email | company_phone | company_password | company_username |-->
+      <!--creation_time | updation_time-->
+
+      <div class="input-field col s6">
+        <input [disabled]="disabled" placeholder="Name" id="company_name" type="text" class="validate"
+               [(ngModel)]="companyProf.company_name" [ngModelOptions]="{standalone: true}">
+        <!--<label [hidden]="disabled" for="company_name">Name</label>-->
+      </div>
+      <div class="input-field col s6">
+        <input [disabled]="disabled" placeholder="Website" id="company_website" type="text" class="validate"
+               [(ngModel)]="companyProf.company_website" [ngModelOptions]="{standalone: true}"
+        >
+        <!--<label for="company_website">Website</label>-->
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input [disabled]="true" placeholder="Email" id="disabled" type="text" class="validate"
+               [(ngModel)]="companyProf.company_email" [ngModelOptions]="{standalone: true}">
+        <!--<label for="disabled">Email</label>-->
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input [disabled]="disabled" placeholder="Phone" id="company_phone" type="number" class="validate"
+               [(ngModel)]="companyProf.company_phone" [ngModelOptions]="{standalone: true}">
+        <!--<label for="company_phone">Phone</label>-->
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col s12 input-field">
+        <button class="btn cyan z-depth-0" [hidden]="disabled">Save Profile</button>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col s12">
+        Change Password :
+        <div class="input-field inline">
+          <input id="password1" type="password" class="validate">
+          <label for="password1" data-error="wrong" data-success="right">Password</label>
+        </div>
+        <div class="input-field inline">
+          <input id="password2" type="text" class="validate">
+          <label for="password2" data-error="wrong" data-success="right">Retype Password</label>
+        </div>
+        <div class="input-field inline">
+          <button id="savepassword" class="btn cyan z-depth-0">Change Password</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

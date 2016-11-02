@@ -92,4 +92,8 @@ export class UrlFactory {
   static getUrlSignUp() {
     return UrlFactory.urlBase() + "company/create";
   }
+
+  static getUrlProfileCompany() {
+    return UrlFactory.urlBase() + "company/profile";
+  }
 }
