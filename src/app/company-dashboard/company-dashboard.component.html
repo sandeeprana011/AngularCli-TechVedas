@@ -18,8 +18,9 @@
         <div class="collapsible-body">
 
           <div [ngSwitch]="admino.verify_status">
-            <div *ngSwitchCase="'verified'">
-              <a class="btn col s12 l12 m12" *ngFor="let surveyo of admino.surveyListing;let ndx=index;"
+            <div class="cyan" *ngSwitchCase="'verified'">
+              <a class="headnavitemCustom col s12 l12 m12 left-align"
+                 *ngFor="let surveyo of admino.surveyListing;let ndx=index;"
                  (click)="reportRoute(surveyo)">{{surveyo.survey_name}}</a>
             </div>
             <div *ngSwitchCase="'pending'">
