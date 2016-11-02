@@ -45,14 +45,14 @@ ul {
   font-size: 12px;
   padding: 15px;
   padding-left: 35px;
-  color: #afafaf;
+  color: #008595;
   text-transform: uppercase;
 }
 
 .headnavitemCustom:hover {
   background-color: gainsboro;
   color: white;
-  cursor: hand;
+  cursor: pointer;
 }
 
 
