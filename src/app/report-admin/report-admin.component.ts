@@ -19,6 +19,7 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
   private router: Router;
   private httpService: HTTPService;
   private listCharts: Array<ChartData> = [];
+  private urlString = UrlFactory.getUrlToMapWithHeatMap(this.id);
 
 
   constructor(_route: ActivatedRoute, _router: Router, _httpService: HTTPService) {
@@ -34,6 +35,7 @@ export class ReportAdminComponent implements OnInit,AfterContentInit {
     });
     console.debug("Survey id for report" + this.id);
 
+    this.urlString = UrlFactory.getUrlToMapWithHeatMap(this.id);
   }
 
 

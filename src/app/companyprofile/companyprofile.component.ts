@@ -115,9 +115,8 @@ export class CompanyprofileComponent implements OnInit {
 
   private onSuccessfullyLoginCompany() {
     Config.PASSWORD = this.passwordRetype;
-    this.storeToLocalStorage();
+    // this.storeToLocalStorage();
     this.storageService.writeString(Const.PASSWORD, this.passwordRetype);
-
   }
 
 }

@@ -104,4 +104,8 @@ export class UrlFactory {
   static getUrlSaveNewPassword() {
     return UrlFactory.urlBase() + "company/password";
   }
+
+  static getUrlToMapWithHeatMap(surveyId: string) {
+    return UrlFactory.urlBase() + "survey/locations/" + surveyId;
+  }
 }

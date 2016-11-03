@@ -206,7 +206,7 @@ export class HTTPService {
       jQuery('#modalInformationError').openModal();
     } else if (status == 401) {
 
-      Utility.logoutFromApplicationWithoutRoute();
+      // Utility.logoutFromApplicationWithoutRoute();
 
       jQuery('#needToLoginIn').openModal();
     } else if (status == 303) {

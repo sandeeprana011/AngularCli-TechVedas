@@ -32,10 +32,10 @@ export class Utility {
   }
 
   static logoutFromApplicationWithoutRoute() {
-    this.storageService.writeString(Const.LOGIN_TYPE, "");
-    this.storageService.writeString(Const.ADMIN_ID, "");
-    this.storageService.writeString(Const.USERNAME, "");
-    this.storageService.writeString(Const.PASSWORD, "");
+    // this.storageService.writeString(Const.LOGIN_TYPE, "");
+    // this.storageService.writeString(Const.ADMIN_ID, "");
+    // this.storageService.writeString(Const.USERNAME, "");
+    // this.storageService.writeString(Const.PASSWORD, "");
     Config.USERNAME = "";
     Config.PASSWORD = "";
     Config.ID_FOR_ALL = "";

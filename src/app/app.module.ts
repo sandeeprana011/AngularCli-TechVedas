@@ -23,6 +23,7 @@ import {AddAdminComponent} from "./add-admin/add-admin.component";
 import {SignupCompanyComponent} from "./signup-company/signup-company.component";
 import {CompanyprofileComponent} from "./companyprofile/companyprofile.component";
 import { MapFragmentComponent } from './map-fragment/map-fragment.component';
+import { UrlersaferPipe } from './urlersafer.pipe';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MapFragmentComponent } from './map-fragment/map-fragment.component';
     AddAdminComponent,
     SignupCompanyComponent,
     CompanyprofileComponent,
-    MapFragmentComponent
+    MapFragmentComponent,
+    UrlersaferPipe
   ],
   imports: [
     BrowserModule,
