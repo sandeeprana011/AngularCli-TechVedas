@@ -1,15 +1,18 @@
 import {Config} from "../config";
 export class UrlFactory {
   public static protocolUrl() {
-    return "http";
+    // return "http";
+    return "https";
   }
 
   public static domainUrl() {
-    return "localhost";
+    return "bheem-sirfireydevs.rhcloud.com";
+    // return "localhost";
   }
 
   public static portUrl() {
-    return "8051";
+    return "";
+    // return "8051";
   }
 
   public static versionApi() {
@@ -17,7 +20,8 @@ export class UrlFactory {
   }
 
   public static urlBase() {
-    return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
+    // return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
+    return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + "" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
   }
 
   public static getUrlUpdateQuestion() {
