@@ -109,7 +109,12 @@
                   Jio Lyf
                   <i class="close material-icons">close</i>
                 </div>
-                <div class="chip chipedit"><input type="text" placeholder="+ add  more"></div>
+                <div class="chip chipedit">
+                  <ng2-completer [(ngModel)]="searchStr" [dataService]="dataService"
+                                 [minSearchLength]="0"
+                                 (selected)="selectedSurveyor($event)" [clearSelected]="true"></ng2-completer>
+                  <!--<input type="text" placeholder="+ add  more">-->
+                </div>
               </div>
             </div>
 

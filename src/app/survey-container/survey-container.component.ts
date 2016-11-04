@@ -10,6 +10,8 @@ import {StorageService} from "../utility/StorageService";
 import {Input} from "@angular/core/src/metadata/directives";
 import {Utility} from "../utility/Utility";
 import {Router, ActivatedRoute} from "@angular/router";
+import {CompleterData, CompleterService, CompleterItem} from "ng2-completer";
+import {Surveyor} from "../databasestructure/Surveyor";
 // import {jQuery} from "../app/app.component";
 export declare var jQuery: any;
 
@@ -21,6 +23,22 @@ export declare var jQuery: any;
 })
 
 export class SurveyContainerComponent implements OnInit {
+
+
+  //Ng Auto Completer
+  private searchStr: string;
+  private dataService: CompleterData;
+  private searchData = [];
+
+  selectedSurveyor(selected: CompleterItem) {
+    // console.debug(this.searchStr);
+    if (selected) {
+      console.debug(selected.originalObject.surveyor_email);
+    }
+    // console.debug(this.searchData);
+  }
+
+
 
 
   @Input() surveys: Array<Survey>;
@@ -45,7 +63,7 @@ export class SurveyContainerComponent implements OnInit {
   private route: ActivatedRoute;
 
 
-  constructor(_httpService: HTTPService, _storageService: StorageService, _ngZone: NgZone, _router: Router, _route: ActivatedRoute) {
+  constructor(_httpService: HTTPService, _storageService: StorageService, _ngZone: NgZone, _router: Router, _route: ActivatedRoute, private completerService: CompleterService) {
     this.httpService = _httpService;
     this.storageService = _storageService;
     this.router = _router;
@@ -53,7 +71,13 @@ export class SurveyContainerComponent implements OnInit {
     this.storageService.write("fuck", "somedata");
     this.ngzone = _ngZone;
     // console.debug(this.storageService.read("fuck"));
-    this.utility = new Utility(this.router, this.route, this.storageService)
+    this.utility = new Utility(this.router, this.route, this.storageService);
+
+
+    this.dataService = completerService.local(this.searchData, 'surveyor_email', 'surveyor_name');
+
+    this.getSurveyoursListinVariable(this.selectedSurvey.survey_id);
+
   }
 
   //
@@ -116,6 +140,8 @@ export class SurveyContainerComponent implements OnInit {
       );
 
     this.q.reportUrl = UrlFactory.getUrlDownloadReport(this.selectedSurvey.survey_id);
+
+    this.getSurveyoursListinVariable(this.selectedSurvey.survey_id);
   }
 
   createNewSurvey() {
@@ -252,6 +278,29 @@ export class SurveyContainerComponent implements OnInit {
 
   logout() {
     this.utility.logoutFromApplication();
+  }
+
+  private addSurveyorsList(data: any) {
+    let surveyorsList: Array<Surveyor> = JSON.parse(data);
+    this.searchData.slice(0, this.searchData.length - 1);
+    let objTemp = {surveyor_name: "", surveyor_email: ""};
+    for (let surveyor of surveyorsList) {
+      objTemp.surveyor_name = surveyor.surveyor_fullname;
+      objTemp.surveyor_email = surveyor.surveyor_email;
+      this.searchData.push(Object.create(objTemp));
+    }
+    // console.debug(this.searchData[0]);
+  }
+
+  private getSurveyoursListinVariable(surveyId) {
+    console.debug("Survey id is : " + surveyId);
+
+    this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsList(surveyId))
+      .subscribe(
+        data=>this.addSurveyorsList(data),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("Done!")
+      )
   }
 }
 

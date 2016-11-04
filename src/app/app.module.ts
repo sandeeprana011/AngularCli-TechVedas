@@ -22,8 +22,9 @@ import {ChartsModule} from "ng2-charts";
 import {AddAdminComponent} from "./add-admin/add-admin.component";
 import {SignupCompanyComponent} from "./signup-company/signup-company.component";
 import {CompanyprofileComponent} from "./companyprofile/companyprofile.component";
-import { MapFragmentComponent } from './map-fragment/map-fragment.component';
-import { UrlersaferPipe } from './urlersafer.pipe';
+import {MapFragmentComponent} from "./map-fragment/map-fragment.component";
+import {UrlersaferPipe} from "./urlersafer.pipe";
+import {Ng2CompleterModule} from "ng2-completer";
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { UrlersaferPipe } from './urlersafer.pipe';
     FormsModule,
     ChartsModule,
     HttpModule,
+    Ng2CompleterModule,
     RouterModule.forRoot([
       {path: "", component: LoginModuleComponent},
       {path: 'manager', component: AppComponent},
