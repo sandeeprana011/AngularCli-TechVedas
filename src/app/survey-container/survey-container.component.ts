@@ -314,7 +314,7 @@ export class SurveyContainerComponent implements OnInit {
     for (let surveyorTemp of tempListSurveyors) {
       this.surveyorsList.push(surveyorTemp);
     }
-    console.debug(this.surveyorsList);
+    // console.debug(this.surveyorsList);
 
 
   }
