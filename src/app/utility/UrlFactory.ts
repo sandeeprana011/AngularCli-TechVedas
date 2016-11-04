@@ -116,4 +116,8 @@ export class UrlFactory {
   static getUrlSurveyorsList(surveyId: string) {
     return UrlFactory.urlBase() + "survey/surveyors/list/" + surveyId;
   }
+
+  static getUrlSurveyorsAddedInSurvey(surveyId: string) {
+    return UrlFactory.urlBase() + "admin/surveyors/list/" + surveyId;
+  }
 }

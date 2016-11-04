@@ -29,6 +29,7 @@ export class SurveyContainerComponent implements OnInit {
   private searchStr: string;
   private dataService: CompleterData;
   private searchData = [];
+  private surveyorsList: Array<Survey> = [];
 
   selectedSurveyor(selected: CompleterItem) {
     // console.debug(this.searchStr);
@@ -189,6 +190,8 @@ export class SurveyContainerComponent implements OnInit {
     this.surveyItemClicked(0);
     // console.debug(this.q.surveysList[0]);
 
+    this.downloadSurveyorsListInThisSurvey();
+
   }
 
   private updateQuestionsList(data, ndx: any) {
@@ -301,6 +304,30 @@ export class SurveyContainerComponent implements OnInit {
         error=>this.httpService.errorOccured(error.status),
         ()=>console.debug("Done!")
       )
+  }
+
+  private updateSurveyorsListInASurvey(data: any) {
+    let tempDat = JSON.parse(data);
+
+    let tempListSurveyors = tempDat[Const.SURVEYOR];
+    this.surveyorsList.splice(0, this.surveyorsList.length - 1);
+    for (let surveyorTemp of tempListSurveyors) {
+      this.surveyorsList.push(surveyorTemp);
+    }
+    console.debug(this.surveyorsList);
+
+
+  }
+
+  private downloadSurveyorsListInThisSurvey() {
+
+    this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsAddedInSurvey(this.selectedSurvey.survey_id))
+      .subscribe(
+        data=>this.updateSurveyorsListInASurvey(data),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("Done")
+      )
+
   }
 }
 

@@ -101,18 +101,30 @@
             <!--Tags for showing with whom this surveyor is added-->
             <div class="row paddingleft">
               <div class="col">
-                <div class="chip hoverableLove">
-                  Sandeep Singh Rana
+
+                <div class="chip hoverableLove" *ngFor="let surveyoro of surveyorsList;let ndx=index;">
+                  {{surveyoro.surveyor_email}}
                   <i class="close material-icons">close</i>
                 </div>
-                <div class="chip hoverableLove">
-                  Jio Lyf
-                  <i class="close material-icons">close</i>
-                </div>
+
+                <!--<div class="chip hoverableLove">-->
+                <!--Sandeep Singh Rana-->
+                <!--<i class="close material-icons">close</i>-->
+                <!--</div>-->
+                <!--<div class="chip hoverableLove">-->
+                <!--Jio Lyf-->
+                <!--<i class="close material-icons">close</i>-->
+                <!--</div>-->
                 <div class="chip chipedit">
                   <ng2-completer [(ngModel)]="searchStr" [dataService]="dataService"
                                  [minSearchLength]="0"
-                                 (selected)="selectedSurveyor($event)" [clearSelected]="true"></ng2-completer>
+                                 (selected)="selectedSurveyor($event)"
+                                 [placeholder]="'+ add admin'"
+                                 [clearSelected]="true"
+                  >
+
+                  </ng2-completer>
+
                   <!--<input type="text" placeholder="+ add  more">-->
                 </div>
               </div>
