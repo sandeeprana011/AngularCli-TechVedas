@@ -135,7 +135,7 @@ export class SurveyContainerComponent implements OnInit {
     // let surveyId: string = survey.survey_id;
     let url: string = UrlFactory.getUrlQuestionsListInASurvey(this.selectedSurvey.survey_id);
 
-    this.router.navigate(['questions', this.selectedSurvey.survey_id], {relativeTo: this.route});
+    // this.router.navigate(['questions', this.selectedSurvey.survey_id], {relativeTo: this.route});
 
     this.httpService.listAllQuestions(url)
       .subscribe(
@@ -144,10 +144,14 @@ export class SurveyContainerComponent implements OnInit {
         ()=>console.debug("Done")
       );
 
+
     this.q.reportUrl = UrlFactory.getUrlDownloadReport(this.selectedSurvey.survey_id);
 
     this.getSurveyoursListinVariable(this.selectedSurvey.survey_id);
+
     this.downloadSurveyorsListInThisSurvey();
+
+    this.navigateToQuestions(this.selectedSurvey.survey_id);
   }
 
   createNewSurvey() {
@@ -344,5 +348,13 @@ export class SurveyContainerComponent implements OnInit {
     this.surveyorsList.splice(ndx, 1);
   }
 
+
+  private routeToReport(surveyId) {
+    this.router.navigate(['reportsurvey', survey_id], {relativeTo: this.route});
+  }
+
+  private navigateToQuestions(survey_id: string) {
+    this.router.navigate(['questions', survey_id], {relativeTo: this.route});
+  }
 }
 

@@ -93,6 +93,10 @@ export class UrlFactory {
     return UrlFactory.urlBase() + "company/report/survey/" + id;
   }
 
+  static getUrlAdminReportSurvey(id: any) {
+    return UrlFactory.urlBase() + "admin/report/survey/" + id;
+  }
+
   static getUrlSignUp() {
     return UrlFactory.urlBase() + "company/create";
   }

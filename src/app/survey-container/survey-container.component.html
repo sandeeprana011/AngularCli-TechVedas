@@ -65,6 +65,11 @@
       </a>
 
       <a class="headnavitem" href="{{q.reportUrl}}" type="button"
+         name="action">Download Stats in Excel Sheet
+        <i class="material-icons right">trending_up</i>
+      </a>
+
+      <a class="headnavitem" (click)="routeToReport(selectedSurvey.survey_id)" type="button"
          name="action">View Stats
         <i class="material-icons right">trending_up</i>
       </a>
@@ -72,6 +77,7 @@
       <a class="headnavitem" type="button" name="action">Finish Survey
         <i class="material-icons right">done_all</i>
       </a>
+
 
     </div>
     <div class="fullWidth">
