@@ -58,7 +58,14 @@ import {Ng2CompleterModule} from "ng2-completer";
       {path: "", component: LoginModuleComponent},
       {path: 'manager', component: AppComponent},
       {path: 'signup', component: SignupCompanyComponent},
-      {path: 'builder', component: AdminAppComponent},
+      {
+        path: 'builder', component: AdminAppComponent,
+        children: [
+          {path: "", component: AddAdminComponent},
+          {path: "questions/:id", component: QuestionsListComponent}
+
+        ]
+      },
       {path: 'login', component: LoginModuleComponent},
       {
         path: 'company', component: CompanyDashboardComponent,

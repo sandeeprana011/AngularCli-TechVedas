@@ -1,6 +1,6 @@
 <div class="row">
   <ul class="collapsible z-depth-0" data-collapsible="accordion">
-    <li *ngFor="let qu of q.questionsList; let ndx=index">
+    <li *ngFor="let qu of questionsArray; let ndx=index">
       <div class="collapsible-header  z-depth-0">
         <div class="col s9 l9 m9"><i class="material-icons">assignment</i>Q {{ndx+1}} :
           {{qu.question_text}}
@@ -12,15 +12,15 @@
       <div class="collapsible-body  z-depth-0 veryLightgrey">
 
         <div>
-          <questiontext [qindex]="ndx" [question]="qu" [questionArrayList]="q.questionsList"
+          <questiontext [qindex]="ndx" [question]="qu" [questionArrayList]="questionsArray"
                         *ngIf="qu.question_type==='text'"></questiontext>
-          <questionradio [qindex]="ndx" [question]="qu" [questionArrayList]="q.questionsList"
+          <questionradio [qindex]="ndx" [question]="qu" [questionArrayList]="questionsArray"
                          *ngIf="qu.question_type==='radio'"></questionradio>
-          <questioncheck [qindex]="ndx" [question]="qu" [questionArrayList]="q.questionsList"
+          <questioncheck [qindex]="ndx" [question]="qu" [questionArrayList]="questionsArray"
                          *ngIf="qu.question_type==='checkbox'"></questioncheck>
-          <questioncaptureimage [qindex]="ndx" [question]="qu" [questionArrayList]="q.questionsList"
+          <questioncaptureimage [qindex]="ndx" [question]="qu" [questionArrayList]="questionsArray"
                                 *ngIf="qu.question_type==='takepicture'"></questioncaptureimage>
-          <questionrating [qindex]="ndx" [question]="qu" [questionArrayList]="q.questionsList"
+          <questionrating [qindex]="ndx" [question]="qu" [questionArrayList]="questionsArray"
                           *ngIf="qu.question_type==='rating'"></questionrating>
         </div>
       </div>

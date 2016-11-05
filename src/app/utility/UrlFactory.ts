@@ -120,4 +120,8 @@ export class UrlFactory {
   static getUrlSurveyorsAddedInSurvey(surveyId: string) {
     return UrlFactory.urlBase() + "admin/surveyors/list/" + surveyId;
   }
+
+  static getUrlSurveyDetails(survey_id: any) {
+    return UrlFactory.urlBase() + "admin/survey/" + survey_id;
+  }
 }

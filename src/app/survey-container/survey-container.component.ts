@@ -135,6 +135,7 @@ export class SurveyContainerComponent implements OnInit {
     // let surveyId: string = survey.survey_id;
     let url: string = UrlFactory.getUrlQuestionsListInASurvey(this.selectedSurvey.survey_id);
 
+    this.router.navigate(['questions', this.selectedSurvey.survey_id], {relativeTo: this.route});
 
     this.httpService.listAllQuestions(url)
       .subscribe(
