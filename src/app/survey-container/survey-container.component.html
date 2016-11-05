@@ -104,7 +104,7 @@
 
                 <div class="chip hoverableLove" *ngFor="let surveyoro of surveyorsList;let ndx=index;">
                   {{surveyoro.surveyor_email}}
-                  <i class="close material-icons">close</i>
+                  <i class="material-icons" (click)="removeSurveyorFromSurvey(ndx)">close</i>
                 </div>
 
                 <!--<div class="chip hoverableLove">-->
@@ -121,6 +121,7 @@
                                  (selected)="selectedSurveyor($event)"
                                  [placeholder]="'+ add admin'"
                                  [clearSelected]="true"
+                                 [textNoResults]="'no admin fountd'"
                   >
 
                   </ng2-completer>

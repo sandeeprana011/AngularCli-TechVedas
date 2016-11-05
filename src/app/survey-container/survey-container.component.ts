@@ -35,6 +35,13 @@ export class SurveyContainerComponent implements OnInit {
     // console.debug(this.searchStr);
     if (selected) {
       console.debug(selected.originalObject.surveyor_email);
+      this.httpService.addSurveyorToSurvey(UrlFactory.getUrlAddMoreSurveyor(this.selectedSurvey.survey_id), selected.originalObject.surveyor_email)
+        .subscribe(
+          data=>this.onUpdateOnAddedSurveyor(data),
+          error=>this.httpService.errorOccured(error.status),
+          ()=>console.debug("Done!")
+        )
+
     }
     // console.debug(this.searchData);
   }
@@ -292,6 +299,7 @@ export class SurveyContainerComponent implements OnInit {
       objTemp.surveyor_email = surveyor.surveyor_email;
       this.searchData.push(Object.create(objTemp));
     }
+
     // console.debug(this.searchData[0]);
   }
 
@@ -310,13 +318,12 @@ export class SurveyContainerComponent implements OnInit {
     let tempDat = JSON.parse(data);
 
     let tempListSurveyors = tempDat[Const.SURVEYOR];
-    this.surveyorsList.splice(0, this.surveyorsList.length - 1);
+    this.surveyorsList.splice(0, this.surveyorsList.length);
+
     for (let surveyorTemp of tempListSurveyors) {
       this.surveyorsList.push(surveyorTemp);
     }
-    // console.debug(this.surveyorsList);
-
-
+    console.debug(this.surveyorsList);
   }
 
   private downloadSurveyorsListInThisSurvey() {
@@ -329,5 +336,15 @@ export class SurveyContainerComponent implements OnInit {
       )
 
   }
+
+  private onUpdateOnAddedSurveyor(data: any) {
+    this.downloadSurveyorsListInThisSurvey();
+    console.debug(data);
+  }
+
+  removeSurveyorFromSurvey(ndx) {
+    this.surveyorsList.splice(ndx, 1);
+  }
+
 }
 
