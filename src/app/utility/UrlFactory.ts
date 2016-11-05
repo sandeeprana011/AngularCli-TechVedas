@@ -3,7 +3,7 @@ export class UrlFactory {
   public static protocolUrl() {
     // return "http";
     return "https";
-    // }
+    }
 
   public static domainUrl() {
       return "bheem-sirfireydevs.rhcloud.com";
