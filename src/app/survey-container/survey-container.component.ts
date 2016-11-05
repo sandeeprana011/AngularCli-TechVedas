@@ -7,12 +7,11 @@ import {Const} from "../const";
 import {Survey} from "../databasestructure/Survey";
 import {ObjectToRequestBodyParser} from "../QuestionToRequestBodyParser";
 import {StorageService} from "../utility/StorageService";
-import {Input} from "@angular/core/src/metadata/directives";
 import {Utility} from "../utility/Utility";
 import {Router, ActivatedRoute} from "@angular/router";
 import {CompleterData, CompleterService, CompleterItem} from "ng2-completer";
 import {Surveyor} from "../databasestructure/Surveyor";
-// import {jQuery} from "../app/app.component";
+
 export declare var jQuery: any;
 
 @Component({
@@ -47,10 +46,8 @@ export class SurveyContainerComponent implements OnInit {
   }
 
 
-
-
-  @Input() surveys: Array<Survey>;
-  @Input() adminId: string;
+  private surveys: Array<Survey> = [];
+  private adminId: string;
 
   heading: string;
   description: string;
@@ -70,6 +67,15 @@ export class SurveyContainerComponent implements OnInit {
   private router: Router;
   private route: ActivatedRoute;
 
+  public q = {
+    surveysList: this.surveys,
+    quest: [],
+    surveyId: "",
+    adminId: this.adminId,
+    username: "",
+    password: "",
+    reportUrl: ""
+  };
 
   constructor(_httpService: HTTPService, _storageService: StorageService, _ngZone: NgZone, _router: Router, _route: ActivatedRoute, private completerService: CompleterService) {
     this.httpService = _httpService;
@@ -88,17 +94,6 @@ export class SurveyContainerComponent implements OnInit {
     this.downloadSurveyorsListInThisSurvey();
 
   }
-
-  //
-  public q = {
-    surveysList: this.surveys,
-    quest: [],
-    surveyId: "",
-    adminId: this.adminId,
-    username: "",
-    password: "",
-    reportUrl: ""
-  };
 
   ngOnInit() {
 
@@ -294,7 +289,7 @@ export class SurveyContainerComponent implements OnInit {
 
   private addSurveyorsList(data: any) {
     let surveyorsList: Array<Surveyor> = JSON.parse(data);
-    this.searchData.slice(0, this.searchData.length - 1);
+    this.searchData.splice(0, this.searchData.length);
     let objTemp = {surveyor_name: "", surveyor_email: ""};
     for (let surveyor of surveyorsList) {
       objTemp.surveyor_name = surveyor.surveyor_fullname;
