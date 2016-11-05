@@ -72,6 +72,7 @@ export class Const {
   static COMPANY_EMAIL = "company_email";
   static COMPANY_WEBSITE = "company_website";
   static COMPANY_PHONE = "company_phone";
+  static SURVEYOR_EMAIL = "surveyor_email";
 
 
 }

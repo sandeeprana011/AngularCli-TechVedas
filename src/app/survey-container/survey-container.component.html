@@ -110,7 +110,7 @@
 
                 <div class="chip hoverableLove" *ngFor="let surveyoro of surveyorsList;let ndx=index;">
                   {{surveyoro.surveyor_email}}
-                  <i class="material-icons" (click)="removeSurveyorFromSurvey(ndx)">close</i>
+                  <i class="material-icons" (click)="removeSurveyorFromSurvey(ndx,surveyoro.surveyor_email)">close</i>
                 </div>
 
                 <!--<div class="chip hoverableLove">-->

@@ -345,7 +345,16 @@ export class SurveyContainerComponent implements OnInit {
     console.debug(data);
   }
 
-  removeSurveyorFromSurvey(ndx) {
+  removeSurveyorFromSurvey(ndx, email) {
+    let bodyDict = {};
+    bodyDict[Const.SURVEYOR_EMAIL] = email;
+    this.httpService.requestPostObservableNew(UrlFactory.getUrlDeleteSurveyorRelationship(this.selectedSurvey.survey_id), JSON.stringify(bodyDict))
+      .subscribe(
+        data=>this.onRelationshipRemove(data),
+        error=>this.httpService.errorOccured(error.status),
+        ()=>console.debug("Done")
+      );
+
     this.surveyorsList.splice(ndx, 1);
   }
 
@@ -360,6 +369,10 @@ export class SurveyContainerComponent implements OnInit {
 
   private inviteSurveyor() {
     this.router.navigate(['createsurveyor'], {relativeTo: this.route});
+  }
+
+  private onRelationshipRemove(data: any) {
+    console.debug(data);
   }
 }
 

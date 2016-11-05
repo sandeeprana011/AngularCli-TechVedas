@@ -64,6 +64,10 @@ export class UrlFactory {
     return UrlFactory.urlBase() + "admin/relationship/add/" + selectedSurveyId;
   }
 
+  static getUrlDeleteSurveyorRelationship(selectedSurveyId: string) {
+    return UrlFactory.urlBase() + "admin/relationship/delete/" + selectedSurveyId;
+  }
+
   static getUrlCreateNewSurveyor() {
     return UrlFactory.urlBase() + "admin/surveyor/create";
   }
