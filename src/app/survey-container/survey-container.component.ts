@@ -43,7 +43,7 @@ export class SurveyContainerComponent implements OnInit {
         )
 
     }
-    // console.debug(this.searchData);
+    // console.debug(this.searchStr);
   }
 
 
@@ -85,6 +85,7 @@ export class SurveyContainerComponent implements OnInit {
     this.dataService = completerService.local(this.searchData, 'surveyor_email', 'surveyor_name');
 
     this.getSurveyoursListinVariable(this.selectedSurvey.survey_id);
+    this.downloadSurveyorsListInThisSurvey();
 
   }
 
@@ -150,6 +151,7 @@ export class SurveyContainerComponent implements OnInit {
     this.q.reportUrl = UrlFactory.getUrlDownloadReport(this.selectedSurvey.survey_id);
 
     this.getSurveyoursListinVariable(this.selectedSurvey.survey_id);
+    this.downloadSurveyorsListInThisSurvey();
   }
 
   createNewSurvey() {
