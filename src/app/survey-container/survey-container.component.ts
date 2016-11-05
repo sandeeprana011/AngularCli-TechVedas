@@ -350,7 +350,7 @@ export class SurveyContainerComponent implements OnInit {
 
 
   private routeToReport(surveyId) {
-    this.router.navigate(['reportsurvey', survey_id], {relativeTo: this.route});
+    this.router.navigate(['reportsurvey', surveyId], {relativeTo: this.route});
   }
 
   private navigateToQuestions(survey_id: string) {
