@@ -295,10 +295,11 @@ export class SurveyContainerComponent implements OnInit {
   private addSurveyorsList(data: any) {
     let surveyorsList: Array<Surveyor> = JSON.parse(data);
     this.searchData.splice(0, this.searchData.length);
-    let objTemp = {surveyor_name: "", surveyor_email: ""};
     for (let surveyor of surveyorsList) {
+      let objTemp = {surveyor_name: "", surveyor_email: ""};
       objTemp.surveyor_name = surveyor.surveyor_fullname;
       objTemp.surveyor_email = surveyor.surveyor_email;
+      console.log(surveyor.surveyor_email);
       this.searchData.push(Object.create(objTemp));
     }
 
@@ -355,6 +356,10 @@ export class SurveyContainerComponent implements OnInit {
 
   private navigateToQuestions(survey_id: string) {
     this.router.navigate(['questions', survey_id], {relativeTo: this.route});
+  }
+
+  private inviteSurveyor() {
+    this.router.navigate(['createsurveyor'], {relativeTo: this.route});
   }
 }
 

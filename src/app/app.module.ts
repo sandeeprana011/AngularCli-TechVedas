@@ -26,6 +26,7 @@ import {MapFragmentComponent} from "./map-fragment/map-fragment.component";
 import {UrlersaferPipe} from "./urlersafer.pipe";
 import {Ng2CompleterModule} from "ng2-completer";
 import {ReportadminsurveyComponent} from "./reportadminsurvey/reportadminsurvey.component";
+import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.component";
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {ReportadminsurveyComponent} from "./reportadminsurvey/reportadminsurvey.
     CompanyprofileComponent,
     MapFragmentComponent,
     UrlersaferPipe,
-    ReportadminsurveyComponent
+    ReportadminsurveyComponent,
+    CreateSurveyorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ import {ReportadminsurveyComponent} from "./reportadminsurvey/reportadminsurvey.
         children: [
           {path: "", component: AddAdminComponent},
           {path: "questions/:id", component: QuestionsListComponent},
-          {path: "reportsurvey/:id", component: ReportadminsurveyComponent}
+          {path: "reportsurvey/:id", component: ReportadminsurveyComponent},
+          {path: "createsurveyor", component: CreateSurveyorComponent}
 
         ]
       },

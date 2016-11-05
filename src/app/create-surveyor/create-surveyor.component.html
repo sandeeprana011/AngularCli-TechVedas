@@ -1,0 +1,75 @@
+<div class="modal-content">
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_fullname"
+             placeholder="Placeholder" id="first_name"
+             type="text" class="validate">
+      <label for="first_name">Full Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_phone" id="last_name"
+             type="text" class="validate">
+      <label for="last_name">Phone</label>
+    </div>
+
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_password" id="password"
+             type="password" class="validate">
+      <label for="password">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_email" id="email"
+             type="email" class="validate">
+      <label for="email">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_address" id="address"
+             type="text" class="validate">
+      <label for="address">Address</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_city" id="city" type="text"
+             class="validate">
+      <label for="city">City</label>
+    </div>
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_state" id="state"
+             type="text" class="validate">
+      <label for="state">State</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_country" id="country"
+             type="text" class="validate">
+      <label for="country">Country</label>
+    </div>
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_country_code" id="disabled"
+             type="text" class="validate">
+      <label for="disabled">Country Code<Code></Code></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="surveyor.surveyor_pinzip" id="zipcode"
+             type="text" class="validate">
+      <label for="zipcode">ZIP/PIN code</label>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <a class=" modal-action modal-close waves-effect waves-ripple btn-flat green white-text"
+     (click)="createSurveyorView()"
+  >Create Surveyor</a>
+</div>
