@@ -49,12 +49,12 @@
   <div class="col s9 l9 m9">
     <div class="fullWidth" style="padding: 15px;">
       <a class="headnavitem" (click)="logout()">Logout</a>
-      <a class="headnavitem" [routerLink]="'/builder/profileadmin'" routerLinkActive="active">Profile</a>
+      <a class="headnavitem" (click)="showProfile()">Profile</a>
     </div>
 
 
     <div class="fullWidth teal" style="height: 1px"></div>
-    <div class="row headnavitem">
+    <div class="row headnavitem" [hidden]="shouldHideDataRelatedToSurvey">
       <a class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
          type="button" name="action"><i class="material-icons right">send</i>Publish Survey
       </a>
@@ -80,7 +80,7 @@
 
 
     </div>
-    <div class="fullWidth">
+    <div class="fullWidth" [hidden]="shouldHideDataRelatedToSurvey">
       <ul class="collapsible z-depth-0" data-collapsible="accordion">
         <li>
           <div class="collapsible-header active">

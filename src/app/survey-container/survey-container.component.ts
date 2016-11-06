@@ -24,6 +24,7 @@ export declare var jQuery: any;
 export class SurveyContainerComponent implements OnInit {
 
 
+  private shouldHideDataRelatedToSurvey: boolean = false;
   //Ng Auto Completer
   private searchStr: string;
   private dataService: CompleterData;
@@ -361,18 +362,27 @@ export class SurveyContainerComponent implements OnInit {
 
   private routeToReport(surveyId) {
     this.router.navigate(['reportsurvey', surveyId], {relativeTo: this.route});
+    this.shouldHideDataRelatedToSurvey = false;
   }
 
   private navigateToQuestions(survey_id: string) {
     this.router.navigate(['questions', survey_id], {relativeTo: this.route});
+    this.shouldHideDataRelatedToSurvey = false;
   }
 
   private inviteSurveyor() {
     this.router.navigate(['createsurveyor'], {relativeTo: this.route});
+    this.shouldHideDataRelatedToSurvey = true;
   }
 
   private onRelationshipRemove(data: any) {
     console.debug(data);
   }
+
+  private showProfile() {
+    this.shouldHideDataRelatedToSurvey = true;
+    this.router.navigate(['profileadmin'], {relativeTo: this.route});
+  }
+
 }
 
