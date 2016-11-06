@@ -1,27 +1,27 @@
 import {Config} from "../config";
 export class UrlFactory {
   public static protocolUrl() {
-    // return "http";
-    return "https";
+    return "http";
+    // return "https";
     }
 
   public static domainUrl() {
-    return "bheem-sirfireydevs.rhcloud.com";
-    // return "localhost";
+    // return "bheem-sirfireydevs.rhcloud.com";
+    return "localhost";
   }
 
   public static portUrl() {
-    return "";
-    // return "8051";
+    // return "";
+    return "8051";
+  }
+
+  public static urlBase() {
+    return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
+    // return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + "" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
   }
 
   public static versionApi() {
     return "v1"
-  }
-
-  public static urlBase() {
-    // return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
-    return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + "" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
   }
 
   public static getUrlUpdateQuestion() {
@@ -109,12 +109,24 @@ export class UrlFactory {
     return UrlFactory.urlBase() + "company/profile";
   }
 
+  static getUrlProfileAdmin() {
+    return UrlFactory.urlBase() + "admin/profile";
+  }
+
   static getUrlSaveCompanyProfile() {
     return UrlFactory.urlBase() + "company/profile/save";
   }
 
+  static getUrlSaveAdminProfile() {
+    return UrlFactory.urlBase() + "admin/profile/save";
+  }
+
   static getUrlSaveNewPassword() {
     return UrlFactory.urlBase() + "company/password";
+  }
+
+  static getUrlSaveNewPasswordAdmin() {
+    return UrlFactory.urlBase() + "admin/password";
   }
 
   static getUrlToMapWithHeatMap(surveyId: string) {

@@ -27,6 +27,7 @@ import {UrlersaferPipe} from "./urlersafer.pipe";
 import {Ng2CompleterModule} from "ng2-completer";
 import {ReportadminsurveyComponent} from "./reportadminsurvey/reportadminsurvey.component";
 import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.component";
+import {ProfileAdminComponent} from "./profile-admin/profile-admin.component";
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.compone
     MapFragmentComponent,
     UrlersaferPipe,
     ReportadminsurveyComponent,
-    CreateSurveyorComponent
+    CreateSurveyorComponent,
+    ProfileAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,9 @@ import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.compone
           {path: "", component: AddAdminComponent},
           {path: "questions/:id", component: QuestionsListComponent},
           {path: "reportsurvey/:id", component: ReportadminsurveyComponent},
-          {path: "createsurveyor", component: CreateSurveyorComponent}
+          {path: "createsurveyor", component: CreateSurveyorComponent},
+          {path: "profileadmin", component: ProfileAdminComponent}
+
 
         ]
       },
