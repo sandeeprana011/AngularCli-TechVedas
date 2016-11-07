@@ -27,7 +27,7 @@ export class Survey {
   public survey_created_by: string;
   public creation_time: string;
   public updation_time: string;
-  private is_published: number;
+  public is_published: number;
 
 
   public questions: Array<Question> = [];

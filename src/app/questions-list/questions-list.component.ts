@@ -121,8 +121,11 @@ export class QuestionsListComponent implements OnInit {
   private updateViews(data: any) {
     this.survey = JSON.parse(data);
     this.adminId = this.survey.admin_id;
-
     this.downloadQuestions();
+
+    if (this.survey.is_published) {
+      jQuery('#idQuestionsList').find('*').attr('disabled', true);
+    }
   }
 }
 

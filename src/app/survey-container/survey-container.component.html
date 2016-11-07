@@ -39,27 +39,29 @@
 
     <div class="fullWidth teal" style="height: 1px"></div>
     <div class="row headnavitem" [hidden]="shouldHideDataRelatedToSurvey">
-      <a class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
-         type="button" name="action"><i class="material-icons right">send</i>Publish Survey
-      </a>
 
-      <a class="headnavitem" onclick="$('#modalDeleteSurvey').openModal();"
+      <span class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
+            type="button" name="action">
+        <i class="material-icons left tiny">send</i>Publish Survey
+      </span>
+
+      <span class="headnavitem" onclick="$('#modalDeleteSurvey').openModal();"
          type="button" name="action">Delete Survey
-        <i class="material-icons right">delete</i>
-      </a>
+        <i class="material-icons left tiny">delete</i>
+      </span>
 
       <a class="headnavitem" href="{{q.reportUrl}}" type="button"
          name="action">Download Stats in Excel Sheet
-        <i class="material-icons right">trending_up</i>
+        <i class="material-icons left tiny">trending_up</i>
       </a>
 
       <a class="headnavitem" (click)="routeToReport(selectedSurvey.survey_id)" type="button"
          name="action">View Stats
-        <i class="material-icons right">trending_up</i>
+        <i class="material-icons left tiny">trending_up</i>
       </a>
 
       <a class="headnavitem" type="button" name="action">Finish Survey
-        <i class="material-icons right">done_all</i>
+        <i class="material-icons left tiny">done_all</i>
       </a>
 
 
