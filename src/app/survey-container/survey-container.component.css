@@ -41,6 +41,20 @@ ul {
   cursor: pointer;
 }
 
+.sideitem {
+  font-size: 12px;
+  padding: 4px;
+  color: #fbf6ff;
+  cursor: pointer;
+  align-content: center;
+}
+
+.sideitem:hover {
+  color: #fbf6ff;
+  cursor: pointer;
+  background-color: #00acc1;
+}
+
 
 
 

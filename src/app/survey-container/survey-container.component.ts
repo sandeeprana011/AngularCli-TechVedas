@@ -93,7 +93,7 @@ export class SurveyContainerComponent implements OnInit {
 
     this.getSurveyoursListinVariable(this.selectedSurvey.survey_id);
     this.downloadSurveyorsListInThisSurvey();
-
+    // this.q.username = Config.USERNAME;
   }
 
   ngOnInit() {
