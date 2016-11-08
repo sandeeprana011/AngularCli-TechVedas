@@ -29,6 +29,12 @@ export class QuestionDateComponent implements OnInit {
 
   ngOnInit() {
     this.ques.question = this.question;
+
+    let jsonParsedDate = JSON.parse(this.question.question_extra);
+
+    this.minDate = jsonParsedDate[Const.MIN_DATE];
+    this.maxDate = jsonParsedDate[Const.MAX_DATE];
+    
     // console.debug(this.question);
     console.log(this.qindex);
 
@@ -67,8 +73,14 @@ export class QuestionDateComponent implements OnInit {
     let jsonResponseObject: {[key: string]: string} = {};
     jsonResponseObject = JSON.parse(data);
 
-    console.debug(jsonResponseObject[Const.QUESTION_ID]);
+
+    // console.debug(jsonResponseObject[Const.QUESTION_ID]);
     this.ques.question.question_id = jsonResponseObject[Const.QUESTION_ID];
+    let jsonDateParsed = JSON.parse(jsonResponseObject[Const.QUESTION_EXTRA]);
+
+    console.debug(jsonDateParsed);
+
+
     // this.ques.question.question_id = jsonResponseObject[Const.QUESTION_ID];
   }
 
