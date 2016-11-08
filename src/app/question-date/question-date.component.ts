@@ -50,7 +50,7 @@ export class QuestionDateComponent implements OnInit {
 
     // mine['option']=this.ques.question.question_options_array;
 
-    console.debug(jsonObj);
+    // console.debug(jsonObj);
 
 
     this.httpService.requestPutObservable(UrlFactory.getUrlUpdateQuestion(), JSON.stringify(jsonObj))
