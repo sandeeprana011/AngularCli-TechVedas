@@ -125,6 +125,8 @@ export class QuestionsListComponent implements OnInit {
 
     if (this.survey.is_published) {
       jQuery('#idQuestionsList').find('*').attr('disabled', true);
+    } else {
+      jQuery('#idQuestionsList').find('*').attr('disabled', false);
     }
   }
 }
