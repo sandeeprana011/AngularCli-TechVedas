@@ -5,7 +5,6 @@ import {Observable} from "rxjs";
 import {Question} from "../databasestructure/Question";
 import {UrlFactory} from "./UrlFactory";
 import {Surveyor} from "../databasestructure/Surveyor";
-import {Utility} from "./Utility";
 /**
  * Created by sandeeprana on 31/08/16.
  */

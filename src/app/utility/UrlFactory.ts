@@ -1,23 +1,23 @@
 import {Config} from "../config";
 export class UrlFactory {
   public static protocolUrl() {
-    return "http";
-    // return "https";
-    }
+    // return "http";
+    return "https";
+  }
 
   public static domainUrl() {
-    // return "bheem-sirfireydevs.rhcloud.com";
-    return "localhost";
+    return "bheem-sirfireydevs.rhcloud.com";
+    // return "localhost";
   }
 
   public static portUrl() {
-    // return "";
-    return "8051";
+    return "";
+    // return "8051";
   }
 
   public static urlBase() {
-    return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
-    // return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + "" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
+    // return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + ":" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
+    return UrlFactory.protocolUrl() + "://" + UrlFactory.domainUrl() + "" + UrlFactory.portUrl() + "/" + UrlFactory.versionApi() + "/";
   }
 
   public static versionApi() {
