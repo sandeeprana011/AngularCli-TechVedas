@@ -73,6 +73,8 @@ export class Const {
   static COMPANY_WEBSITE = "company_website";
   static COMPANY_PHONE = "company_phone";
   static SURVEYOR_EMAIL = "surveyor_email";
+  static MIN_DATE = "min_date";
+  static MAX_DATE = "max_date";
 
 
 }

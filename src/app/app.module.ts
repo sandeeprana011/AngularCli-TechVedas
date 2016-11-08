@@ -28,6 +28,7 @@ import {Ng2CompleterModule} from "ng2-completer";
 import {ReportadminsurveyComponent} from "./reportadminsurvey/reportadminsurvey.component";
 import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.component";
 import {ProfileAdminComponent} from "./profile-admin/profile-admin.component";
+import { QuestionDateComponent } from './question-date/question-date.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {ProfileAdminComponent} from "./profile-admin/profile-admin.component";
     UrlersaferPipe,
     ReportadminsurveyComponent,
     CreateSurveyorComponent,
-    ProfileAdminComponent
+    ProfileAdminComponent,
+    QuestionDateComponent
   ],
   imports: [
     BrowserModule,
