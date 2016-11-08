@@ -73,7 +73,7 @@ export class UrlFactory {
   }
 
   static getUrlDownloadReport(surveyId: string) {
-    return UrlFactory.urlBase() + "admin/report/survey/" + surveyId;
+    return UrlFactory.urlBase() + "admin/report/survey/download/" + surveyId;
   }
 
   static getUrlDownloadReportWithAuthentication(surveyId: string) {
