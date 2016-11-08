@@ -19,8 +19,8 @@ export class QuestionDateComponent implements OnInit {
 
   private httpService: HTTPService;
   public ques = {question: this.question};
-  private minDate: string;
-  private maxDate: string;
+  private minDate: string = "";
+  private maxDate: string = "";
 
   constructor(_httpService: HTTPService) {
     this.httpService = _httpService;
@@ -30,14 +30,16 @@ export class QuestionDateComponent implements OnInit {
   ngOnInit() {
     this.ques.question = this.question;
 
-    let jsonParsedDate = JSON.parse(this.question.question_extra);
+    if (this.question.question_extra != "") {
 
-    this.minDate = jsonParsedDate[Const.MIN_DATE];
-    this.maxDate = jsonParsedDate[Const.MAX_DATE];
-    
-    // console.debug(this.question);
-    console.log(this.qindex);
+      let jsonParsedDate = JSON.parse(this.question.question_extra);
 
+      this.minDate = jsonParsedDate[Const.MIN_DATE];
+      this.maxDate = jsonParsedDate[Const.MAX_DATE];
+
+      // console.debug(this.question);
+      console.log(this.qindex);
+    }
 
   }
 
