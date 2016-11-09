@@ -28,7 +28,8 @@ import {Ng2CompleterModule} from "ng2-completer";
 import {ReportadminsurveyComponent} from "./reportadminsurvey/reportadminsurvey.component";
 import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.component";
 import {ProfileAdminComponent} from "./profile-admin/profile-admin.component";
-import { QuestionDateComponent } from './question-date/question-date.component';
+import {QuestionDateComponent} from "./question-date/question-date.component";
+import {WebsiteContainerComponent} from "./website-container/website-container.component";
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { QuestionDateComponent } from './question-date/question-date.component';
     ReportadminsurveyComponent,
     CreateSurveyorComponent,
     ProfileAdminComponent,
-    QuestionDateComponent
+    QuestionDateComponent,
+    WebsiteContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { QuestionDateComponent } from './question-date/question-date.component';
     HttpModule,
     Ng2CompleterModule,
     RouterModule.forRoot([
-      {path: "", component: LoginModuleComponent},
+      {path: "", component: WebsiteContainerComponent},
+      {path: 'web', component: WebsiteContainerComponent},
       {path: 'manager', component: AppComponent},
       {path: 'signup', component: SignupCompanyComponent},
       {
