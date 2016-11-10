@@ -4,3 +4,52 @@
   margin-top: 5px;
   height: 85%;
 }
+
+.blockback1 {
+  background: url("http://localhost:4200/app/images/chart1.png");
+}
+
+.blockback2 {
+  background: url("http://localhost:4200/app/images/chart2.png");
+}
+
+.blockback3 {
+  background: url("http://localhost:4200/app/images/chart3.png");
+}
+
+.blockback4 {
+  background: url("http://localhost:4200/app/images/impact_data.png");
+}
+
+.backcontainer1 {
+  background: url("http://localhost:4200/app/images/background1.jpg");
+  background-size: contain;
+}
+
+.blockback1, .blockback2, .blockback3, .blockback4, .backcontainer1 {
+  height: 100%;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 100%;
+}
+
+.hundredvh {
+  height: 100vh;
+}
+
+.backgroundimage {
+  background: url("http://localhost:4200/app/images/background1.jpg");
+  background-repeat: no-repeat;
+  display: block;
+  background-size: cover;
+}
+
+.centeredforce {
+
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 5%;
+
+}
+
