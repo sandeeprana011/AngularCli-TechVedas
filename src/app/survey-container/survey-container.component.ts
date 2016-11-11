@@ -109,6 +109,11 @@ export class SurveyContainerComponent implements OnInit {
       Config.USERNAME = username;
       Config.PASSWORD = password;
       Config.ID_FOR_ALL = adminID;
+
+      this.q.username = username;
+      this.q.password = password;
+      this.q.adminId = adminID;
+
     }
 
     // console.debug(username+"Some other key check");
@@ -153,6 +158,8 @@ export class SurveyContainerComponent implements OnInit {
     this.downloadSurveyorsListInThisSurvey();
 
     this.navigateToQuestions(this.selectedSurvey.survey_id);
+
+    // jQuery(Materialize.toast('I am a toast! <a class="headnavitem">Undo</a>', 4000));
   }
 
   createNewSurvey() {
@@ -277,6 +284,8 @@ export class SurveyContainerComponent implements OnInit {
     Config.ID_FOR_ALL = data[Const.ADMIN_ID];
     Config.USERNAME = this.q.username;
     Config.PASSWORD = this.q.password;
+
+    console.debug("q.username is : " + this.q.username);
 
     this.storageService.writeString(Const.ADMIN_ID, Config.ID_FOR_ALL)
     this.storageService.writeString(Const.USERNAME, this.q.username)

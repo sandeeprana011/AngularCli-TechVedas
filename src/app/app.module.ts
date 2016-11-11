@@ -66,6 +66,7 @@ import {WebsiteContainerComponent} from "./website-container/website-container.c
     Ng2CompleterModule,
     RouterModule.forRoot([
       {path: "", component: WebsiteContainerComponent},
+      // {path: "", component: LoginModuleComponent},
       {path: 'web', component: WebsiteContainerComponent},
       {path: 'manager', component: AppComponent},
       {path: 'signup', component: SignupCompanyComponent},
