@@ -1,40 +1,175 @@
-<div class="navbar-fixed white">
+<div id="home" class="scrollspy navbar-fixed white">
   <nav class="white cyan-text">
     <div class="nav-wrapper cyan-text">
       <a href="#" class="brand-logo cyan-text fill_parentheight"><img class="fill_parentheight"
                                                                       src="/app/images/icon.png"/></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="cyan-text" href="#introduction">Our Services</a></li>
-        <li><a class="cyan-text" href="#structure">Our Customers</a></li>
-        <li><a class="cyan-text" href="#initialization">Contact Us</a></li>
-        <li><a class="cyan-text" href="">Go to Console</a></li>
+        <li><a class="navitemcustom" href="#home">Home</a></li>
+        <li><a class="navitemcustom" href="#builder">Survey Builder</a></li>
+        <li><a class="navitemcustom" href="#collector">Data Collector</a></li>
+        <li><a class="navitemcustom" href="#visualizer">Analyze Data</a></li>
+        <li><a class="gotoconsole" [routerLink]="['./login']" routerLinkActive="active" href="">Go to Console <i
+          class="material-icons right">build</i></a></li>
+        <!--<a [routerLink]="['./invite']" routerLinkActive="active" class="collapsible-header">-->
       </ul>
     </div>
   </nav>
 </div>
 <div class="backcontainer1">
-  <div class="row valign">
-    <div class="col s12 l6 m6 valign">
-      <h4 class="hundredvh valign  centeredforce cyan-text">Let's make your collected data<br>an impact on your
-        business.</h4>
+  <div class="row hundredvh">
+
+    <div class="col s12 l6 m6 hundredvh contalign">
+      <div class="centalign">
+        <h3 class="cyan-text">Collect and Analyze data</h3>
+        <p class="flow-text grey-text">Let make your data<br>an impact on your
+          business.</p>
+      </div>
     </div>
-    <div class="col s12 l6 m6 hundredvh">
+
+    <div class="col s12 l6 m6 hundredvh contalign">
+
+      <a class="centalign"
+         href='https://play.google.com/store/apps/details?id=com.zilideus.speechtotext&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+        <img style="height: auto; width: 240px"
+             alt='Get it on Google Play'
+             src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col s12 m9 l10">
-    <div id="introduction" class="scrollspy hundredvh ">
+<!--<div class="row">-->
+<!--<div class="col s12 m12 l12">-->
 
-    </div>
+<div id="builder" class="scrollspy hundredvh row grey lighten-4">
+  <!--<div><h3 class="col s12 l12 m12 margin-heading center-align cyan-text">Easy to Build questionnaire</h3></div>-->
+  <div class="col s12 l6 m12 builder1">
 
-    <div id="structure" class="scrollspy hundredvh">
-      <p>Content </p>
-    </div>
+  </div>
+  <div class="hundredvh col s12 l6 m12">
+    <Br><Br><Br>
+    <h4 class="cyan-text">
+      Few clicks to create questionnaire.
+    </h4>
+    <p class="grey-text">We support a wide range of question types. Like </p>
+    <div class="row">
+      <div class="col s12 l6 m6">
+        <ul class="">
+          <li class="list-item"><i class="material-icons left">check_box</i>Subjective Type</li>
+          <li class="list-item"><i class="material-icons left">radio_button_checked</i>Objective Type</li>
+          <li class="list-item"><i class="material-icons left">edit</i>Text Type</li>
+          <li class="list-item"><i class="material-icons left">crop_original</i>Picture Type</li>
+          <li class="list-item"><i class="material-icons left">stars</i>Rating Type</li>
+          <li class="list-item"><i class="material-icons left">fingerprint</i>Fingerprint Type</li>
+          <li class="list-item"><i class="material-icons left">place</i>Location Type</li>
+          <li class="list-item"><i class="material-icons left">headset_mic</i>Voice Type</li>
 
-    <div id="initialization" class="scrollspy hundredvh">
-      <p>Content </p>
+        </ul>
+      </div>
+      <div class="col s12 l6 m6">
+        <ul class="">
+          <li class="list-item"><i class="material-icons left">wb_sunny</i>Temperature Type</li>
+          <li class="list-item"><i class="material-icons left">opacity</i>Humidity Type</li>
+          <li class="list-item"><i class="material-icons left">leak_add</i>Blood Pressure Type</li>
+          <li class="list-item"><i class="material-icons left">remove_red_eye</i>Retina Scan Type</li>
+          <li class="list-item"><i class="material-icons left">face</i>Face Detection Type</li>
+          <li class="list-item"><i class="material-icons left">hourglass_empty</i>StopWatch Type</li>
+          <li class="list-item"><i class="material-icons left">battery_charging_full</i>Voltage Type</li>
+          <li class="list-item">and much more....</li>
+        </ul>
+      </div>
     </div>
   </div>
-
 </div>
+<div id="collector" class="scrollspy hundredvh">
+  <div style="padding-left: 5%;padding-right: 5%;">
+    <div class="hundredvh row">
+      <div class="col s12 l6 m6 hundredvh">
+        <Br><Br><Br>
+        <div class="col s12 l12 m12 ">
+          <h3 class="cyan-text">Simple Data Collection Interface</h3>
+          <p class="grey-text">Collecting data was never that easy</p>
+          <ul>
+            <li class="list-item grey-text"><i class="material-icons left">stay_current_portrait</i>Either collect data
+              using our Mobile App.
+            </li>
+            <li class="list-item grey-text"><i class="material-icons left">link</i>Or inbox one time link directly to
+              your audience.
+            </li>
+            <li class="list-item grey-text"><i class="material-icons left">phonelink</i>We also support unlimited
+              profile collection links.
+            </li>
+            <li class="list-item grey-text"><i class="material-icons left">add_location</i>Every collected data has geo
+              location attached with it.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col s12 l6 m6 hundredvh collector">
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="visualizer" class="scrollspy hundredvh grey lighten-4">
+  <div style="padding-left: 5%;padding-right: 5%;">
+    <div class="hundredvh row">
+      <div class="col s12 l6 m6 hundredvh contalign-bottom">
+        <canvas baseChart class="centalign"
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <div class="col s12 l6 m6 hundredvh contalign">
+        <div class="col s12 l12 m12 centalign">
+          <h3 class="cyan-text">Advanced Analytical Tools</h3>
+          <p class="grey-text">Simple graphical user interface to analyze data</p>
+          <ul>
+            <li class="list-item grey-text"><i class="material-icons left">trending_up</i>
+              Visualize data on graphs.
+            </li>
+            <li class="list-item grey-text"><i class="material-icons left">import_export</i>
+              Export data to Excel, CSV, or raw SQL
+            </li>
+            <li class="list-item grey-text"><i class="material-icons left">question_answer</i>
+              You can apply extra filters to analyze data to on the basis of Questions.
+            </li>
+            <li class="list-item grey-text"><i class="material-icons left">more</i>
+              <span class="cyan-text">and much more....</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="page-footer cyan">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Help Surveyro Grow</h5>
+        <p class="grey-text text-lighten-4">We hope you have enjoyed using Surveyro! If you feel Surveyro has
+          helped you out and want to support the team, send us over a donation! Any amount would help support and
+          continue development on this project and is greatly appreciated.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Follow us</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Google +</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2016 Surveyro All rights reserved.
+      <a class="grey-text text-lighten-4 right" href="#!"></a>
+    </div>
+  </div>
+</footer>
+
