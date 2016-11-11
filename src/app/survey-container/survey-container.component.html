@@ -43,42 +43,44 @@
 
 
     <div class="fullWidth teal" style="height: 1px"></div>
-    <div class="row headnavitem" [hidden]="shouldHideDataRelatedToSurvey">
 
-      <a class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
-         type="button" name="action">
-        <i class="material-icons left tiny">send</i>Publish Survey
-      </a>
-
-      <a class="headnavitem" onclick="$('#modalDeleteSurvey').openModal();"
-         type="button" name="action">Delete Survey
-        <i class="material-icons left tiny">delete</i>
-      </a>
-
-      <a class="headnavitem" href="{{q.reportUrl}}" type="button"
-         name="action">Download Stats in Excel Sheet
-        <i class="material-icons tiny left">vertical_align_bottom</i>
-      </a>
-
-      <a class="headnavitem" (click)="routeToReport(selectedSurvey.survey_id)" type="button"
-         name="action">View Stats
-        <i class="material-icons left tiny">trending_up</i>
-      </a>
-
-      <a class="headnavitem" type="button" name="action">Finish Survey
-        <i class="material-icons left tiny">done_all</i>
-      </a>
-
-
-    </div>
     <div class="fullWidth" [hidden]="shouldHideDataRelatedToSurvey">
-      <ul class="collapsible z-depth-0" data-collapsible="accordion">
+      <ul class="collapsible z-depth-0" data-collapsible="accordion" style="border-left: 0px;border-right: 0px;">
         <li>
-          <div class="collapsible-header active center-align cyan-text">
+          <div class="collapsible-header active cyan-text">
             <h5 class="center-align">{{heading}}<i class="material-icons medium">keyboard_arrow_down</i></h5>
           </div>
           <div class="collapsible-body">
             <p class="center-align">{{description}}</p>
+
+            <!--This is the line containing many informations-->
+            <div class="row headnavitem" [hidden]="shouldHideDataRelatedToSurvey">
+
+              <a class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
+                 type="button" name="action">
+                <i class="material-icons left tiny">send</i>Publish Survey
+              </a>
+
+              <a class="headnavitem" onclick="$('#modalDeleteSurvey').openModal();"
+                 type="button" name="action">Delete Survey
+                <i class="material-icons left tiny">delete</i>
+              </a>
+
+              <a class="headnavitem" href="{{q.reportUrl}}" type="button"
+                 name="action">Download Stats in Excel Sheet
+                <i class="material-icons tiny left">vertical_align_bottom</i>
+              </a>
+
+              <a class="headnavitem" (click)="routeToReport(selectedSurvey.survey_id)" type="button"
+                 name="action">View Stats
+                <i class="material-icons left tiny">trending_up</i>
+              </a>
+
+              <a class="headnavitem" type="button" name="action">Finish Survey
+                <i class="material-icons left tiny">done_all</i>
+              </a>
+            </div>
+
             <div class="row fullWidth" style="padding: 15px;">
               <div class="col s3 l3 m3 center-align">
                 Total Questions : {{selectedSurvey.questions!=null?selectedSurvey.questions.length:0}}
