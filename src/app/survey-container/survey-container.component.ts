@@ -318,13 +318,14 @@ export class SurveyContainerComponent implements OnInit {
 
   private getSurveyoursListinVariable(surveyId) {
     console.debug("Survey id is : " + surveyId);
-
-    this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsList(surveyId))
-      .subscribe(
-        data=>this.addSurveyorsList(data),
-        error=>this.httpService.errorOccured(error.status),
-        ()=>console.debug("Done!")
-      )
+    if (surveyId != null && surveyId != "") {
+      this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsList(surveyId))
+        .subscribe(
+          data=>this.addSurveyorsList(data),
+          error=>this.httpService.errorOccured(error.status),
+          ()=>console.debug("Done!")
+        )
+    }
   }
 
   private updateSurveyorsListInASurvey(data: any) {
@@ -340,17 +341,19 @@ export class SurveyContainerComponent implements OnInit {
   }
 
   private downloadSurveyorsListInThisSurvey() {
-
-    this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsAddedInSurvey(this.selectedSurvey.survey_id))
-      .subscribe(
-        data=>this.updateSurveyorsListInASurvey(data),
-        error=>this.httpService.errorOccured(error.status),
-        ()=>console.debug("Done")
-      )
+    if (this.selectedSurvey.survey_id != null && this.selectedSurvey.survey_id != "") {
+      this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsAddedInSurvey(this.selectedSurvey.survey_id))
+        .subscribe(
+          data=>this.updateSurveyorsListInASurvey(data),
+          error=>this.httpService.errorOccured(error.status),
+          ()=>console.debug("Done")
+        )
+    }
 
   }
 
-  private onUpdateOnAddedSurveyor(data: any) {
+  private
+  onUpdateOnAddedSurveyor(data: any) {
     this.downloadSurveyorsListInThisSurvey();
     console.debug(data);
   }
