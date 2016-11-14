@@ -72,7 +72,13 @@ ul {
   color: white;
 }
 
+.font70percent {
+  font-size: 70%;
+}
 
+.chipcontainer {
+  padding: 20px;
+}
 
 
 

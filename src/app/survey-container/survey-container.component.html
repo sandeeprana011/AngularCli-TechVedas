@@ -13,7 +13,7 @@
     <div class="col s12 l12 m12 paddingmargin0" *ngFor="let survey of q.surveysList;let ndx=index">
       <div class="sideitem" (click)="surveyItemClicked(ndx)">
         <!--<i class="tiny material-icons right">view_list</i>-->
-        <p>{{survey.survey_name}} <i class="tiny material-icons right">view_list</i></p>
+        <p>{{survey.survey_name}} <i class="material-icons right">timeline</i></p>
         <!--<div class="survey-description">{{survey.survey_description}}</div>-->
       </div>
     </div>
@@ -50,57 +50,68 @@
           <div class="collapsible-header active cyan-text">
             <h5 class="center-align">{{heading}}<i class="material-icons medium">keyboard_arrow_down</i></h5>
           </div>
-          <div class="collapsible-body">
-            <p class="center-align">{{description}}</p>
+          <div class="collapsible-body padding0">
+            <p class="center-align padding5">{{description}}</p>
 
-            <!--This is the line containing many informations-->
+            <div class="row fullWidth left-align" style="padding-left: 20px; padding-right: 20px">
+
+              <div class="col s3 l3 m3 left-align padding0">
+                <span class="left-align padding0">
+                  <span class="font70percent">Total Questions :</span><br>
+                  {{selectedSurvey.questions!=null?selectedSurvey.questions.length:0}}</span>
+              </div>
+              <div class="col s3 l3 m3  left-align padding0">
+                <span class="left-align padding0">
+                  <span class="font70percent">Start Time :</span><br>
+                  {{selectedSurvey.survey_starttime}}
+                </span>
+              </div>
+              <div class="col s3 l3 m3  left-align padding0">
+                <span class="left-align">
+                  <span class="font70percent">End Time :</span><br>
+                  {{selectedSurvey.survey_endtime}}
+                </span>
+              </div>
+              <div class="col s3 l3 m3  left-align">
+                <span class="left-align">
+                  <span class="font70percent">Status :</span><br>
+                  {{selectedSurvey.is_published?"Published":"Not Published yet"}}
+                </span>
+              </div>
+            </div>
+
+            <div style="height: 1px; background-color: #2ca0b4;" class="fullWidth"></div>
+
             <div class="row headnavitem" [hidden]="shouldHideDataRelatedToSurvey">
 
-              <a class="headnavitem" onclick="$('#modalPublishSurvey').openModal();"
+              <a class="headnavitem left" onclick="$('#modalPublishSurvey').openModal();"
                  type="button" name="action">
                 <i class="material-icons left tiny">send</i>Publish Survey
               </a>
 
-              <a class="headnavitem" onclick="$('#modalDeleteSurvey').openModal();"
+              <a class="headnavitem left" onclick="$('#modalDeleteSurvey').openModal();"
                  type="button" name="action">Delete Survey
                 <i class="material-icons left tiny">delete</i>
               </a>
 
-              <a class="headnavitem" href="{{q.reportUrl}}" type="button"
+              <a class="headnavitem left" href="{{q.reportUrl}}" type="button"
                  name="action">Download Stats in Excel Sheet
                 <i class="material-icons tiny left">vertical_align_bottom</i>
               </a>
 
-              <a class="headnavitem" (click)="routeToReport(selectedSurvey.survey_id)" type="button"
+              <a class="headnavitem left" (click)="routeToReport(selectedSurvey.survey_id)" type="button"
                  name="action">View Stats
                 <i class="material-icons left tiny">trending_up</i>
               </a>
 
-              <a class="headnavitem" type="button" name="action">Finish Survey
+              <a class="headnavitem left" type="button" name="action">Finish Survey
                 <i class="material-icons left tiny">done_all</i>
               </a>
             </div>
 
-            <div class="row fullWidth" style="padding: 15px;">
-              <div class="col s3 l3 m3 center-align">
-                Total Questions : {{selectedSurvey.questions!=null?selectedSurvey.questions.length:0}}
-              </div>
-              <div class="col s3 l3 m3 center-align">
-                Start Time : {{selectedSurvey.survey_starttime}}
-              </div>
-              <div class="col s3 l3 m3 center-align">
-                End Time : {{selectedSurvey.survey_endtime}}
-              </div>
-              <div class="col s3 l3 m3 center-align">
-                Status : {{selectedSurvey.is_published?"Published":"Not Published yet"}}
-              </div>
-            </div>
-
-
             <!--Tags for showing with whom this surveyor is added-->
-            <div class="row paddingleft">
+            <div class="row chipcontainer">
               <div class="col">
-
                 <div class="chip hoverableLove" *ngFor="let surveyoro of surveyorsList;let ndx=index;">
                   <span>{{surveyoro.surveyor_email}}
                   <i class="material-icons right"

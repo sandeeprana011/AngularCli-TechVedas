@@ -17,7 +17,6 @@
         <a class="collapsible-header"><i class="material-icons left">assignment_ind
         </i>{{(admino.admin_name!=null&&admino.admin_name!="")?admino.admin_name:admino.admin_email}}</a>
         <div class="collapsible-body">
-
           <div [ngSwitch]="admino.verify_status">
             <div class="cyan" *ngSwitchCase="'verified'">
               <a class="headnavitemCustom col s12 l12 m12 left-align"
