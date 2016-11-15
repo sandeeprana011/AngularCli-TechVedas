@@ -34,24 +34,24 @@ export class HTTPService {
 
   public requestPostObservableNew(url: string, bodyString: string) {
     return this._http.post(url, bodyString, {headers: HTTPService.getHeadersCustom()})
-      .map(res=> res.text());
+      .map(res => res.text());
   }
 
   public requestGetObservable(url: string) {
 
     return this._http.get(url, {headers: HTTPService.getHeadersCustom()})
-      .map(res=> res.text());
+      .map(res => res.text());
   }
 
   public requestPutObservable(url: string, bodyString: string) {
 
     return this._http.put(url, bodyString, {headers: HTTPService.getHeadersCustom()})
-      .map(res=> res.text());
+      .map(res => res.text());
   }
 
   public deleteQuestionObservable(url: string) {
     return this._http.delete(url, {headers: HTTPService.getHeadersCustom()})
-      .map(res=>res.text());
+      .map(res => res.text());
   }
 
   private static getHeadersCustom() {
@@ -158,9 +158,9 @@ export class HTTPService {
     } else {
       this.deleteQuestionObservable(UrlFactory.getUrlDeleteQuestion(question.question_id))
         .subscribe(
-          data=>this.updateOnDeleted(data, questionArrayList, qindex),
-          error=>this.errorOccured(error.status),
-          ()=>console.log("Deleted")
+          data => this.updateOnDeleted(data, questionArrayList, qindex),
+          error => this.errorOccured(error.status),
+          () => console.log("Deleted")
         )
     }
   }
