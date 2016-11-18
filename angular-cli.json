@@ -7,7 +7,7 @@
     {
       "root": "src",
       "outDir": "diy",
-      "assets": "assets",
+      "assets": "app/images",
       "index": "index.html",
       "main": "main.ts",
       "test": "test.ts",
