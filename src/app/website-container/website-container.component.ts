@@ -55,6 +55,9 @@ export class WebsiteContainerComponent implements OnInit {
 
   ngOnInit() {
     jQuery('.carousel.carousel-slider').carousel({full_width: true, time_constant: 500});
+    // jQuery('.carousel').carousel({full_width: true});
+
+
     // setInterval(() => this.next(), 6000);
 
 
