@@ -200,30 +200,30 @@ export class HTTPService {
 
   errorOccured(status) {
     if (status == 417) {
-      jQuery(Materialize.toast('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>', 4000));
+      // jQuery(Materialize.toast('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>', 4000));
     } else if (status == 401) {
       // Utility.logoutFromApplicationWithoutRoute();
-      jQuery(Materialize.toast('Un-authorized Access<br> Please Login!', 6000));
+      // jQuery(Materialize.toast('Un-authorized Access<br> Please Login!', 6000));
       // jQuery('#needToLoginIn').openModal();
     } else if (status == 303) {
       // jQuery('#error303').openModal();
-      jQuery(Materialize.toast('Surveyor doesn\'t exist', 6000));
+      // jQuery(Materialize.toast('Surveyor doesn\'t exist', 6000));
     } else if (status == 601) {
       // Error while inviting admin
       // jQuery("#errorInviteAdmin").openModal();
-      jQuery(Materialize.toast('Invalid Email Address', 4000));
+      // jQuery(Materialize.toast('Invalid Email Address', 4000));
     } else if (status == 602) {
       // Error while inviting admin
       // jQuery("#errorInviteAdmin").openModal();
-      jQuery(Materialize.toast('User Already Exist!', 4000));
+      // jQuery(Materialize.toast('User Already Exist!', 4000));
     } else if (status == 603) {
       // Error while inviting admin
       // jQuery("#errorInviteAdmin").openModal();
-      jQuery(Materialize.toast('Error Inviting Admin', 4000));
+      // jQuery(Materialize.toast('Error Inviting Admin', 4000));
     } else if (status == 0) {
-      jQuery(Materialize.toast('Network Problem!', 4000));
+      // jQuery(Materialize.toast('Network Problem!', 4000));
     } else {
-      jQuery(Materialize.toast('Unknown Error  : ' + status.toString(), 4000));
+      // jQuery(Materialize.toast('Unknown Error  : ' + status.toString(), 4000));
     }
   }
 
