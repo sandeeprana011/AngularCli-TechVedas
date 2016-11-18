@@ -7,7 +7,12 @@
     {
       "root": "src",
       "outDir": "diy",
-      "assets": "app/images",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        "app/images",
+        "../static"
+      ],
       "index": "index.html",
       "main": "main.ts",
       "test": "test.ts",
