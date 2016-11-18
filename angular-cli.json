@@ -11,6 +11,7 @@
         "assets",
         "favicon.ico",
         "app/images",
+        "app/css",
         "../static"
       ],
       "index": "index.html",
