@@ -452,3 +452,6 @@
   return _;
 
 }());
+function toastCall() {
+  alert("Browser");
+}

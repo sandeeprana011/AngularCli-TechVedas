@@ -200,18 +200,13 @@ export class HTTPService {
 
   errorOccured(status) {
     if (status == 417) {
-      // alert("Either survey has alredy published or finished");
       jQuery(Materialize.toast('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>', 4000));
-      // jQuery('#headingInformation').html('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>');
-      // jQuery('#modalInformationError').openModal();
     } else if (status == 401) {
-
       // Utility.logoutFromApplicationWithoutRoute();
       jQuery(Materialize.toast('Un-authorized Access<br> Please Login!', 6000));
       // jQuery('#needToLoginIn').openModal();
     } else if (status == 303) {
       // jQuery('#error303').openModal();
-
       jQuery(Materialize.toast('Surveyor doesn\'t exist', 6000));
     } else if (status == 601) {
       // Error while inviting admin

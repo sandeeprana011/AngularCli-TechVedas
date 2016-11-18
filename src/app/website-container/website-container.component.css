@@ -164,7 +164,7 @@
   top: 1%;
   border-radius: 0px;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
-  font: 16px;
+  /*font: 16px;*/
   -webkit-font-smoothing: antialiased;
   -webkit-user-select: none;
   cursor: pointer
@@ -185,7 +185,7 @@
 .news ul li a {
   color: #fff;
   text-decoration: none;
-  font: 14px;
+  /*font: 14px;*/
   -webkit-font-smoothing: antialiased;
   -webkit-user-select: none
 }
