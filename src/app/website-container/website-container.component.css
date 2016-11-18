@@ -6,42 +6,42 @@
 }
 
 .blockback1 {
-  background: url("/app/images/chart1.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/chart1.png");
 }
 
 .blockback2 {
-  background: url("/app/images/chart2.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/chart2.png");
 }
 
 .blockback3 {
-  background: url("/app/images/chart3.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/chart3.png");
 }
 
 .blockback4 {
-  background: url("/app/images/impact_data.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/impact_data.png");
 }
 
 .builder1 {
-  background: url("/app/images/macbookback.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/macbookback.png");
 }
 
 .builder-survey {
-  background: url("/app/images/survey.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/survey.png");
 }
 
 .collector {
-  background: url("/app/images/mobile_hand.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/mobile_hand.png");
   background-size: contain;
   z-index: 2;
 }
 
 .analyzer {
-  background: url("/app/images/mobile_hand.png");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/mobile_hand.png");
   background-size: contain;
 }
 
 .backcontainer1 {
-  background: url("/app/images/background1.jpg");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/background1.jpg");
   background-size: contain;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .backgroundimage {
-  background: url("/app/images/background1.jpg");
+  background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/images/background1.jpg");
   background-repeat: no-repeat;
   display: block;
   background-size: cover;
@@ -164,7 +164,7 @@
   top: 1%;
   border-radius: 0px;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
-  /*font: 16px;*/
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -webkit-user-select: none;
   cursor: pointer
@@ -185,7 +185,7 @@
 .news ul li a {
   color: #fff;
   text-decoration: none;
-  /*font: 14px;*/
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -webkit-user-select: none
 }
