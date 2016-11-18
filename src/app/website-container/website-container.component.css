@@ -6,42 +6,42 @@
 }
 
 .blockback1 {
-  background: url("http://localhost:4200/app/images/chart1.png");
+  background: url("/app/images/chart1.png");
 }
 
 .blockback2 {
-  background: url("http://localhost:4200/app/images/chart2.png");
+  background: url("/app/images/chart2.png");
 }
 
 .blockback3 {
-  background: url("http://localhost:4200/app/images/chart3.png");
+  background: url("/app/images/chart3.png");
 }
 
 .blockback4 {
-  background: url("http://localhost:4200/app/images/impact_data.png");
+  background: url("/app/images/impact_data.png");
 }
 
 .builder1 {
-  background: url("http://localhost:4200/app/images/macbookback.png");
+  background: url("/app/images/macbookback.png");
 }
 
 .builder-survey {
-  background: url("http://localhost:4200/app/images/survey.png");
+  background: url("/app/images/survey.png");
 }
 
 .collector {
-  background: url("http://localhost:4200/app/images/mobile_hand.png");
+  background: url("/app/images/mobile_hand.png");
   background-size: contain;
   z-index: 2;
 }
 
 .analyzer {
-  background: url("http://localhost:4200/app/images/mobile_hand.png");
+  background: url("/app/images/mobile_hand.png");
   background-size: contain;
 }
 
 .backcontainer1 {
-  background: url("http://localhost:4200/app/images/background1.jpg");
+  background: url("/app/images/background1.jpg");
   background-size: contain;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .backgroundimage {
-  background: url("http://localhost:4200/app/images/background1.jpg");
+  background: url("/app/images/background1.jpg");
   background-repeat: no-repeat;
   display: block;
   background-size: cover;
