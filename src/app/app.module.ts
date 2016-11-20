@@ -31,6 +31,7 @@ import {ProfileAdminComponent} from "./profile-admin/profile-admin.component";
 import {QuestionDateComponent} from "./question-date/question-date.component";
 import {WebsiteContainerComponent} from "./website-container/website-container.component";
 import {LocationStrategy, HashLocationStrategy} from "@angular/common";
+import {SignupAdminComponent} from "./signup-admin/signup-admin.component";
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {LocationStrategy, HashLocationStrategy} from "@angular/common";
     CreateSurveyorComponent,
     ProfileAdminComponent,
     QuestionDateComponent,
-    WebsiteContainerComponent
+    WebsiteContainerComponent,
+    SignupAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,7 @@ import {LocationStrategy, HashLocationStrategy} from "@angular/common";
       // {path: "", component: LoginModuleComponent},
       {path: 'web', component: WebsiteContainerComponent},
       {path: 'manager', component: AppComponent},
-      {path: 'signup', component: SignupCompanyComponent},
+      {path: 'signup', component: SignupAdminComponent},
       {
         path: 'builder', component: AdminAppComponent,
         children: [

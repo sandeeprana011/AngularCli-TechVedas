@@ -105,6 +105,10 @@ export class UrlFactory {
     return UrlFactory.urlBase() + "company/create";
   }
 
+  static getUrlAdminSignUp() {
+    return UrlFactory.urlBase() + "admin/create";
+  }
+
   static getUrlProfileCompany() {
     return UrlFactory.urlBase() + "company/profile";
   }
