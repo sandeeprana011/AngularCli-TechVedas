@@ -4,13 +4,13 @@
     <app-map-fragment [urlToMap]="urlString"></app-map-fragment>
 
     <div class="row">
-      <div *ngFor="let charto of listCharts;let ndx=index;" class="padding20">
+      <div *ngFor="let charto of listCharts;let ndx=index;" class="padding20 col s12 l12 m12">
         <div>
           <p>Q {{ndx+1}}. {{charto.question}}</p>
           <!--<p>{{charto.question_type}}</p>-->
         </div>
 
-        <div>
+        <div class="col s12 l6 m6" style="margin-left: 20%;">
           <canvas baseChart
                   [data]="charto.valuesAssoc"
                   [labels]="charto.names"
@@ -19,6 +19,7 @@
                   (chartClick)="chartClicked($event)"></canvas>
         </div>
       </div>
+      <br><br>
     </div>
   </div>
 </div>

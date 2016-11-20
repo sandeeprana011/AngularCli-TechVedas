@@ -91,7 +91,7 @@ export class ReportadminsurveyComponent implements OnInit {
       if (ques.question_type === Const.TYPE_STAR_RATING) {
         charte.chartType = "bar";
       } else if (ques.question_type === Const.TYPE_RADIO_QUESTION) {
-        charte.chartType = "doughnut"
+        charte.chartType = "pie"
       }
 
       this.listCharts.push(charte);
