@@ -1,5 +1,5 @@
 <div class="row fullHeight fullWidth white backgroundrepitive">
-  <div class="row" style="padding-left: 33vw; padding-right: vw;">
+  <div class="row" style="padding-left: 33vw;margin-top: 5vh;">
     <div class="col s12 m6 l6">
       <div class="card">
         <div class="fullWidth cyan white-text"
@@ -19,6 +19,7 @@
           </div>
           <div class="row" id="loginAs">
             <p class="cyan-text">Login As : </p>
+            <br>
             <div class="col s12 l6 m6">
               <input value="1" name="group1" (click)="typeLogin='admin'" checked type="radio" id="test1"/>
               <label for="test1">Admin</label>
@@ -37,7 +38,8 @@
           </div>
         </div>
         <div class="card-action">
-          <a [routerLink]="'/signup'" routerLinkActive="active">sign up as company</a>
+          <a class="headnavitem" [routerLink]="'/signup'" routerLinkActive="active">sign up as company</a>
+          <a class="headnavitem" [routerLink]="'/forgetpassword'" routerLinkActive="active">Forget Password</a>
         </div>
       </div>
     </div>
