@@ -2,3 +2,8 @@
   display: table-cell;
   vertical-align: middle;
 }
+
+.backgroundrepitive {
+  /*background: url("https://sandeeprana011.github.io/AngularCli-TechVedas/app/images/backgroundrepetitive.png");*/
+  background: url("http://localhost:4200/app/images/backgroundrepetitive.png");
+}
