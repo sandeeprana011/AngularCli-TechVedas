@@ -27,11 +27,12 @@
         <label for="test2">Company</label>
       </p>
     </div>
-    <br><br><br>
+    <br><br>
     <div class="row">
       <div class="input-field col s12 l12 m12">
-        <button (click)="loginUserView()" class="btn">Login</button>
-        <a class="btn" [routerLink]="'signup'" routerLinkActive="active">sign up</a>
+        <button (click)="loginUserView()" class="btn col s12 l12 m12">Login</button>
+        <br>
+        <a class="btn col s12 l12 m12" [routerLink]="'/signup'" routerLinkActive="active">sign up as company</a>
       </div>
     </div>
   </div>
