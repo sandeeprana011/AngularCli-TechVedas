@@ -30,6 +30,7 @@ import {CreateSurveyorComponent} from "./create-surveyor/create-surveyor.compone
 import {ProfileAdminComponent} from "./profile-admin/profile-admin.component";
 import {QuestionDateComponent} from "./question-date/question-date.component";
 import {WebsiteContainerComponent} from "./website-container/website-container.component";
+import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -95,7 +96,7 @@ import {WebsiteContainerComponent} from "./website-container/website-container.c
       }
     ])
   ],
-  providers: [HTTPService, StorageService],
+  providers: [HTTPService, StorageService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [RoutercompComponent]
 })
 export class AppModule {
