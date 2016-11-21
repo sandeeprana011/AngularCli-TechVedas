@@ -23,6 +23,7 @@ export class ChartData {
     let dataTop = dataObj['data'];
     this.names = [];
     this.valuesAssoc = [];
+
     for (var da of dataTop) {
       this.names.push(da[Const.OPTION_TEXT]);
       this.valuesAssoc.push(da[Const.COUNT]);
