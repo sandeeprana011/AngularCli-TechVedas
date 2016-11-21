@@ -1,80 +1,98 @@
-<div>
-  <div class="container">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="admin_name" type="text" class="validate" [(ngModel)]="admin.admin_name"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="admin_name">admin Name</label>
-          </div>
+<div class="fullHeight fullWidth backgroundrepitive">
+  <div class="row" style="margin-left: 15vw;margin-top: 5vh;margin-right: 15vw; margin-bottom: 10vh;">
+    <div class="col s12 m12 l12">
+      <div class="card">
+        <div class="fullWidth cyan white-text"
+             style="padding-top: 40px;padding-right: 40px; padding-left: 10px;padding-bottom: 5px;">
+          <h4 class="flow-text">
+            Welcome to
+            Surveyro</h4>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate" [(ngModel)]="admin_password"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="password">Password</label>
+        <div class="card-content cyan-text">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6"><i class="material-icons prefix">contacts</i>
+                  <input id="admin_name" type="text" class="validate" [(ngModel)]="admin.admin_name"
+                         [ngModelOptions]="{standalone: true}">
+                  <label for="admin_name">Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><i class="material-icons prefix">vpn_key</i>
+                  <input id="password" type="password" class="validate" [(ngModel)]="admin_password"
+                         [ngModelOptions]="{standalone: true}">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><i class="material-icons prefix">vpn_key</i>
+                  <input id="retypepassword" type="text" class="validate" [(ngModel)]="retypePassword"
+                         [ngModelOptions]="{standalone: true}">
+                  <label for="retypepassword">Re-type Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><i class="material-icons prefix">email</i>
+                  <input id="email" type="email" class="validate" [(ngModel)]="admin.admin_email"
+                         [ngModelOptions]="{standalone: true}">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12"><i class="material-icons prefix">phone_iphone</i>
+                  <input id="phone" type="number" class="validate" [(ngModel)]="admin.admin_phone"
+                         [ngModelOptions]="{standalone: true}">
+                  <label for="phone">Phone</label>
+                </div>
+              </div>
+              <br>
+              <h5>Address :<i class="material-icons left">location_on</i></h5>
+              <br>
+              <div style="margin-left: 5vw;">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="address" type="text" class="validate" [(ngModel)]="admin.admin_address"
+                           [ngModelOptions]="{standalone: true}">
+                    <label for="address">Street Address</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="city" type="text" class="validate" [(ngModel)]="admin.admin_city"
+                           [ngModelOptions]="{standalone: true}">
+                    <label for="city">City</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="state" type="text" class="validate" [(ngModel)]="admin.admin_state"
+                           [ngModelOptions]="{standalone: true}">
+                    <label for="state">State</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="country" type="text" class="validate" [(ngModel)]="admin.admin_country"
+                           [ngModelOptions]="{standalone: true}">
+                    <label for="country">Country</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="pincode" type="number" class="validate" [(ngModel)]="admin.admin_pincode"
+                           [ngModelOptions]="{standalone: true}">
+                    <label for="pincode">Pincode</label>
+                  </div>
+                </div>
+              </div>
+              <button class="btn" (click)="registerNewAdmin()">Register</button>
+            </form>
           </div>
+
+
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="retypepassword" type="text" class="validate" [(ngModel)]="retypePassword"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="retypepassword">Re-type Password</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate" [(ngModel)]="admin.admin_email"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="email">Email</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="phone" type="number" class="validate" [(ngModel)]="admin.admin_phone"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="phone">Phone</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="address" type="text" class="validate" [(ngModel)]="admin.admin_address"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="address">address</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="city" type="text" class="validate" [(ngModel)]="admin.admin_city"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="city">city</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="state" type="text" class="validate" [(ngModel)]="admin.admin_state"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="state">state</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="country" type="text" class="validate" [(ngModel)]="admin.admin_country"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="country">country</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="pincode" type="number" class="validate" [(ngModel)]="admin.admin_pincode"
-                   [ngModelOptions]="{standalone: true}">
-            <label for="pincode">pincode</label>
-          </div>
-        </div>
-        <button (click)="registerNewAdmin()">Register</button>
-      </form>
+      </div>
     </div>
   </div>
-
 </div>

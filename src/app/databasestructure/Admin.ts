@@ -20,6 +20,7 @@ export class Admin {
   admin_state: string;
   admin_country: string;
   admin_pincode: string;
+  admin_password: string;
 
   surveyListing: Array<Survey> = [];
   private verify_status: string;

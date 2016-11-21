@@ -36,8 +36,7 @@ export class SignupAdminComponent implements OnInit {
   registerNewAdmin() {
     if (this.retypePassword === this.admin_password && this.retypePassword != "" && this.retypePassword != null) {
 
-      // this.admin.admin_email = this.admin.admin_email;
-
+      this.admin.admin_password = this.admin_password;
       let bodyJson = JSON.stringify(this.admin);
       console.debug(bodyJson);
 
