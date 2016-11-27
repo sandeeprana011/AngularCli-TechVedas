@@ -6,7 +6,9 @@ import {ChartData} from "../databasestructure/Chart";
 import {Const} from "../const";
 // import {CHART_DIRECTIVES} from "ng2-charts/ng2-charts";
 
-
+declare let jsPDF;
+declare let html2canvas;
+export declare let jQuery: any;
 @Component({
   selector: 'app-reportadminsurvey',
   templateUrl: './reportadminsurvey.component.html',
@@ -57,9 +59,9 @@ export class ReportadminsurveyComponent implements OnInit {
   paramsChanged(id) {
     this.httpService.requestGetObservable(UrlFactory.getUrlAdminReportSurvey(id.toString()))
       .subscribe(
-        data=>this.updateViews(data),
-        error=>this.httpService.errorOccured(error.status),
-        ()=>console.debug("Done")
+        data => this.updateViews(data),
+        error => this.httpService.errorOccured(error.status),
+        () => console.debug("Done")
       );
 
   }
@@ -98,5 +100,30 @@ export class ReportadminsurveyComponent implements OnInit {
     }
     // console.debug(this.listCharts);
 
+  }
+
+  public download() {
+
+    var doc = new jsPDF();
+    // doc.text(20, 20, 'Hello world!');
+    // doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    // doc.addPage();
+    // doc.text(20, 20, 'Do you like that?');
+
+    // var node = document.getElementById("#reportdownload");
+    var parentNode = jQuery('#leveltwo');
+    html2canvas(parentNode, {
+
+      onrendered: function (canvas) {
+        // for (var question of questions)
+        var img = canvas.toDataURL();
+        doc.addImage(img, 'JPEG', 0, 0);
+        doc.paddingRight = 20;
+        doc.save('Text.pdf');
+      }
+    });
+
+    // Save the PDF
+    // doc.save('Test.pdf');
   }
 }
