@@ -37,9 +37,9 @@ export class SurveyContainerComponent implements OnInit {
       console.debug(selected.originalObject.surveyor_email);
       this.httpService.addSurveyorToSurvey(UrlFactory.getUrlAddMoreSurveyor(this.selectedSurvey.survey_id), selected.originalObject.surveyor_email)
         .subscribe(
-          data=>this.onUpdateOnAddedSurveyor(data),
-          error=>this.httpService.errorOccured(error.status),
-          ()=>console.debug("Done!")
+          data => this.onUpdateOnAddedSurveyor(data),
+          error => this.httpService.errorOccured(error.status),
+          () => console.debug("Done!")
         )
 
     }
@@ -119,9 +119,9 @@ export class SurveyContainerComponent implements OnInit {
     // console.debug(username+"Some other key check");
     this.httpService.listAllSurveys(UrlFactory.getUrlListAllSurverys())
       .subscribe(
-        data=>this.updateSurveysList(data),
-        error=>console.debug(error),
-        ()=>console.debug("Done")
+        data => this.updateSurveysList(data),
+        error => console.debug(error),
+        () => console.debug("Done")
       );
 
 
@@ -145,9 +145,9 @@ export class SurveyContainerComponent implements OnInit {
 
     this.httpService.listAllQuestions(url)
       .subscribe(
-        data=>this.updateQuestionsList(data, ndx),
-        error=>console.debug(error),
-        ()=>console.debug("Done")
+        data => this.updateQuestionsList(data, ndx),
+        error => console.debug(error),
+        () => console.debug("Done")
       );
 
 
@@ -173,9 +173,9 @@ export class SurveyContainerComponent implements OnInit {
 
     this.httpService.createNewSurveyNetwork(UrlFactory.createNewSurveyUrl(), JSON.stringify(jsonObject))
       .subscribe(
-        data=>this.updateSurveysListAfterCreatingNewSurvey(data),
-        error=>console.debug(error),
-        ()=>console.debug("Done")
+        data => this.updateSurveysListAfterCreatingNewSurvey(data),
+        error => console.debug(error),
+        () => console.debug("Done")
       )
 
   }
@@ -184,9 +184,9 @@ export class SurveyContainerComponent implements OnInit {
     // this.q.surveyId
     this.httpService.deleteSurvey(UrlFactory.getUrlDeleteSurvey(this.q.surveyId))
       .subscribe(
-        data=>this.surveyDeleted(data),
-        error=>console.debug(error),
-        ()=>console.debug("survey delete request called")
+        data => this.surveyDeleted(data),
+        error => console.debug(error),
+        () => console.debug("survey delete request called")
       )
 
   }
@@ -194,8 +194,8 @@ export class SurveyContainerComponent implements OnInit {
   publishSurveyView() {
     this.httpService.publishSurvey(UrlFactory.getUrlPublishSurvey(this.q.surveyId))
       .subscribe(
-        data=>this.surveyPublished(data),
-        error=>console.debug(error),
+        data => this.surveyPublished(data),
+        error => console.debug(error),
         () => console.debug("Published thread executed")
       )
   }
@@ -273,9 +273,9 @@ export class SurveyContainerComponent implements OnInit {
     console.debug(this.q.username + this.q.password);
     this.httpService.loginUser(UrlFactory.getUrlLoginAdminUser(), this.q.username, this.q.password)
       .subscribe(
-        data=>this.onSuccessfullyLogin(data),
-        error=>this.httpService.errorOccured(error.status),
-        ()=>console.debug("Login attempted")
+        data => this.onSuccessfullyLogin(data),
+        error => this.httpService.errorOccured(error.status),
+        () => console.debug("Login attempted")
       );
 
   }
@@ -321,9 +321,9 @@ export class SurveyContainerComponent implements OnInit {
     if (surveyId != null && surveyId != "") {
       this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsList(surveyId))
         .subscribe(
-          data=>this.addSurveyorsList(data),
-          error=>this.httpService.errorOccured(error.status),
-          ()=>console.debug("Done!")
+          data => this.addSurveyorsList(data),
+          error => this.httpService.errorOccured(error.status),
+          () => console.debug("Done!")
         )
     }
   }
@@ -344,9 +344,9 @@ export class SurveyContainerComponent implements OnInit {
     if (this.selectedSurvey.survey_id != null && this.selectedSurvey.survey_id != "") {
       this.httpService.requestGetObservable(UrlFactory.getUrlSurveyorsAddedInSurvey(this.selectedSurvey.survey_id))
         .subscribe(
-          data=>this.updateSurveyorsListInASurvey(data),
-          error=>this.httpService.errorOccured(error.status),
-          ()=>console.debug("Done")
+          data => this.updateSurveyorsListInASurvey(data),
+          error => this.httpService.errorOccured(error.status),
+          () => console.debug("Done")
         )
     }
 
@@ -363,9 +363,9 @@ export class SurveyContainerComponent implements OnInit {
     bodyDict[Const.SURVEYOR_EMAIL] = email;
     this.httpService.requestPostObservableNew(UrlFactory.getUrlDeleteSurveyorRelationship(this.selectedSurvey.survey_id), JSON.stringify(bodyDict))
       .subscribe(
-        data=>this.onRelationshipRemove(data),
-        error=>this.httpService.errorOccured(error.status),
-        ()=>console.debug("Done")
+        data => this.onRelationshipRemove(data),
+        error => this.httpService.errorOccured(error.status),
+        () => console.debug("Done")
       );
 
     this.surveyorsList.splice(ndx, 1);
@@ -396,5 +396,26 @@ export class SurveyContainerComponent implements OnInit {
     this.router.navigate(['profileadmin'], {relativeTo: this.route});
   }
 
+  private downloadExcelSheet(urlString: string) {
+    this.httpService.downloadDataAndRevertWithErrors(urlString).subscribe(
+      data => this.saveExcelSheet(data),
+      error => this.httpService.errorOccured(status),
+      () => console.debug()
+    )
+
+  }
+
+  private saveExcelSheet(data: any) {
+    var str = "Name, Price\nApple, 2\nOrange, 3";
+    var uri = 'data:text/csv;charset=utf-8,' + data;
+
+    var downloadLink = document.createElement("a");
+    downloadLink.href = uri;
+    downloadLink.download = "data.csv";
+
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  }
 }
 

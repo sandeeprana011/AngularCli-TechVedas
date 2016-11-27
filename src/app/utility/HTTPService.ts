@@ -82,7 +82,7 @@ export class HTTPService {
     return this.requestWithBody(url, jsonData);
   }
 
-  private downloadDataAndRevertWithErrors(url: string) {
+  public downloadDataAndRevertWithErrors(url: string) {
     return this._http.get(url, {headers: HTTPService.getHeadersCustom()})
       .map((res: Response) => {
         if (res) {
