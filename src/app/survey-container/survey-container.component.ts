@@ -397,21 +397,51 @@ export class SurveyContainerComponent implements OnInit {
   }
 
   private downloadExcelSheet(urlString: string) {
-    this.httpService.downloadDataAndRevertWithErrors(urlString).subscribe(
-      data => this.saveExcelSheet(data),
-      error => this.httpService.errorOccured(status),
-      () => console.debug()
-    )
+    // this.saveExcelSheet(urlString)
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", urlString);
+    xhr.responseType = "arraybuffer";
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(Config.USERNAME + ":" + Config.PASSWORD));
+
+    xhr.onload = function () {
+      if (this.status === 200) {
+        var blob = new Blob([xhr.response], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+        var objectUrl = URL.createObjectURL(blob);
+        window.open(objectUrl);
+      }
+    };
+    xhr.send();
+
+    // console.debug("downloadExcelSheet");
+    // this.httpService.requestGetObservable(urlString)
+    //   .subscribe(
+    //     data => this.saveExcelSheet(data),
+    //     error => this.httpService.errorOccured(error.status),
+    //     () => console.debug("done")
+    //   )
 
   }
 
   private saveExcelSheet(data: any) {
-    var str = "Name, Price\nApple, 2\nOrange, 3";
-    var uri = 'data:text/csv;charset=utf-8,' + data;
+    // console.debug(data);
+    // console.debug("saveExcelSheet");
+    var buf = new ArrayBuffer(data.toString().length);
+    var view = new Uint8Array(buf);
+    for (var i = 0; i != data.toString().length; ++i) view[i] = data.toString().charCodeAt(i) & 0xFF;
+    // return buf;
+
+    var blob = new Blob([buf], {
+      type: ''
+    });
+
+    var href = URL.createObjectURL(blob);
+
+    // var uri = 'data:text/xlsx;,' + data;
 
     var downloadLink = document.createElement("a");
-    downloadLink.href = uri;
-    downloadLink.download = "data.csv";
+    downloadLink.href = href;
+    downloadLink.download = "data.xls";
 
     document.body.appendChild(downloadLink);
     downloadLink.click();
