@@ -22,6 +22,7 @@ import {Surveyor} from "../databasestructure/Surveyor";
 // import {Surveyor} from "../databasestructure/Surveyor";
 
 export declare var jQuery: any;
+export declare var Materialize: any;
 
 @Injectable()
 export class HTTPService {
@@ -201,11 +202,13 @@ export class HTTPService {
   }
 
   errorOccured(status) {
+    console.debug("Error occured");
     if (status == 417) {
       // jQuery(Materialize.toast('Error Code : 417 <br> <span class="grey-text">Either survey has alredy published or finished</span>', 4000));
     } else if (status == 401) {
+      console.debug("401 status code");
       // Utility.logoutFromApplicationWithoutRoute();
-      jQuery(Materialize.toast('Un-authorized Access<br> Please Login!', 6000));
+      // jQuery(Materialize.toast('Un-authorized Access<br> Please Login!', 6000));
       // jQuery('#needToLoginIn').openModal();
     } else if (status == 303) {
       // jQuery('#error303').openModal();
@@ -225,7 +228,7 @@ export class HTTPService {
     } else if (status == 0) {
       jQuery(Materialize.toast('Network Problem!', 4000));
     } else {
-      jQuery(Materialize.toast('Unknown Error  : ' + status.toString(), 4000));
+      jQuery(Materialize.toast('Unknown Error  : ' + status, 4000));
     }
   }
 

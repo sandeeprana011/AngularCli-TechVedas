@@ -26,6 +26,7 @@
       ],
       "scripts": [
         "awesomplete.js",
+        "materialize.js",
         "../node_modules/chart.js/dist/Chart.bundle.min.js"
       ],
       "environments": {
