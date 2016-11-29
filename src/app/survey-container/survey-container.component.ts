@@ -146,7 +146,7 @@ export class SurveyContainerComponent implements OnInit {
     this.httpService.listAllQuestions(url)
       .subscribe(
         data => this.updateQuestionsList(data, ndx),
-        error => console.debug(error),
+        error => this.httpService.errorOccured(error.status),
         () => console.debug("Done")
       );
 
